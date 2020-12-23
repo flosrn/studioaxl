@@ -10,11 +10,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Sage"],
-        sans: ["Sage"],
-        mono: ["Sage"],
-        display: ["Sage"],
-        body: ["Sage"],
+        serif: ["Futura"],
+        sans: ["Futura"],
+        mono: ["Futura"],
+        display: ["Futura"],
+        body: ["Futura"],
+        sage: ["Sage"],
+        alegreya: ["Alegreya"],
       },
       colors: {
         gold: "#FCDBBD",

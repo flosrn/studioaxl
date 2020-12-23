@@ -7,6 +7,18 @@
 /* Stop purging. */
 
 @font-face {
+  font-family: 'Futura';
+  font-weight: 400;
+  src: local('Sage'), url('../public/fonts/Futura-Med.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-weight: 400;
+  src: local('Sage'), url('../public/fonts/Futura-Med.ttf') format('ttf');
+}
+
+@font-face {
   font-family: 'Sage';
   font-weight: 400;
   src: local('Sage'), url('../public/fonts/sage-webfont.woff2') format('woff2');
@@ -16,6 +28,14 @@
   font-family: 'Sage';
   font-weight: 400;
   src: local('Sage'), url('../public/fonts/sage-webfont.woff') format('woff');
+}
+
+.font-sage {
+  font-family: sage, serif;
+}
+
+.font-alegreya {
+  font-family: alegreya, serif;
 }
 
 /* Write your own custom component styles here */

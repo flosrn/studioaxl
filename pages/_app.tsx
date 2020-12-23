@@ -14,6 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,700&display=swap"
+          rel="stylesheet"
+        />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
