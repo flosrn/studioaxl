@@ -16,7 +16,7 @@ const Arrow: React.FC = () => {
   };
 
   return (
-    <div className="">
+    <div className="cursor-pointer">
       <motion.svg
         layout
         xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +37,13 @@ const Arrow: React.FC = () => {
           style={{ originX: 1 }}
           transition={{ duration: 0.5 }}
           animate={pathControls}
+        />
+        <motion.path
+          d="M38.7,17.51v107L18"
+          fill="none"
+          stroke="#000"
+          strokeMiterlimit={10}
+          strokeWidth="1.5"
         />
         <motion.circle
           layout

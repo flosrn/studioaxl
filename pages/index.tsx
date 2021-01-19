@@ -5,6 +5,8 @@ import { useI18n, I18nProps } from "next-rosetta";
 import Header from "components/ui/header";
 import Arrow from "components/ui/animations/arrow";
 import { MyLocale } from "i18n";
+import Meaning from "components/ui/animations/meaning";
+import Empathy from "components/ui/animations/empathy";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
@@ -18,6 +20,8 @@ const HomePage: React.FC = () => {
         </div>
         <div className="flex justify-center items-center mt-16">
           <Arrow />
+          <Meaning />
+          <Empathy />
         </div>
       </section>
     </div>
