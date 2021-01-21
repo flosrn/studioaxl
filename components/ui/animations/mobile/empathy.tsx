@@ -6,11 +6,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EmpathyMobile: React.FC = () => {
   useEffect(() => {
-    gsap.to("#test", {
+    gsap.to("#dotEmpathy", {
       scrollTrigger: {
-        trigger: "#test",
+        trigger: "#empathySvg",
         start: "top center",
-        toggleActions: "restart pause resume pause",
+        toggleActions: "play none none reverse",
       },
       y: 32,
       x: 30,
@@ -19,7 +19,13 @@ const EmpathyMobile: React.FC = () => {
 
   return (
     <div className="cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147.34 104.62" width="200" height="200">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 147.34 104.62"
+        width="200"
+        height="200"
+        id="empathySvg"
+      >
         <circle
           fill="none"
           stroke="#000"
@@ -29,7 +35,7 @@ const EmpathyMobile: React.FC = () => {
           cy="51.71"
           r="24.93"
         />
-        <circle id="test" fill="#1d1d1b" cx="44.76" cy="20.91" r="3.36" />
+        <circle id="dotEmpathy" fill="#1d1d1b" cx="44.76" cy="20.91" r="3.36" />
       </svg>
     </div>
   );

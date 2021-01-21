@@ -6,7 +6,7 @@ import { isMobile } from "react-device-detect";
 
 import Header from "components/ui/header";
 import Arrow from "components/ui/animations/desktop/arrow";
-import Meaning from "components/ui/animations/desktop/meaning";
+
 import { MyLocale } from "i18n";
 
 const HomePage: React.FC = () => {
@@ -14,6 +14,12 @@ const HomePage: React.FC = () => {
 
   const Empathy = dynamic(() => import("components/ui/animations/desktop/empathy"));
   const EmpathyMobile = dynamic(() => import("components/ui/animations/mobile/empathy"));
+
+  const Meaning = dynamic(() => import("components/ui/animations/desktop/meaning"));
+  const MeaningMobile = dynamic(() => import("components/ui/animations/mobile/meaning"));
+
+  const Precision = dynamic(() => import("components/ui/animations/desktop/precision"));
+  const PrecisionMobile = dynamic(() => import("components/ui/animations/mobile/precision"));
 
   return (
     <div className="bg-white">
@@ -25,7 +31,8 @@ const HomePage: React.FC = () => {
         </div>
         <div className="flex justify-center items-center mb-96">
           <Arrow />
-          <Meaning />
+          {!isMobile ? <Meaning /> : <MeaningMobile />}
+          {!isMobile ? <Precision /> : <PrecisionMobile />}
 
           <div className="mt-96 mb-96">{!isMobile ? <Empathy /> : <EmpathyMobile />}</div>
         </div>
