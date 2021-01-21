@@ -1,10 +1,10 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import { I18nProps, useI18n } from "next-rosetta";
+import { I18nProps } from "next-rosetta";
 import { MyLocale } from "i18n/index";
 
 const FallbackPage: React.FC = () => {
-  const { t } = useI18n<MyLocale>();
+  // const { t } = useI18n<MyLocale>();
   return <div>Erreur 404</div>;
 };
 
