@@ -20,6 +20,7 @@ module.exports = {
       },
       colors: {
         gold: "#FCDBBD",
+        rose: "#FFEBD8",
       },
     },
   },

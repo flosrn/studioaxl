@@ -37,6 +37,7 @@ module.exports = {
     "jsx-a11y/label-has-associated-control": "off",
     "react/no-unescaped-entities": "off",
     "jsx-a11y/accessible-emoji": "off",
+    "spaced-comment": ["error", "always", { markers: ["/"] }],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/explicit-module-boundary-types": "off",

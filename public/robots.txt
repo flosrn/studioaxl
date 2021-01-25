@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
 Host: https://studioaxl.flosrn.vercel.app/
+
+# Sitemaps
 Sitemap: https://studioaxl.flosrn.vercel.app/sitemap.xml

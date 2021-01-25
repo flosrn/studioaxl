@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PrecisionMobile: React.FC = () => {
   useEffect(() => {
-    gsap.to(".circle1", {
+    gsap.to("#circle1", {
       scrollTrigger: {
         trigger: "#precisionSvg",
         start: "top center",
@@ -15,7 +15,7 @@ const PrecisionMobile: React.FC = () => {
       transformOrigin: "50% 50%",
       scale: 0.4,
     });
-    gsap.to(".circle2", {
+    gsap.to("#circle2", {
       scrollTrigger: {
         trigger: "#precisionSvg",
         start: "top center",
@@ -24,7 +24,7 @@ const PrecisionMobile: React.FC = () => {
       transformOrigin: "50% 50%",
       scale: 0.6,
     });
-    gsap.to(".circle3", {
+    gsap.to("#circle3", {
       scrollTrigger: {
         trigger: "#precisionSvg",
         start: "top center",
@@ -45,7 +45,7 @@ const PrecisionMobile: React.FC = () => {
         id="precisionSvg"
       >
         <circle
-          className="circle1"
+          id="circle1"
           cx="73.67"
           cy="51.71"
           r="24.93"
@@ -56,7 +56,7 @@ const PrecisionMobile: React.FC = () => {
         />
         <circle cx="73.67" cy="51.71" r="3.36" fill="#1d1d1b" />
         <circle
-          className="circle2"
+          id="circle2"
           cx="73.67"
           cy="51.71"
           r="24.93"
@@ -66,7 +66,7 @@ const PrecisionMobile: React.FC = () => {
           strokeWidth="1.5"
         />
         <circle
-          className="circle3"
+          id="circle3"
           cx="73.67"
           cy="51.71"
           r="24.93"

@@ -43,20 +43,8 @@ button:focus {
   outline: none;
 }
 
-* {
-  /*cursor: none;*/
-}
-
-.cursor {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 235, 216, 0.7);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+html, body {
+  overflow-x: hidden
 }
 
 /* Start purging... */
