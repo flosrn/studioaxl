@@ -26,7 +26,7 @@ const Empathy: React.FC = () => {
       >
         <motion.circle
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           cx="73.67"
@@ -34,7 +34,7 @@ const Empathy: React.FC = () => {
           r="24.93"
         />
         <motion.circle
-          fill="#1d1d1b"
+          fill="#fff"
           cx="44.76"
           cy="20.91"
           r="3.36"

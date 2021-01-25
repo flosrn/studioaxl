@@ -10,6 +10,7 @@ import Arrow from "components/ui/animations/desktop/arrow";
 import { MyLocale } from "i18n";
 import Footer from "components/ui/footer";
 import TrustItem from "components/ui/trust-item";
+import FeatureItem from "components/ui/feature-item";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
@@ -26,21 +27,69 @@ const HomePage: React.FC = () => {
   return (
     <div className="bg-white">
       <Header />
-      <section className="h-screen flex flex-col justify-center items-center mt-56">
-        <div className="flex justify-center items-end">
-          <h1 className="text-9xl font-sage">Studio axl</h1>
-          <h5 className="text-xl tracking-wider text-gold">{t("home.hero.subtitle")}</h5>
+      <section className="h-screen flex flex-col justify-center items-center">
+        <div className="relative flex flex-col justify-center text-left w-5/6 sm:w-auto">
+          <h1 className="flex flex-col text-8xl md:flex-row md:text-9xl font-sage">
+            <div className="relative">
+              <span>Studio</span> <span className="md:ml-2 md:mt-0">axl</span>
+              <div className="absolute right-0 md:-right-20 top-16 md:top-16 w-24 h-24 md:w-36 md:h-36 rounded-full opacity-75 bg-gold backdrop-blur" />
+            </div>
+          </h1>
+          <h5 className="text-xl tracking-wider -mt-2">{t("home.hero.subtitle")}</h5>
         </div>
-        <div className="flex justify-center items-center mb-96">
+        <div className="absolute bottom-10 flex justify-center items-center">
           <Arrow />
         </div>
       </section>
-      <section id="section1" className="mb-96 bg-gray-200 h-96">
-        hi
+      {/*
+       =================
+       SECTION 1
+       =================
+       */}
+      <section id="section1" className="flex justify-center items-center py-48">
+        <div className="flex flex-row flex-wrap w-11/12 sm:w-10/12 mx-auto">
+          <FeatureItem
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+          <FeatureItem
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+          <FeatureItem
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+          <FeatureItem
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+          <FeatureItem
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+          <FeatureItem
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+        </div>
       </section>
-      <section className="mb-96 bg-rose py-12 flex flex-col justify-center items-center">
-        <div className="flex justify-center items-center mb-10">
-          <h3 className="text-center text-6xl font-sage">Pourquoi me faire confiance ?</h3>
+      {/*
+       =================
+       SECTION 2
+       =================
+       */}
+      <section className="mb-96 bg-dark py-12 flex flex-col justify-center items-center">
+        <div className="flex justify-center items-center mb-10 mx-10">
+          <h3 className="text-center text-5xl md:text-6xl text-white font-sage">
+            Pourquoi me faire confiance ?
+          </h3>
         </div>
         <div className="md:w-full">
           {/* L'empathie */}

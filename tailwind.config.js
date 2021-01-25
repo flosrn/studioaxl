@@ -21,11 +21,26 @@ module.exports = {
       colors: {
         gold: "#FCDBBD",
         rose: "#FFEBD8",
+        dark: "#242323",
       },
+    },
+    filter: {
+      // defaults to {}
+      none: "none",
+      grayscale: "grayscale(1)",
+      invert: "invert(1)",
+      sepia: "sepia(1)",
+    },
+    backdropFilter: {
+      // defaults to {}
+      none: "none",
+      blur: "blur(4px)",
     },
   },
   variants: {
     extend: {},
+    filter: ["responsive"], // defaults to ['responsive']
+    backdropFilter: ["responsive"], // defaults to ['responsive']
   },
-  plugins: [],
+  plugins: [require("tailwindcss-filters")],
 };

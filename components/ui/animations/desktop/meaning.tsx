@@ -34,7 +34,7 @@ const Meaning: React.FC = () => {
       >
         <motion.circle
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           cx="44.76"
@@ -45,7 +45,7 @@ const Meaning: React.FC = () => {
         />
         <motion.circle
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           cx="105.22"
@@ -55,7 +55,7 @@ const Meaning: React.FC = () => {
           animate={circleRightControls}
         />
         <motion.circle
-          fill="#1d1d1b"
+          fill="#fff"
           cx="44.92"
           cy="87.44"
           r="3.36"

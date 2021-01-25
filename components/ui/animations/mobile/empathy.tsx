@@ -28,14 +28,14 @@ const EmpathyMobile: React.FC = () => {
       >
         <circle
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           cx="73.67"
           cy="51.71"
           r="24.93"
         />
-        <circle id="dotEmpathy" fill="#1d1d1b" cx="44.76" cy="20.91" r="3.36" />
+        <circle id="dotEmpathy" fill="#fff" cx="44.76" cy="20.91" r="3.36" />
       </svg>
     </div>
   );

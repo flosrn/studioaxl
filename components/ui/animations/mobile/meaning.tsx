@@ -45,7 +45,7 @@ const MeaningMobile: React.FC = () => {
         <circle
           id="circleLeft"
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           cx="44.76"
@@ -55,14 +55,14 @@ const MeaningMobile: React.FC = () => {
         <circle
           id="circleRight"
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           cx="105.22"
           cy="48.07"
           r="24.93"
         />
-        <circle id="dotMeaning" fill="#1d1d1b" cx="44.92" cy="87.44" r="3.36" />
+        <circle id="dotMeaning" fill="#fff" cx="44.92" cy="87.44" r="3.36" />
       </svg>
     </div>
   );

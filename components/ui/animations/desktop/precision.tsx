@@ -35,19 +35,19 @@ const Precision: React.FC = () => {
           cy="51.71"
           r="24.93"
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           transition={{ duration: 0.5 }}
           animate={circle1Controls}
         />
-        <motion.circle cx="73.67" cy="51.71" r="3.36" fill="#1d1d1b" />
+        <motion.circle cx="73.67" cy="51.71" r="3.36" fill="#fff" />
         <motion.circle
           cx="73.67"
           cy="51.71"
           r="24.93"
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           transition={{ duration: 0.5 }}
@@ -58,7 +58,7 @@ const Precision: React.FC = () => {
           cy="51.71"
           r="24.93"
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
           transition={{ duration: 0.5 }}
@@ -69,7 +69,7 @@ const Precision: React.FC = () => {
           cy="51.71"
           r="24.93"
           fill="none"
-          stroke="#000"
+          stroke="#fff"
           strokeMiterlimit={10}
           strokeWidth="1.5"
         />
