@@ -23,6 +23,14 @@ module.exports = {
         rose: "#FFEBD8",
         dark: "#242323",
       },
+      height: (theme) => ({
+        132: "33rem",
+        156: "39rem",
+        "screen/2": "50vh",
+        "screen/3": "calc(100vh / 3)",
+        "screen/4": "calc(100vh / 4)",
+        "screen/5": "calc(100vh / 5)",
+      }),
     },
     filter: {
       // defaults to {}

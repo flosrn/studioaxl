@@ -15,7 +15,7 @@ const Header: React.FC = () => {
           duration={1500}
           className="cursor-pointer"
         >
-          Je vous propose...
+          Mes services
         </ScrollLink>
         <ScrollLink
           activeClass="active"
@@ -25,6 +25,33 @@ const Header: React.FC = () => {
           className="cursor-pointer"
         >
           Mes valeurs
+        </ScrollLink>
+        <ScrollLink
+          activeClass="active"
+          to="section1"
+          smooth
+          duration={1500}
+          className="cursor-pointer"
+        >
+          Mes Projets
+        </ScrollLink>
+        <ScrollLink
+          activeClass="active"
+          to="section1"
+          smooth
+          duration={1500}
+          className="cursor-pointer"
+        >
+          À propos
+        </ScrollLink>
+        <ScrollLink
+          activeClass="active"
+          to="section1"
+          smooth
+          duration={1500}
+          className="cursor-pointer"
+        >
+          Me contacter
         </ScrollLink>
       </div>
       <div className="flex justify-between items-center">
