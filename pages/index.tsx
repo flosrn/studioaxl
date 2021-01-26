@@ -1,6 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
-// import Image from "next/image";
+import Image from "next/image";
 import { GetStaticProps } from "next";
 import { useI18n, I18nProps } from "next-rosetta";
 // import { isMobile } from "react-device-detect";
@@ -19,8 +19,8 @@ import SvgEditorial from "components/ui/animations/services/svg-editorial";
 import SvgWeb from "components/ui/animations/services/svg-web";
 import SvgWrite from "components/ui/animations/services/svg-write";
 import SvgSignage from "components/ui/animations/services/svg-signage";
-import { onScrollAnimation, onScrollPinElementAnimation } from "utils/anims";
-import { isMobile } from "react-device-detect";
+// import { onScrollAnimation, onScrollPinElementAnimation } from "utils/anims";
+// import { isMobile } from "react-device-detect";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
 
   const randomX = random(10, 20);
   const randomY = random(20, 30);
-  // const randomDelay = random(0, 1);
+  const randomDelay = random(0, 1);
   const randomTime = random(3, 5);
   const randomTime2 = random(5, 10);
   const randomAngle = random(8, 12);
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
   function rotate(target, direction) {
     gsap.to(target, randomTime2(), {
       rotation: randomAngle(direction),
-      // delay: randomDelay(),
+      delay: randomDelay(),
       ease: Sine.easeInOut,
       onComplete: rotate,
       onCompleteParams: [target, direction * -1],
@@ -85,21 +85,6 @@ const HomePage: React.FC = () => {
     rotate(circle, 1);
   }, []);
 
-  React.useEffect(() => {
-    if (!isMobile) {
-      onScrollPinElementAnimation(".svgQuotes", "#axellePicture");
-      onScrollPinElementAnimation("#axellePicture", "#axellePicture");
-      onScrollAnimation(
-        ".textPresentation",
-        "#axellePicture",
-        { opacity: 1, duration: 2 },
-        "top top+=200",
-        true
-      );
-    }
-    // onScrollPinElementAnimation("#textPresentation", "#textPresentation");
-  }, []);
-
   return (
     <div className="bg-white">
       <Header />
@@ -126,7 +111,7 @@ const HomePage: React.FC = () => {
        =================
        */}
       <section id="section1" className="flex justify-center items-center py-48">
-        <div className="relative flex flex-col md:flex-row-reverse justify-around w-full">
+        <div className="relative flex flex-col items-center md:flex-row-reverse justify-around w-full">
           <div className="hidden md:block absolute -top-32 left-5 z-10 svgQuotes">
             <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
               <g data-name="Groupe 72">
@@ -139,17 +124,10 @@ const HomePage: React.FC = () => {
             </svg>
           </div>
           <div className="relative w-full md:w-1/2 h-80 md:h-156">
-            {/*<Image*/}
-            {/*  // id="axellePicture"*/}
-            {/*  src="/images/axelle-light.png"*/}
-            {/*  layout="fill"*/}
-            {/*  className="absolute object-cover object-center z-0 svgQuotes"*/}
-            {/*/>*/}
-            <img
-              src="/images/axelle-light.png"
-              id="axellePicture"
-              alt="Axelle Malard"
-              className="absolute object-cover object-center z-0"
+            <Image
+              src="/images/studio_axl.png"
+              layout="fill"
+              className="absolute object-cover object-center z-0 svgQuotes"
             />
             <div className="hidden md:block absolute -bottom-32 right-5 z-10 svgQuotes">
               <svg width={231.475} height={241.103} viewBox="0 0 231.475 241.103">
@@ -161,7 +139,7 @@ const HomePage: React.FC = () => {
               </svg>
             </div>
           </div>
-          <div className="relative w-full md:w-1/2 flex justify-center md:justify-end md:items-end">
+          <div className="relative w-5/6 sm:w-4/6 md:w-1/2 flex flex-col justify-center md:justify-center md:items-end">
             <div className="md:hidden absolute left-5 -top-10 z-10">
               <svg width={79.344} height={82.644} viewBox="0 0 79.344 82.644">
                 <path
@@ -171,13 +149,23 @@ const HomePage: React.FC = () => {
                 />
               </svg>
             </div>
-            <div
-              id="textPresentation"
-              className="w-2/3 mt-10 text-center md:w-full xl:w-3/6 md:pl-20 md:pr-24 md:-mt-36 md:text-right md:opacity-0 textPresentation"
-            >
-              Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
-              d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
+            <div className="sm:w-full xl:w-2/3 md:pl-20 md:pr-12 lg:pr-16 xl:pr-24 md:-mt-18 text-center md:text-right flex flex-col items-end">
+              <div className="md:w-2/3 mt-10 ">
+                Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
+                d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
+              </div>
+
+              <div className="mt-10 text-sm italic font-light">
+                Je fais un métier que j’aime, qui m’anime, me passionne. Cette passion, c’est au
+                service de l’autre que je souhaite la mettre. Tous les projets méritent de
+                l’attention et toutes vos demandes la mienne.
+              </div>
+
+              <div className="mt-10 text-sm font-bold italic">
+                Axelle Malard, creative freelance
+              </div>
             </div>
+
             <div className="md:hidden absolute right-5 -bottom-24 z-10">
               <svg width={95.079} height={99.033} viewBox="0 0 95.079 99.033">
                 <path
@@ -190,30 +178,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-      <div className="hidden md:block w-full h-screen"></div>
-      <div className="w-full h-screen">
-        <div className="relative w-full md:w-1/2 flex justify-center md:justify-end md:items-end">
-          <div
-            id="textPresentation"
-            className="w-2/3 mt-10 text-center md:w-full xl:w-3/6 md:pl-20 md:pr-24 md:-mt-36 md:text-right opacity-0 textPresentation"
-          >
-            Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
-            d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
-          </div>
-        </div>
-      </div>
-      <div className="hidden md:block  w-full h-screen" id="animEnd">
-        <div className="relative w-full md:w-1/2 flex justify-center md:justify-end md:items-end">
-          <div
-            id="textPresentation"
-            className="w-2/3 mt-10 text-center md:w-full xl:w-3/6 md:pl-20 md:pr-24 md:-mt-36 md:text-right opacity-0 textPresentation"
-          >
-            Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
-            d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
-          </div>
-        </div>
-      </div>
-      <div className="w-full h-screen"></div>
 
       {/*
        =================
