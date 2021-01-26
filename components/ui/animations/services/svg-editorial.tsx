@@ -2,26 +2,42 @@ import React, { useEffect } from "react";
 import { onHoverAnimation, onScrollAnimation } from "utils/anims";
 
 const SvgEditorial: React.FC = () => {
-  const circleEditorialValues = { y: 50, x: -52, scale: 0.35 };
-  const lineEditorialLeftValues = { fill: "#161615", stroke: "#161615" };
-  const lineEditorialRightValues = { fill: "#fde0e0", stroke: "#fde0e0" };
+  const circleEditorialValues = { y: 51, x: -27, scale: 0.6, fill: "#fdc594" };
+  const lineEditorialLeft1Values = { x: -25, y: -6 };
+  const lineEditorialLeft2Values = { x: -41, y: -6 };
+  const lineEditorialLeft3Values = { x: -13, y: -6 };
+  const lineEditorialRight1Values = { x: 25, y: -2 };
+  const lineEditorialRight2Values = { x: 41, y: -2 };
+  const lineEditorialRight3Values = { x: 13, y: -2 };
 
   useEffect(() => {
     onScrollAnimation("#circleEditorial", "#svgEditorial", circleEditorialValues);
-    onScrollAnimation(".lineEditorialLeft", "#svgEditorial", lineEditorialLeftValues);
-    onScrollAnimation(".lineEditorialRight", "#svgEditorial", lineEditorialRightValues);
+    onScrollAnimation("#lineEditorialLeft1", "#svgEditorial", lineEditorialLeft1Values);
+    onScrollAnimation("#lineEditorialLeft2", "#svgEditorial", lineEditorialLeft2Values);
+    onScrollAnimation("#lineEditorialLeft3", "#svgEditorial", lineEditorialLeft3Values);
+    onScrollAnimation("#lineEditorialRight1", "#svgEditorial", lineEditorialRight1Values);
+    onScrollAnimation("#lineEditorialRight2", "#svgEditorial", lineEditorialRight2Values);
+    onScrollAnimation("#lineEditorialRight3", "#svgEditorial", lineEditorialRight3Values);
   }, []);
 
   const handleMouseEnter = () => {
     onHoverAnimation("#circleEditorial", circleEditorialValues);
-    onHoverAnimation(".lineEditorialLeft", lineEditorialLeftValues);
-    onHoverAnimation(".lineEditorialRight", lineEditorialRightValues);
+    onHoverAnimation("#lineEditorialLeft1", lineEditorialLeft1Values);
+    onHoverAnimation("#lineEditorialLeft2", lineEditorialLeft2Values);
+    onHoverAnimation("#lineEditorialLeft3", lineEditorialLeft3Values);
+    onHoverAnimation("#lineEditorialRight1", lineEditorialRight1Values);
+    onHoverAnimation("#lineEditorialRight2", lineEditorialRight2Values);
+    onHoverAnimation("#lineEditorialRight3", lineEditorialRight3Values);
   };
 
   const handleMouseLeave = () => {
-    onHoverAnimation("#circleEditorial", { y: 0, x: 0, scale: 1 });
-    onHoverAnimation(".lineEditorialLeft", { fill: "#fff", stroke: "#fff" });
-    onHoverAnimation(".lineEditorialRight", { fill: "#fff", stroke: "#fff" });
+    onHoverAnimation("#circleEditorial", { y: 0, x: 0, scale: 1, fill: "#fde0e0" });
+    onHoverAnimation("#lineEditorialLeft1", { x: 0, y: 0 });
+    onHoverAnimation("#lineEditorialLeft2", { x: 0, y: 0 });
+    onHoverAnimation("#lineEditorialLeft3", { x: 0, y: 0 });
+    onHoverAnimation("#lineEditorialRight1", { x: 0, y: 0 });
+    onHoverAnimation("#lineEditorialRight2", { x: 0, y: 0 });
+    onHoverAnimation("#lineEditorialRight3", { x: 0, y: 0 });
   };
 
   return (
@@ -53,50 +69,50 @@ const SvgEditorial: React.FC = () => {
         <path d="M87.27,75.92v44.39" fill="none" stroke="#161615" strokeWidth={2} />
         <circle id="circleEditorial" cx="133.26" cy="42.24" r="12.42" fill="#fde0e0" />
         <path
-          className="lineEditorialLeft"
+          id="lineEditorialLeft1"
           d="M66.57,100l13,1.93"
-          fill="#fff"
-          stroke="#fff"
+          fill="#161615"
+          stroke="#161615"
           strokeLinecap="round"
           strokeWidth={2}
         />
         <path
-          className="lineEditorialLeft"
+          id="lineEditorialLeft2"
           d="M66.57,105l13,1.93"
-          fill="#fff"
-          stroke="#fff"
+          fill="#161615"
+          stroke="#161615"
           strokeLinecap="round"
           strokeWidth={2}
         />
         <path
-          className="lineEditorialLeft"
+          id="lineEditorialLeft3"
           d="M66.57,110l13,1.93"
-          fill="#fff"
-          stroke="#fff"
+          fill="#161615"
+          stroke="#161615"
           strokeLinecap="round"
           strokeWidth={2}
         />
         <path
-          className="lineEditorialRight"
+          id="lineEditorialRight1"
           d="M107.65,89l-13,1.93"
-          fill="#fff"
-          stroke="#fff"
+          fill="#fde0e0"
+          stroke="#fde0e0"
           strokeLinecap="round"
           strokeWidth={2}
         />
         <path
-          className="lineEditorialRight"
+          id="lineEditorialRight2"
           d="M107.65,94l-13,1.93"
-          fill="#fff"
-          stroke="#fff"
+          fill="#fde0e0"
+          stroke="#fde0e0"
           strokeLinecap="round"
           strokeWidth={2}
         />
         <path
-          className="lineEditorialRight"
+          id="lineEditorialRight3"
           d="M107.65,99l-13,1.93"
-          fill="#fff"
-          stroke="#fff"
+          fill="#fde0e0"
+          stroke="#fde0e0"
           strokeLinecap="round"
           strokeWidth={2}
         />

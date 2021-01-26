@@ -7,7 +7,7 @@ import { useI18n, I18nProps } from "next-rosetta";
 import { gsap, Sine } from "gsap";
 
 import Header from "components/ui/header";
-import Arrow from "components/ui/animations/desktop/arrow2";
+import Arrow from "components/ui/animations/svg-arrow";
 
 import { MyLocale } from "i18n";
 import Footer from "components/ui/footer";
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
           </h1>
           <h5 className="text-xl tracking-wider -mt-2">{t("home.hero.subtitle")}</h5>
         </div>
-        <div className="absolute bottom-10 flex justify-center items-center">
+        <div className="absolute -bottom-10 flex justify-center items-center">
           <Arrow />
         </div>
       </section>
@@ -178,14 +178,13 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/*
        =================
        SECTION 2
        =================
        */}
       <section id="section2" className="flex justify-center items-center py-48">
-        <div className="flex flex-row flex-wrap w-11/12 sm:w-10/12 mx-auto">
+        <div className="flex flex-row flex-wrap w-10/12 sm:w-8/12  md:w-10/12 mx-auto">
           <FeatureItem
             icon={<SvgBranding />}
             title="Image de marque"
@@ -194,12 +193,6 @@ const HomePage: React.FC = () => {
           />
           <FeatureItem
             icon={<SvgAdvertasing />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
-          />
-          <FeatureItem
-            icon={<SvgEditorial />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
@@ -218,6 +211,12 @@ const HomePage: React.FC = () => {
           />
           <FeatureItem
             icon={<SvgWrite />}
+            title="Image de marque"
+            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+          />
+          <FeatureItem
+            icon={<SvgEditorial />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
