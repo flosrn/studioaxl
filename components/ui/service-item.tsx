@@ -2,14 +2,14 @@ import React from "react";
 import Reveal from "components/ui/animations/reveal";
 
 interface Props {
-  icon?: React.ReactNode;
-  hoverHandler?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  scrollHandler?: any;
+  icon: React.ReactNode;
+  hoverHandler: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  scrollHandler: () => void;
   title: string;
   content: string;
 }
 
-const FeatureItem: React.FC<Props> = ({ icon, hoverHandler, scrollHandler, title, content }) => {
+const ServiceItem: React.FC<Props> = ({ icon, hoverHandler, scrollHandler, title, content }) => {
   React.useEffect(() => {
     scrollHandler();
   }, []);
@@ -22,7 +22,7 @@ const FeatureItem: React.FC<Props> = ({ icon, hoverHandler, scrollHandler, title
       >
         <Reveal>
           <div className="relative reveal flex flex-col justify-center">
-            <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 flex justify-center">
+            <div className="absolute -top-28 left-1/2 transform -translate-x-1/2 flex justify-center">
               {icon}
             </div>
             <div className="flex flex-col justify-center items-center py-10 px-12">
@@ -37,4 +37,4 @@ const FeatureItem: React.FC<Props> = ({ icon, hoverHandler, scrollHandler, title
   );
 };
 
-export default FeatureItem;
+export default ServiceItem;

@@ -37,6 +37,8 @@ export const handleAnimation = (
   }
   if (animationType === "onHover" && !isMobile) {
     if (mouseEvent === "mouseleave") {
+      if (target === "#pathPrecision")
+        gsap.to(target, { attr: { d: "M101.47 118.98L123.84 101.49" } });
       return gsap.to(target, { x: 0, y: 0, rotate: 0, scale: 1 });
     }
     return gsap.to(target, values);

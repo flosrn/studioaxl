@@ -3,25 +3,26 @@ import Image from "next/image";
 import { GetStaticProps } from "next";
 import { useI18n, I18nProps } from "next-rosetta";
 import { gsap, Sine } from "gsap";
+import { MyLocale } from "i18n";
 
 import Header from "components/ui/header";
 import Arrow from "components/ui/animations/svg-arrow";
-
-import { MyLocale } from "i18n";
 import Footer from "components/ui/footer";
-import FeatureItem from "components/ui/feature-item";
-import SvgAdvertasing, {
-  svgAdvertasingAnimation,
-} from "components/ui/animations/services/svg-advertasing";
+import ServiceItem from "components/ui/service-item";
+import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-web";
+import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
+import SvgSignage, { svgSignageAnimation } from "components/ui/animations/services/svg-signage";
 import SvgBranding, { svgBrandingAnimation } from "components/ui/animations/services/svg-branding";
 import SvgEditorial, {
   svgEditorialAnimation,
 } from "components/ui/animations/services/svg-editorial";
-import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-web";
-import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
-import SvgSignage, { svgSignageAnimation } from "components/ui/animations/services/svg-signage";
-// import { onScrollAnimation, onScrollPinElementAnimation } from "utils/anims";
-// import { isMobile } from "react-device-detect";
+import SvgAdvertasing, {
+  svgAdvertasingAnimation,
+} from "components/ui/animations/services/svg-advertasing";
+import ValueItem from "components/ui/value-item";
+import SvgSense, { svgSenseAnimation } from "components/ui/animations/values/svg-sense";
+import SvgEmpathie, { svgEmpathieAnimation } from "components/ui/animations/values/svg-empathy";
+import SvgPrecision, { svgPrecisionAnimation } from "components/ui/animations/values/svg-precision";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
@@ -179,7 +180,7 @@ const HomePage: React.FC = () => {
        */}
       <section id="section2" className="flex justify-center items-center py-48">
         <div className="flex flex-row flex-wrap w-10/12 sm:w-8/12  md:w-10/12 mx-auto">
-          <FeatureItem
+          <ServiceItem
             icon={<SvgBranding />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
@@ -189,7 +190,7 @@ const HomePage: React.FC = () => {
             }
             scrollHandler={() => svgBrandingAnimation("onScroll")}
           />
-          <FeatureItem
+          <ServiceItem
             icon={<SvgAdvertasing />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
@@ -199,7 +200,7 @@ const HomePage: React.FC = () => {
             }
             scrollHandler={() => svgAdvertasingAnimation("onScroll")}
           />
-          <FeatureItem
+          <ServiceItem
             icon={<SvgWeb />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
@@ -209,7 +210,7 @@ const HomePage: React.FC = () => {
             }
             scrollHandler={() => svgWebAnimation("onScroll")}
           />
-          <FeatureItem
+          <ServiceItem
             icon={<SvgSignage />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
@@ -219,7 +220,7 @@ const HomePage: React.FC = () => {
             }
             scrollHandler={() => svgSignageAnimation("onScroll")}
           />
-          <FeatureItem
+          <ServiceItem
             icon={<SvgWrite />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
@@ -229,7 +230,7 @@ const HomePage: React.FC = () => {
             }
             scrollHandler={() => svgWriteAnimation("onScroll")}
           />
-          <FeatureItem
+          <ServiceItem
             icon={<SvgEditorial />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
@@ -252,35 +253,45 @@ const HomePage: React.FC = () => {
             Pourquoi me faire confiance ?
           </h3>
         </div>
-        <div className="relative flex flex-col items-center md:flex-row justify-around w-full">
-          <div className="relative w-full md:w-1/2 h-80 md:h-156">
+        <div className="relative flex flex-col items-center lg:flex-row justify-around w-full mt-10">
+          <div className="relative w-full lg:w-1/2 h-80 lg:h-screen">
             <Image
               src="/images/apple.jpg"
               layout="fill"
               className="absolute object-cover object-center z-0"
             />
           </div>
-          <div className="relative flex flex-col flex-wrap items-center  mx-auto">
-            {/*<div className="">*/}
-            {/*  <FeatureItem*/}
-            {/*    icon={<SvgWrite />}*/}
-            {/*    title="Image de marque"*/}
-            {/*    content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
-            {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
-            {/*  />*/}
-            {/*  <FeatureItem*/}
-            {/*    icon={<SvgWrite />}*/}
-            {/*    title="Image de marque"*/}
-            {/*    content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
-            {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
-            {/*  />*/}
-            {/*  <FeatureItem*/}
-            {/*    icon={<SvgWrite />}*/}
-            {/*    title="Image de marque"*/}
-            {/*    content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
-            {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
-            {/*  />*/}
-            {/*</div>*/}
+          <div className="relative flex flex-col flex-wrap items-center justify-center w-10/12 lg:w-1/2 mx-auto mt-12">
+            <ValueItem
+              icon={<SvgSense />}
+              title="Image de marque"
+              content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+              hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+                svgSenseAnimation("onHover", event.type)
+              }
+              scrollHandler={() => svgSenseAnimation("onScroll")}
+            />
+            <ValueItem
+              icon={<SvgEmpathie />}
+              title="Image de marque"
+              content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+              hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+                svgEmpathieAnimation("onHover", event.type)
+              }
+              scrollHandler={() => svgEmpathieAnimation("onScroll")}
+            />
+            <ValueItem
+              icon={<SvgPrecision />}
+              title="Image de marque"
+              content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
+          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+              hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+                svgPrecisionAnimation("onHover", event.type)
+              }
+              scrollHandler={() => svgPrecisionAnimation("onScroll")}
+            />
           </div>
         </div>
       </section>
