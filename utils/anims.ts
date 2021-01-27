@@ -1,29 +1,45 @@
 import { isMobile } from "react-device-detect";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-export const onScrollAnimation = (
-  target: string,
-  trigger: string,
-  values: any,
-  start?: string,
-  onlyOnDesktop?: boolean
-) => {
-  let condition = false;
-  if (onlyOnDesktop === undefined && isMobile) {
-    condition = true;
-  }
-  if (onlyOnDesktop || condition) {
+//
+export const onScrollAnimation = (target: string, trigger: string, values: any) => {
+  if (isMobile) {
     gsap.registerPlugin(ScrollTrigger);
 
     const gspaValues = values;
     gspaValues.scrollTrigger = {
       trigger,
-      start: start || "top center",
       // markers: true,
       toggleActions: "play none none reverse",
     };
     return gsap.to(target, gspaValues);
+  }
+};
+
+export const handleAnimation = (
+  target: string,
+  trigger: string,
+  values: any,
+  animationType: string,
+  mouseEvent: string
+) => {
+  if (animationType === "onScroll" && isMobile) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const gspaValues = values;
+    gspaValues.scrollTrigger = {
+      trigger,
+      start: "top center+=40px",
+      // markers: true,
+      toggleActions: "play none none reverse",
+    };
+    return gsap.to(target, gspaValues);
+  }
+  if (animationType === "onHover" && !isMobile) {
+    if (mouseEvent === "mouseleave") {
+      return gsap.to(target, { x: 0, y: 0, rotate: 0, scale: 1 });
+    }
+    return gsap.to(target, values);
   }
 };
 

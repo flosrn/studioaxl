@@ -1,31 +1,19 @@
-import React, { useEffect } from "react";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import React from "react";
+import { handleAnimation } from "utils/anims";
+
+export const circleWeb1Values = { y: 16, x: -26, scale: 7 };
+export const circleWeb2Values = { y: 17, x: 8, scale: 5, fill: "#fdc594" };
+export const circleWeb3Values = { y: -26, x: 3, scale: 12, fill: "#fde0e0" };
+
+export const svgWebAnimation = (animationType: string, mouseEvent?: string) => {
+  handleAnimation("#circleWeb1", "#svgWeb", circleWeb1Values, animationType, mouseEvent);
+  handleAnimation("#circleWeb2", "#svgWeb", circleWeb2Values, animationType, mouseEvent);
+  handleAnimation("#circleWeb3", "#svgWeb", circleWeb3Values, animationType, mouseEvent);
+};
 
 const SvgWeb: React.FC = () => {
-  const circleWeb1Values = { y: 16, x: -26, scale: 7 };
-  const circleWeb2Values = { y: 17, x: 8, scale: 5, fill: "#fdc594" };
-  const circleWeb3Values = { y: -26, x: 3, scale: 12, fill: "#fde0e0" };
-
-  useEffect(() => {
-    onScrollAnimation("#circleWeb1", "#svgWeb", circleWeb1Values);
-    onScrollAnimation("#circleWeb2", "#svgWeb", circleWeb2Values);
-    onScrollAnimation("#circleWeb3", "#svgWeb", circleWeb3Values);
-  }, []);
-
-  const handleMouseEnter = () => {
-    onHoverAnimation("#circleWeb1", circleWeb1Values);
-    onHoverAnimation("#circleWeb2", circleWeb2Values);
-    onHoverAnimation("#circleWeb3", circleWeb3Values);
-  };
-
-  const handleMouseLeave = () => {
-    onHoverAnimation("#circleWeb1", { y: 0, x: 0, scale: 1 });
-    onHoverAnimation("#circleWeb2", { y: 0, x: 0, scale: 1, fill: "#161615" });
-    onHoverAnimation("#circleWeb3", { y: 0, x: 0, scale: 1, fill: "#161615" });
-  };
-
   return (
-    <div className="cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="cursor-pointer">
       <svg
         id="svgWeb"
         xmlns="http://www.w3.org/2000/svg"

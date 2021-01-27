@@ -1,43 +1,43 @@
-import React, { useEffect } from "react";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import React from "react";
+import { handleAnimation } from "utils/anims";
+
+export const circleSignage1Values = { y: 36, x: -82 };
+export const circleSignage2Values = { fill: "#fdc594" };
+export const circleSignage3Values = { fill: "#161615" };
+export const pathSignage1Values = { x: 30 };
+export const pathSignage2Values = { x: 20 };
+export const pathSignage3Values = { x: -20 };
+
+export const svgSignageAnimation = (animationType: string, mouseEvent?: string) => {
+  handleAnimation(
+    "#circleSignage1",
+    "#svgSignage",
+    circleSignage1Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#circleSignage2",
+    "#svgSignage",
+    circleSignage2Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#circleSignage3",
+    "#svgSignage",
+    circleSignage3Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation("#pathSignage1", "#svgSignage", pathSignage1Values, animationType, mouseEvent);
+  handleAnimation("#pathSignage2", "#svgSignage", pathSignage2Values, animationType, mouseEvent);
+  handleAnimation("#pathSignage3", "#svgSignage", pathSignage3Values, animationType, mouseEvent);
+};
 
 const SvgSignage: React.FC = () => {
-  const circleSignage1Values = { y: 36, x: -82 };
-  const circleSignage2Values = { fill: "#fdc594" };
-  const circleSignage3Values = { fill: "#161615" };
-  const pathSignage1Values = { x: 30 };
-  const pathSignage2Values = { x: 20 };
-  const pathSignage3Values = { x: -20 };
-
-  useEffect(() => {
-    onScrollAnimation("#circleSignage1", "#svgSignage", circleSignage1Values);
-    onScrollAnimation("#circleSignage2", "#svgSignage", circleSignage2Values);
-    onScrollAnimation("#circleSignage3", "#svgSignage", circleSignage3Values);
-    onScrollAnimation("#pathSignage1", "#svgSignage", pathSignage1Values);
-    onScrollAnimation("#pathSignage2", "#svgSignage", pathSignage2Values);
-    onScrollAnimation("#pathSignage3", "#svgSignage", pathSignage3Values);
-  }, []);
-
-  const handleMouseEnter = () => {
-    onHoverAnimation("#circleSignage1", circleSignage1Values);
-    onHoverAnimation("#circleSignage2", circleSignage2Values);
-    onHoverAnimation("#circleSignage3", circleSignage3Values);
-    onHoverAnimation("#pathSignage1", pathSignage1Values);
-    onHoverAnimation("#pathSignage2", pathSignage2Values);
-    onHoverAnimation("#pathSignage3", pathSignage3Values);
-  };
-
-  const handleMouseLeave = () => {
-    onHoverAnimation("#circleSignage1", { y: 0, x: 0 });
-    onHoverAnimation("#circleSignage2", { fill: "#fff" });
-    onHoverAnimation("#circleSignage3", { fill: "#fff" });
-    onHoverAnimation("#pathSignage1", { x: 0 });
-    onHoverAnimation("#pathSignage2", { x: 0 });
-    onHoverAnimation("#pathSignage3", { x: 0 });
-  };
-
   return (
-    <div className="cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="cursor-pointer">
       <svg
         id="svgSignage"
         xmlns="http://www.w3.org/2000/svg"

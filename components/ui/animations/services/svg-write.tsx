@@ -1,43 +1,25 @@
-import React, { useEffect } from "react";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import React from "react";
+import { handleAnimation } from "utils/anims";
+
+export const circleWrite1Values = { y: 23, x: -10, scale: 0.4 };
+export const circleWrite2Values = { fill: "#fdc594" };
+export const circleWrite3Values = { fill: "#161615" };
+export const lineWrite1Values = { x: -48 };
+export const lineWrite2Values = { x: 40 };
+export const lineWrite3Values = { x: -20 };
+
+export const svgWriteAnimation = (animationType: string, mouseEvent?: string) => {
+  handleAnimation("#circleWrite1", "#svgWrite", circleWrite1Values, animationType, mouseEvent);
+  handleAnimation("#circleWrite2", "#svgWrite", circleWrite2Values, animationType, mouseEvent);
+  handleAnimation("#circleWrite3", "#svgWrite", circleWrite3Values, animationType, mouseEvent);
+  handleAnimation("#lineWrite1", "#svgWrite", lineWrite1Values, animationType, mouseEvent);
+  handleAnimation("#lineWrite2", "#svgWrite", lineWrite2Values, animationType, mouseEvent);
+  handleAnimation("#lineWrite3", "#svgWrite", lineWrite3Values, animationType, mouseEvent);
+};
 
 const SvgWrite: React.FC = () => {
-  const circleWrite1Values = { y: 23, x: -10, scale: 0.4 };
-  const circleWrite2Values = { fill: "#fdc594" };
-  const circleWrite3Values = { fill: "#161615" };
-  const lineWrite1Values = { x: -48 };
-  const lineWrite2Values = { x: 40 };
-  const lineWrite3Values = { x: -20 };
-
-  useEffect(() => {
-    onScrollAnimation("#circleWrite1", "#svgWrite", circleWrite1Values);
-    onScrollAnimation("#circleWrite2", "#svgWrite", circleWrite2Values);
-    onScrollAnimation("#circleWrite3", "#svgWrite", circleWrite3Values);
-    onScrollAnimation("#lineWrite1", "#svgWrite", lineWrite1Values);
-    onScrollAnimation("#lineWrite2", "#svgWrite", lineWrite2Values);
-    onScrollAnimation("#lineWrite3", "#svgWrite", lineWrite3Values);
-  }, []);
-
-  const handleMouseEnter = () => {
-    onHoverAnimation("#circleWrite1", circleWrite1Values);
-    onHoverAnimation("#circleWrite2", circleWrite2Values);
-    onHoverAnimation("#circleWrite3", circleWrite3Values);
-    onHoverAnimation("#lineWrite1", lineWrite1Values);
-    onHoverAnimation("#lineWrite2", lineWrite2Values);
-    onHoverAnimation("#lineWrite3", lineWrite3Values);
-  };
-
-  const handleMouseLeave = () => {
-    onHoverAnimation("#circleWrite1", { y: 0, x: 0, scale: 1 });
-    onHoverAnimation("#circleWrite2", { fill: "#fff" });
-    onHoverAnimation("#circleWrite3", { fill: "#fff" });
-    onHoverAnimation("#lineWrite1", { x: 0 });
-    onHoverAnimation("#lineWrite2", { x: 0 });
-    onHoverAnimation("#lineWrite3", { x: 0 });
-  };
-
   return (
-    <div className="cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="cursor-pointer">
       <svg id="svgWrite" viewBox="0 0 180.08 172.18" width="185" height="185">
         <circle id="circleWrite1" cx={109.49} cy={61.43} r={15.4} fill="#fde0e0" />
         <circle id="circleWrite2" cx={129.65} cy={85.23} r={3.86} fill="#fff" />

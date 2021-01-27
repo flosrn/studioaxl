@@ -1,27 +1,23 @@
-import React, { useEffect } from "react";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import React from "react";
+import { handleAnimation } from "utils/anims";
+
+export const circleBrandingValues = { y: -22, x: 34, scale: 0.5 };
+export const pathBranding1Values = { rotate: 180, transformOrigin: "50% 50%" };
+
+export const svgBrandingAnimation = (animationType: string, mouseEvent?: string) => {
+  handleAnimation(
+    "#circleBranding",
+    "#svgBranding",
+    circleBrandingValues,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation("#pathBranding1", "#svgBranding", pathBranding1Values, animationType, mouseEvent);
+};
 
 const SvgBranding: React.FC = () => {
-  const circleBrandingValues = { y: -22, x: 34, scale: 0.5 };
-  const pathBranding1Values = { rotate: 180, transformOrigin: "50% 50%" };
-
-  useEffect(() => {
-    onScrollAnimation("#circleBranding", "#svgBranding", circleBrandingValues);
-    onScrollAnimation("#pathBranding1", "#svgBranding", pathBranding1Values);
-  }, []);
-
-  const handleMouseEnter = () => {
-    onHoverAnimation("#circleBranding", circleBrandingValues);
-    onHoverAnimation("#pathBranding1", pathBranding1Values);
-  };
-
-  const handleMouseLeave = () => {
-    onHoverAnimation("#circleBranding", { y: 0, x: 0, scale: 1 });
-    onHoverAnimation("#pathBranding1", { rotate: 0 });
-  };
-
   return (
-    <div className="cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="cursor-pointer">
       <svg
         id="svgBranding"
         xmlns="http://www.w3.org/2000/svg"

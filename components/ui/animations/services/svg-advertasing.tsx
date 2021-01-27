@@ -1,31 +1,37 @@
-import React, { useEffect } from "react";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import React from "react";
+import { handleAnimation } from "utils/anims";
+
+export const circleAdvertasing1Values = { y: -14, x: 12, fill: "#fdc594" };
+export const circleAdvertasing2Values = { y: -14, x: 27, scale: 1.6 };
+export const circleAdvertasing3Values = { y: 10, x: 15 };
+
+export const svgAdvertasingAnimation = (animationType: string, mouseEvent?: string) => {
+  handleAnimation(
+    "#circleAdvertasing1",
+    "#svgAdvertasing",
+    circleAdvertasing1Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#circleAdvertasing2",
+    "#svgAdvertasing",
+    circleAdvertasing2Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#circleAdvertasing3",
+    "#svgAdvertasing",
+    circleAdvertasing3Values,
+    animationType,
+    mouseEvent
+  );
+};
 
 const SvgAdvertasing: React.FC = () => {
-  const circleAdvertasing1Values = { y: -14, x: 12, fill: "#fdc594" };
-  const circleAdvertasing2Values = { y: -14, x: 27, scale: 1.6 };
-  const circleAdvertasing3Values = { y: 10, x: 15 };
-
-  useEffect(() => {
-    onScrollAnimation("#circleAdvertasing1", "#svgAdvertasing", circleAdvertasing1Values);
-    onScrollAnimation("#circleAdvertasing2", "#svgAdvertasing", circleAdvertasing2Values);
-    onScrollAnimation("#circleAdvertasing3", "#svgAdvertasing", circleAdvertasing3Values);
-  }, []);
-
-  const handleMouseEnter = () => {
-    onHoverAnimation("#circleAdvertasing1", circleAdvertasing1Values);
-    onHoverAnimation("#circleAdvertasing2", circleAdvertasing2Values);
-    onHoverAnimation("#circleAdvertasing3", circleAdvertasing3Values);
-  };
-
-  const handleMouseLeave = () => {
-    onHoverAnimation("#circleAdvertasing1", { y: 0, x: 0, fill: "#161615" });
-    onHoverAnimation("#circleAdvertasing2", { y: 0, x: 0, scale: 1 });
-    onHoverAnimation("#circleAdvertasing3", { y: 0, x: 0 });
-  };
-
   return (
-    <div className="cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="cursor-pointer">
       <svg
         id="svgAdvertasing"
         xmlns="http://www.w3.org/2000/svg"

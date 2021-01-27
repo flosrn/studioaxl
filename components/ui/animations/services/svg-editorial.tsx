@@ -1,47 +1,69 @@
-import React, { useEffect } from "react";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import React from "react";
+import { handleAnimation } from "utils/anims";
+
+export const circleEditorialValues = { y: 51, x: -27, scale: 0.6, fill: "#fdc594" };
+export const lineEditorialLeft1Values = { x: -25, y: -6 };
+export const lineEditorialLeft2Values = { x: -41, y: -6 };
+export const lineEditorialLeft3Values = { x: -13, y: -6 };
+export const lineEditorialRight1Values = { x: 25, y: -2 };
+export const lineEditorialRight2Values = { x: 41, y: -2 };
+export const lineEditorialRight3Values = { x: 13, y: -2 };
+
+export const svgEditorialAnimation = (animationType: string, mouseEvent?: string) => {
+  handleAnimation(
+    "#circleEditorial",
+    "#svgEditorial",
+    circleEditorialValues,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#lineEditorialLeft1",
+    "#svgEditorial",
+    lineEditorialLeft1Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#lineEditorialLeft2",
+    "#svgEditorial",
+    lineEditorialLeft2Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#lineEditorialLeft3",
+    "#svgEditorial",
+    lineEditorialLeft3Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#lineEditorialRight1",
+    "#svgEditorial",
+    lineEditorialRight1Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#lineEditorialRight2",
+    "#svgEditorial",
+    lineEditorialRight2Values,
+    animationType,
+    mouseEvent
+  );
+  handleAnimation(
+    "#lineEditorialRight3",
+    "#svgEditorial",
+    lineEditorialRight3Values,
+    animationType,
+    mouseEvent
+  );
+};
 
 const SvgEditorial: React.FC = () => {
-  const circleEditorialValues = { y: 51, x: -27, scale: 0.6, fill: "#fdc594" };
-  const lineEditorialLeft1Values = { x: -25, y: -6 };
-  const lineEditorialLeft2Values = { x: -41, y: -6 };
-  const lineEditorialLeft3Values = { x: -13, y: -6 };
-  const lineEditorialRight1Values = { x: 25, y: -2 };
-  const lineEditorialRight2Values = { x: 41, y: -2 };
-  const lineEditorialRight3Values = { x: 13, y: -2 };
-
-  useEffect(() => {
-    onScrollAnimation("#circleEditorial", "#svgEditorial", circleEditorialValues);
-    onScrollAnimation("#lineEditorialLeft1", "#svgEditorial", lineEditorialLeft1Values);
-    onScrollAnimation("#lineEditorialLeft2", "#svgEditorial", lineEditorialLeft2Values);
-    onScrollAnimation("#lineEditorialLeft3", "#svgEditorial", lineEditorialLeft3Values);
-    onScrollAnimation("#lineEditorialRight1", "#svgEditorial", lineEditorialRight1Values);
-    onScrollAnimation("#lineEditorialRight2", "#svgEditorial", lineEditorialRight2Values);
-    onScrollAnimation("#lineEditorialRight3", "#svgEditorial", lineEditorialRight3Values);
-  }, []);
-
-  const handleMouseEnter = () => {
-    onHoverAnimation("#circleEditorial", circleEditorialValues);
-    onHoverAnimation("#lineEditorialLeft1", lineEditorialLeft1Values);
-    onHoverAnimation("#lineEditorialLeft2", lineEditorialLeft2Values);
-    onHoverAnimation("#lineEditorialLeft3", lineEditorialLeft3Values);
-    onHoverAnimation("#lineEditorialRight1", lineEditorialRight1Values);
-    onHoverAnimation("#lineEditorialRight2", lineEditorialRight2Values);
-    onHoverAnimation("#lineEditorialRight3", lineEditorialRight3Values);
-  };
-
-  const handleMouseLeave = () => {
-    onHoverAnimation("#circleEditorial", { y: 0, x: 0, scale: 1, fill: "#fde0e0" });
-    onHoverAnimation("#lineEditorialLeft1", { x: 0, y: 0 });
-    onHoverAnimation("#lineEditorialLeft2", { x: 0, y: 0 });
-    onHoverAnimation("#lineEditorialLeft3", { x: 0, y: 0 });
-    onHoverAnimation("#lineEditorialRight1", { x: 0, y: 0 });
-    onHoverAnimation("#lineEditorialRight2", { x: 0, y: 0 });
-    onHoverAnimation("#lineEditorialRight3", { x: 0, y: 0 });
-  };
-
   return (
-    <div className="cursor-pointer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="cursor-pointer">
       <svg
         id="svgEditorial"
         xmlns="http://www.w3.org/2000/svg"

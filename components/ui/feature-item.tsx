@@ -3,14 +3,23 @@ import Reveal from "components/ui/animations/reveal";
 
 interface Props {
   icon?: React.ReactNode;
+  hoverHandler?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  scrollHandler?: any;
   title: string;
   content: string;
 }
 
-const FeatureItem: React.FC<Props> = ({ icon, title, content }) => {
+const FeatureItem: React.FC<Props> = ({ icon, hoverHandler, scrollHandler, title, content }) => {
+  React.useEffect(() => {
+    scrollHandler();
+  }, []);
   return (
     <div className="flex w-full md:w-1/2 lg:w-1/3">
-      <div className="my-12 sm:mx-6 xl:mx-12 rounded-xl md:rounded-none shadow-lg md:shadow-none hover:shadow-lg transition duration-500 ease-in-out cursor-pointer">
+      <div
+        className="my-12 sm:mx-6 xl:mx-12 rounded-xl shadow-lg md:shadow-none hover:shadow-lg transition duration-500 ease-in-out cursor-pointer"
+        onMouseEnter={hoverHandler}
+        onMouseLeave={hoverHandler}
+      >
         <Reveal>
           <div className="relative reveal flex flex-col justify-center">
             <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 flex justify-center">

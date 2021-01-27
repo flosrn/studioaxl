@@ -1,9 +1,7 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import { useI18n, I18nProps } from "next-rosetta";
-// import { isMobile } from "react-device-detect";
 import { gsap, Sine } from "gsap";
 
 import Header from "components/ui/header";
@@ -11,26 +9,22 @@ import Arrow from "components/ui/animations/svg-arrow";
 
 import { MyLocale } from "i18n";
 import Footer from "components/ui/footer";
-import TrustItem from "components/ui/trust-item";
 import FeatureItem from "components/ui/feature-item";
-import SvgAdvertasing from "components/ui/animations/services/svg-advertasing";
-import SvgBranding from "components/ui/animations/services/svg-branding";
-import SvgEditorial from "components/ui/animations/services/svg-editorial";
-import SvgWeb from "components/ui/animations/services/svg-web";
-import SvgWrite from "components/ui/animations/services/svg-write";
-import SvgSignage from "components/ui/animations/services/svg-signage";
+import SvgAdvertasing, {
+  svgAdvertasingAnimation,
+} from "components/ui/animations/services/svg-advertasing";
+import SvgBranding, { svgBrandingAnimation } from "components/ui/animations/services/svg-branding";
+import SvgEditorial, {
+  svgEditorialAnimation,
+} from "components/ui/animations/services/svg-editorial";
+import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-web";
+import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
+import SvgSignage, { svgSignageAnimation } from "components/ui/animations/services/svg-signage";
 // import { onScrollAnimation, onScrollPinElementAnimation } from "utils/anims";
 // import { isMobile } from "react-device-detect";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
-
-  // const Empathy = dynamic(() => import("components/ui/animations/desktop/empathy"));
-  const EmpathyMobile = dynamic(() => import("components/ui/animations/mobile/empathy"));
-  // const Meaning = dynamic(() => import("components/ui/animations/desktop/meaning"));
-  const MeaningMobile = dynamic(() => import("components/ui/animations/mobile/meaning"));
-  // const Precision = dynamic(() => import("components/ui/animations/desktop/precision"));
-  const PrecisionMobile = dynamic(() => import("components/ui/animations/mobile/precision"));
 
   function random(min, max) {
     const delta = max - min;
@@ -190,118 +184,103 @@ const HomePage: React.FC = () => {
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              svgBrandingAnimation("onHover", event.type)
+            }
+            scrollHandler={() => svgBrandingAnimation("onScroll")}
           />
           <FeatureItem
             icon={<SvgAdvertasing />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              svgAdvertasingAnimation("onHover", event.type)
+            }
+            scrollHandler={() => svgAdvertasingAnimation("onScroll")}
           />
           <FeatureItem
             icon={<SvgWeb />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              svgWebAnimation("onHover", event.type)
+            }
+            scrollHandler={() => svgWebAnimation("onScroll")}
           />
           <FeatureItem
             icon={<SvgSignage />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              svgSignageAnimation("onHover", event.type)
+            }
+            scrollHandler={() => svgSignageAnimation("onScroll")}
           />
           <FeatureItem
             icon={<SvgWrite />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              svgWriteAnimation("onHover", event.type)
+            }
+            scrollHandler={() => svgWriteAnimation("onScroll")}
           />
           <FeatureItem
             icon={<SvgEditorial />}
             title="Image de marque"
             content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              svgEditorialAnimation("onHover", event.type)
+            }
+            scrollHandler={() => svgEditorialAnimation("onScroll")}
           />
         </div>
       </section>
       {/*
        =================
-       SECTION 3
+       SECTION 4
        =================
        */}
-      <section
-        id="section3"
-        className="mb-96 bg-dark py-12 flex flex-col justify-center items-center"
-      >
-        <div className="flex justify-center items-center mb-10 mx-10">
-          <h3 className="text-center text-5xl md:text-6xl text-white font-sage">
+      <section id="section4" className="mb-96 py-12 flex flex-col justify-center items-center">
+        <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-10">
+          <h3 className="text-center text-5xl md:text-6xl font-sage">
             Pourquoi me faire confiance ?
           </h3>
         </div>
-        <div className="md:w-full">
-          {/* L'empathie */}
-          <div className="w-full flex">
-            <div className="md:w-4/12">
-              <div className="hidden md:flex justify-center items-center">
-                <span className="w-1 h-12 bg-white rounded-md" />
-              </div>
-              <TrustItem
-                // animation={!isMobile ? <Empathy /> : <EmpathyMobile />}
-                animation={<EmpathyMobile />}
-                title="L'empathie"
-                content="L’empathie, c’est se mettre à la place de l’autre. Dans mon métier, je ne cesse en
-              permanence de mettre à la fois à la place de mon client et à la fois à la place de son
-              public pour mieux entendre, comprendre et produire."
-              />
-            </div>
-            <div className="hidden md:flex justify-center items-center md:w-4/12">
-              <span className="w-1 h-full bg-white rounded-md" />
-            </div>
-            <div className="hidden md:flex justify-center items-center md:w-4/12">
-              <span className="w-1 h-full bg-white rounded-md" />
-            </div>
+        <div className="relative flex flex-col items-center md:flex-row justify-around w-full">
+          <div className="relative w-full md:w-1/2 h-80 md:h-156">
+            <Image
+              src="/images/apple.jpg"
+              layout="fill"
+              className="absolute object-cover object-center z-0"
+            />
           </div>
-          {/* Le sens */}
-          <div className="w-full flex">
-            <div className="hidden md:flex justify-center items-center md:w-4/12">
-              <span className="w-1 h-full bg-white rounded-md" />
-            </div>
-            <div className="md:w-4/12">
-              <TrustItem
-                // animation={!isMobile ? <Meaning /> : <MeaningMobile />}
-                animation={<MeaningMobile />}
-                title="Le sens"
-                content="Ma culture, ma veille permanente sur les nouvelles tendances et ma curiosité me
-              poussent à me nourrir sans cesse de ce que je vois, sens et ressens. Cette cohérence
-              nous la créerons ensemble."
-              />
-            </div>
-            <div className="hidden md:flex justify-center items-center md:w-4/12">
-              <span className="w-1 h-full bg-white rounded-md" />
-            </div>
-          </div>
-          {/* La précision */}
-          <div className="w-full flex">
-            <div className="hidden md:flex justify-center items-center md:w-4/12">
-              <span className="w-1 h-full bg-white rounded-md" />
-            </div>
-            <div className="hidden md:flex justify-center items-center md:w-4/12">
-              <span className="w-1 h-full bg-white rounded-md" />
-            </div>
-            <div className="md:w-4/12">
-              <TrustItem
-                // animation={!isMobile ? <Precision /> : <PrecisionMobile />}
-                animation={<PrecisionMobile />}
-                title="La précision"
-                content="Mon goût du détail et du travail qualitatif me pousse
-        en permanence à me remettre en question.
-        Aujourd’hui, j’ai acquis et continue d’acquérir une rapidité
-        d’exécution forte et puissante tout en maintenant
-        un haut seuil d’exigence."
-              />
-              <div className="hidden md:flex justify-center items-center">
-                <span className="w-1 h-12 bg-white rounded-md" />
-              </div>
-            </div>
+          <div className="relative flex flex-col flex-wrap items-center  mx-auto">
+            {/*<div className="">*/}
+            {/*  <FeatureItem*/}
+            {/*    icon={<SvgWrite />}*/}
+            {/*    title="Image de marque"*/}
+            {/*    content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
+            {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
+            {/*  />*/}
+            {/*  <FeatureItem*/}
+            {/*    icon={<SvgWrite />}*/}
+            {/*    title="Image de marque"*/}
+            {/*    content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
+            {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
+            {/*  />*/}
+            {/*  <FeatureItem*/}
+            {/*    icon={<SvgWrite />}*/}
+            {/*    title="Image de marque"*/}
+            {/*    content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
+            {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
+            {/*  />*/}
+            {/*</div>*/}
           </div>
         </div>
       </section>
