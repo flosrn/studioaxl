@@ -47,6 +47,40 @@ html, body {
   overflow-x: hidden
 }
 
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes outAnimation {
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.underline-anim::after {
+  content: "";
+  width: 0;
+  height: 1px;
+  position: absolute;
+  background: #000;
+  bottom: 0;
+  left: 0;
+  transition: all 300ms;
+}
+
+.underline-anim:hover::after {
+  width: 100%;
+}
+
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

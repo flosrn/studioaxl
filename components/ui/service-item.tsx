@@ -16,7 +16,7 @@ const ServiceItem: React.FC<Props> = ({ icon, hoverHandler, scrollHandler, title
   return (
     <div className="flex w-full md:w-1/2 lg:w-1/3">
       <div
-        className="my-12 sm:mx-6 xl:mx-12 rounded-xl shadow-lg md:shadow-none hover:shadow-lg transition duration-500 ease-in-out cursor-pointer"
+        className="my-16 sm:mx-6 xl:mx-12 rounded-sm shadow-card md:shadow-none hover:shadow-card transition duration-500 ease-in-out cursor-pointer"
         onMouseEnter={hoverHandler}
         onMouseLeave={hoverHandler}
       >

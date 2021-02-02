@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+// import dynamic from "next/dynamic";
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import { useI18n, I18nProps } from "next-rosetta";
@@ -21,11 +22,16 @@ import SvgAdvertasing, {
 } from "components/ui/animations/services/svg-advertasing";
 import ValueItem from "components/ui/value-item";
 import SvgSense, { svgSenseAnimation } from "components/ui/animations/values/svg-sense";
-import SvgEmpathie, { svgEmpathieAnimation } from "components/ui/animations/values/svg-empathy";
+import SvgEmpathie, { svgEmpathyAnimation } from "components/ui/animations/values/svg-empathy";
 import SvgPrecision, { svgPrecisionAnimation } from "components/ui/animations/values/svg-precision";
+import useDelayUnmout from "hooks/useDelayUnmout";
+import FullscreenMenu from "components/ui/animations/fullscreen-menu";
+import Cookie from "components/ui/cookie";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const shouldRenderChild = useDelayUnmout(isOpen, 400);
 
   function random(min, max) {
     const delta = max - min;
@@ -67,24 +73,31 @@ const HomePage: React.FC = () => {
     });
   }
 
-  React.useEffect(() => {
-    const circle = document.getElementById("circle");
-    gsap.set(circle, {
-      x: randomX(-1),
-      y: randomX(1),
-      rotation: randomAngle(-1),
-    });
+  // React.useEffect(() => {
+  //   const circle = document.getElementById("circle");
+  //   gsap.set(circle, {
+  //     x: randomX(-1),
+  //     y: randomX(1),
+  //     rotation: randomAngle(-1),
+  //   });
+  //
+  //   moveX(circle, 1);
+  //   moveY(circle, -1);
+  //   rotate(circle, 1);
+  // }, []);
 
-    moveX(circle, 1);
-    moveY(circle, -1);
-    rotate(circle, 1);
-  }, []);
+  const handleToggleClicked = () => {
+    setOpen(!isOpen);
+  };
+
+  // const FullscreenMenu = dynamic(() => import("../components/ui/animations/fullscreen-menu"));
 
   return (
     <div className="bg-white">
-      <Header />
+      <Header openHandler={handleToggleClicked} />
+      {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
       <section className="h-screen flex flex-col justify-center items-center">
-        <div className="relative flex flex-col justify-center text-left w-5/6 sm:w-auto">
+        <div className="relative flex flex-col justify-center text-left w-5/6 sm:w-auto pb-20">
           <h1 className="flex flex-col text-8xl md:flex-row md:text-9xl font-sage">
             <div className="relative">
               <span>Studio</span> <span className="md:ml-2 md:mt-0">axl</span>
@@ -94,20 +107,23 @@ const HomePage: React.FC = () => {
               />
             </div>
           </h1>
-          <h5 className="text-xl tracking-wider -mt-2">{t("home.hero.subtitle")}</h5>
+          <h5 className="text-xl tracking-wider -mt-2 md:-ml-24">{t("home.hero.subtitle")}</h5>
         </div>
-        <div className="absolute -bottom-10 flex justify-center items-center">
+        {/*<div className="absolute bottom-0 flex flex-col justify-center items-center xl:items-start w-full">*/}
+        {/*  <Cookie />*/}
+        {/*</div>*/}
+        <div className="absolute bottom-0 w-full flex justify-center items-start">
           <Arrow />
         </div>
       </section>
       {/*
        =================
-       SECTION 1
+       SECTION 1 - Axelle
        =================
        */}
       <section id="section1" className="flex justify-center items-center py-48">
         <div className="relative flex flex-col items-center md:flex-row-reverse justify-around w-full">
-          <div className="hidden md:block absolute -top-32 left-5 z-10 svgQuotes">
+          <div className="hidden md:block absolute -top-32 -left-14 z-10 svgQuotes">
             <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
               <g data-name="Groupe 72">
                 <path
@@ -134,52 +150,57 @@ const HomePage: React.FC = () => {
               </svg>
             </div>
           </div>
-          <div className="relative w-5/6 sm:w-4/6 md:w-1/2 flex flex-col justify-center md:justify-center md:items-end">
-            <div className="md:hidden absolute left-5 -top-10 z-10">
-              <svg width={79.344} height={82.644} viewBox="0 0 79.344 82.644">
-                <path
-                  d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
-                  transform="translate(-106.954 -302.712)"
-                  fill="#ffebd8"
-                />
-              </svg>
-            </div>
-            <div className="sm:w-full xl:w-2/3 md:pl-20 md:pr-12 lg:pr-16 xl:pr-24 md:-mt-18 text-center md:text-right flex flex-col items-end">
-              <div className="md:w-2/3 mt-10 ">
-                Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
-                d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
+          <div className="relative w-full md:w-1/2 flex justify-center items-center md:justify-end">
+            <div className="w-full md:w-128 flex flex-col justify-center md:justify-center md:items-end">
+              <div className="md:hidden absolute -left-8 -top-14 z-10">
+                <svg width={139.344} height={142.644} viewBox="0 0 79.344 82.644">
+                  <path
+                    d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
+                    transform="translate(-106.954 -302.712)"
+                    fill="#ffebd8"
+                  />
+                </svg>
+              </div>
+              <div className="w-full flex items-center flex-col text-center md:items-end md:text-right md:pr-12 lg:pr-16 xl:pr-24 md:-mt-18">
+                <div className="flex justify-center items-center mt-10">
+                  <span className="font-sage text-6xl">axl</span>
+                </div>
+                <div className="w-10/12 sm:w-8/12 mt-10 tracking-wide">
+                  Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
+                  d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
+                </div>
+
+                <div className="w-10/12 sm:w-8/12 mt-10 text-sm tracking-wide font-light leading-6">
+                  Je fais un métier que j’aime, qui m’anime, me passionne. Cette passion, c’est au
+                  service de l’autre que je souhaite la mettre. Tous les projets méritent de
+                  l’attention et toutes vos demandes la mienne.
+                </div>
+
+                <div className="mt-10 text-xs tracking-wide">
+                  axelle malard . creative freelance
+                </div>
               </div>
 
-              <div className="mt-10 text-sm italic font-light">
-                Je fais un métier que j’aime, qui m’anime, me passionne. Cette passion, c’est au
-                service de l’autre que je souhaite la mettre. Tous les projets méritent de
-                l’attention et toutes vos demandes la mienne.
+              <div className="md:hidden absolute -right-5 -bottom-10 z-10">
+                <svg width={95.079} height={99.033} viewBox="0 0 95.079 99.033">
+                  <path
+                    d="M23.189 50.258L52.82 88.083 38 99.033 0 50.363 38 0l14.71 10.876zm42.274 0l29.616 37.825-14.816 10.95-38-48.67L80.263 0l14.71 10.876z"
+                    fill="#ffebd8"
+                    transform="rotate(180 47.54 49.517)"
+                  />
+                </svg>
               </div>
-
-              <div className="mt-10 text-sm font-bold italic">
-                Axelle Malard, creative freelance
-              </div>
-            </div>
-
-            <div className="md:hidden absolute right-5 -bottom-24 z-10">
-              <svg width={95.079} height={99.033} viewBox="0 0 95.079 99.033">
-                <path
-                  d="M23.189 50.258L52.82 88.083 38 99.033 0 50.363 38 0l14.71 10.876zm42.274 0l29.616 37.825-14.816 10.95-38-48.67L80.263 0l14.71 10.876z"
-                  fill="#ffebd8"
-                  transform="rotate(180 47.54 49.517)"
-                />
-              </svg>
             </div>
           </div>
         </div>
       </section>
       {/*
        =================
-       SECTION 2
+       SECTION 2 - Services
        =================
        */}
       <section id="section2" className="flex justify-center items-center py-48">
-        <div className="flex flex-row flex-wrap w-10/12 sm:w-8/12  md:w-10/12 mx-auto">
+        <div className="flex flex-row flex-wrap w-9/12 sm:w-8/12 md:w-10/12 mx-auto">
           <ServiceItem
             icon={<SvgBranding />}
             title="Image de marque"
@@ -244,7 +265,7 @@ const HomePage: React.FC = () => {
       </section>
       {/*
        =================
-       SECTION 4
+       SECTION 4 - Valeurs
        =================
        */}
       <section id="section4" className="mb-96 py-12 flex flex-col justify-center items-center">
@@ -278,9 +299,9 @@ const HomePage: React.FC = () => {
               content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
           ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
               hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                svgEmpathieAnimation("onHover", event.type)
+                svgEmpathyAnimation("onHover", event.type)
               }
-              scrollHandler={() => svgEmpathieAnimation("onScroll")}
+              scrollHandler={() => svgEmpathyAnimation("onScroll")}
             />
             <ValueItem
               icon={<SvgPrecision />}

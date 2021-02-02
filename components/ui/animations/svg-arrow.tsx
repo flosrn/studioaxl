@@ -26,7 +26,11 @@ const Arrow: React.FC = () => {
   };
 
   return (
-    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      className="absolute -bottom-10"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link activeClass="active" to="section1" smooth duration={1500} className="cursor-pointer">
         <svg viewBox="0 0 219.23 177.55" width="250" height="250">
           <circle id="circleArrow" cx={104.2} cy={97.83} r={17.93} fill="#fde0e0" />
@@ -48,7 +52,7 @@ const Arrow: React.FC = () => {
           />
         </svg>
       </Link>
-      <div id="textArrow" className="hidden sm:block absolute bottom-16 -right-36 opacity-0">
+      <div id="textArrow" className="hidden sm:block absolute bottom-16 -right-36">
         En quoi puis-je vous aider ?
       </div>
     </div>
