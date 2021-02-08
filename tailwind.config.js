@@ -21,6 +21,7 @@ module.exports = {
       colors: {
         gold: "#FCDBBD",
         rose: "#FFEBD8",
+        pink: "#FDE0E0",
         dark: "#242323",
       },
       width: {

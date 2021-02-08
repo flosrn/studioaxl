@@ -26,7 +26,9 @@ import SvgEmpathie, { svgEmpathyAnimation } from "components/ui/animations/value
 import SvgPrecision, { svgPrecisionAnimation } from "components/ui/animations/values/svg-precision";
 import useDelayUnmout from "hooks/useDelayUnmout";
 import FullscreenMenu from "components/ui/animations/fullscreen-menu";
-import Cookie from "components/ui/cookie";
+import FormationItem from "components/ui/formation-item";
+import SvgLisaa from "components/ui/svg/svg-lisaa";
+// import Cookie from "components/ui/cookie";
 
 const HomePage: React.FC = () => {
   const { t } = useI18n<MyLocale>();
@@ -73,18 +75,18 @@ const HomePage: React.FC = () => {
     });
   }
 
-  // React.useEffect(() => {
-  //   const circle = document.getElementById("circle");
-  //   gsap.set(circle, {
-  //     x: randomX(-1),
-  //     y: randomX(1),
-  //     rotation: randomAngle(-1),
-  //   });
-  //
-  //   moveX(circle, 1);
-  //   moveY(circle, -1);
-  //   rotate(circle, 1);
-  // }, []);
+  React.useEffect(() => {
+    const circle = document.getElementById("circle");
+    gsap.set(circle, {
+      x: randomX(-1),
+      y: randomX(1),
+      rotation: randomAngle(-1),
+    });
+
+    moveX(circle, 1);
+    moveY(circle, -1);
+    rotate(circle, 1);
+  }, []);
 
   const handleToggleClicked = () => {
     setOpen(!isOpen);
@@ -200,7 +202,7 @@ const HomePage: React.FC = () => {
        =================
        */}
       <section id="section2" className="flex justify-center items-center py-48">
-        <div className="flex flex-row flex-wrap w-9/12 sm:w-8/12 md:w-10/12 mx-auto">
+        <div className="flex flex-row flex-wrap w-9/12 sm:w-8/12 md:w-8/12 mx-auto">
           <ServiceItem
             icon={<SvgBranding />}
             title="Image de marque"
@@ -268,11 +270,11 @@ const HomePage: React.FC = () => {
        SECTION 4 - Valeurs
        =================
        */}
-      <section id="section4" className="mb-96 py-12 flex flex-col justify-center items-center">
+      <section id="section4" className="mb-56 py-12 flex flex-col justify-center items-center">
         <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-10">
-          <h3 className="text-center text-5xl md:text-6xl font-sage">
+          <h2 className="text-center text-5xl md:text-6xl font-sage">
             Pourquoi me faire confiance ?
-          </h3>
+          </h2>
         </div>
         <div className="relative flex flex-col items-center lg:flex-row justify-around w-full mt-10">
           <div className="relative w-full lg:w-1/2 h-80 lg:h-screen">
@@ -312,6 +314,87 @@ const HomePage: React.FC = () => {
                 svgPrecisionAnimation("onHover", event.type)
               }
               scrollHandler={() => svgPrecisionAnimation("onScroll")}
+            />
+          </div>
+        </div>
+      </section>
+      {/*
+       =================
+       SECTION 5 - Formations
+       =================
+       */}
+      <section id="section4" className="mb-56 py-12 flex flex-col x-12">
+        <div className="flex flex-col justify-center items-center xl:w-8/12 mx-auto">
+          <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-32">
+            <h2 className="w-full text-center text-5xl md:text-6xl font-sage">Studio axl ?</h2>
+          </div>
+          <div className="relative w-full flex flex-col justify-center items-center md:justify-start ">
+            <div className="absolute left-12 -top-12 md:-left-24 md:-top-24 w-20 h-20 md:w-36 md:h-36 rounded-full opacity-75 bg-pink backdrop-blur" />
+            <span className="w-full font-sage text-center md:text-left text-3xl md:text-5xl">
+              Axelle Malard
+            </span>
+            <span className="w-full font-sage text-center md:text-left text-3xl md:justify-start md:text-5xl mt-3">
+              une Directrice Artistique
+            </span>
+          </div>
+          <div className="w-full flex mt-24">
+            <div className="w-full md:w-1/2">
+              <Image src="/images/AxelleMobile-light.jpg" width={544} height={576} />
+            </div>
+            <div className="hidden md:flex w-full items-center md:w-1/2 pl-10">
+              <div className="w-full">
+                <h3 className="w-full py-10 text-7xl font-sage">Écoute</h3>
+                <h3 className="w-full py-10 text-7xl font-sage text-right">Sourire</h3>
+                <h3 className="w-full py-10 text-7xl font-sage">Singularité</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center xl:w-8/12 mx-auto mt-20">
+          <div className="px-10 xl:px-0">
+            <FormationItem
+              date="2018-2020"
+              diploma="Mastère Direction Artistique Numérique"
+              school="Institut Supérieur des Arts Appliqués . Toulouse"
+              contract="Contrat professionnel - Graphic Designer"
+              society="Newrest Group International"
+              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
+et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
+en terme de graphisme, d’espace et d’ambiance."
+              logo={<SvgLisaa />}
+            />
+            <FormationItem
+              date="2018-2020"
+              diploma="Mastère Direction Artistique Numérique"
+              school="Institut Supérieur des Arts Appliqués . Toulouse"
+              contract="Contrat professionnel - Graphic Designer"
+              society="Newrest Group International"
+              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
+et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
+en terme de graphisme, d’espace et d’ambiance."
+              logo={<SvgLisaa />}
+            />
+            <FormationItem
+              date="2018-2020"
+              diploma="Mastère Direction Artistique Numérique"
+              school="Institut Supérieur des Arts Appliqués . Toulouse"
+              contract="Contrat professionnel - Graphic Designer"
+              society="Newrest Group International"
+              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
+et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
+en terme de graphisme, d’espace et d’ambiance."
+              logo={<SvgLisaa />}
+            />
+            <FormationItem
+              date="2018-2020"
+              diploma="Mastère Direction Artistique Numérique"
+              school="Institut Supérieur des Arts Appliqués . Toulouse"
+              contract="Contrat professionnel - Graphic Designer"
+              society="Newrest Group International"
+              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
+et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
+en terme de graphisme, d’espace et d’ambiance."
+              logo={<SvgLisaa />}
             />
           </div>
         </div>

@@ -50,7 +50,7 @@ const Header: React.FC<Props> = ({ openHandler, isLoading }) => {
         </ScrollLink>
         <ScrollLink
           activeClass="active"
-          to="section1"
+          to="section2"
           smooth
           duration={1500}
           className="cursor-pointer"
@@ -59,7 +59,7 @@ const Header: React.FC<Props> = ({ openHandler, isLoading }) => {
         </ScrollLink>
         <ScrollLink
           activeClass="active"
-          to="section1"
+          to="section3"
           smooth
           duration={1500}
           className="cursor-pointer"
@@ -68,7 +68,7 @@ const Header: React.FC<Props> = ({ openHandler, isLoading }) => {
         </ScrollLink>
         <ScrollLink
           activeClass="active"
-          to="section1"
+          to="section4"
           smooth
           duration={1500}
           className="cursor-pointer"
@@ -77,7 +77,7 @@ const Header: React.FC<Props> = ({ openHandler, isLoading }) => {
         </ScrollLink>
         <ScrollLink
           activeClass="active"
-          to="section1"
+          to="section5"
           smooth
           duration={1500}
           className="cursor-pointer"
