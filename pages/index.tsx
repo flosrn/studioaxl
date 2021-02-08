@@ -28,6 +28,7 @@ import useDelayUnmout from "hooks/useDelayUnmout";
 import FullscreenMenu from "components/ui/animations/fullscreen-menu";
 import FormationItem from "components/ui/formation-item";
 import SvgLisaa from "components/ui/svg/svg-lisaa";
+import RelationItem from "components/ui/relation-item";
 // import Cookie from "components/ui/cookie";
 
 const HomePage: React.FC = () => {
@@ -397,6 +398,53 @@ en terme de graphisme, d’espace et d’ambiance."
               logo={<SvgLisaa />}
             />
           </div>
+        </div>
+      </section>
+      {/*
+       =================
+       SECTION 6 - Relations
+       =================
+       */}
+      <section
+        id="section4"
+        className="flex justify-center items-center flex-col mb-56 py-12 flex flex-col x-12"
+      >
+        <div className="flex flex-col justify-center items-center xl:w-8/12 mx-auto">
+          <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-32">
+            <h2 className="w-full text-center text-5xl md:text-6xl font-sage">
+              Des relations finement choisies
+            </h2>
+          </div>
+        </div>
+        <div className="w-full xl:w-2/3 lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto">
+          <RelationItem
+            domain="web"
+            picturePath="/images/flosrn-small.png"
+            name="Florian Séran"
+            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
+            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+          />
+          <RelationItem
+            domain="web"
+            picturePath="/images/flosrn-small.png"
+            name="Florian Séran"
+            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
+            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+          />
+          <RelationItem
+            domain="web"
+            picturePath="/images/flosrn-small.png"
+            name="Florian Séran"
+            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
+            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+          />
+          <RelationItem
+            domain="web"
+            picturePath="/images/flosrn-small.png"
+            name="Florian Séran"
+            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
+            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+          />
         </div>
       </section>
       <Footer />
