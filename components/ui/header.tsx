@@ -41,22 +41,14 @@ const Header: React.FC<Props> = ({ openHandler, isLoading }) => {
       <div className="hidden md:flex space-x-10 text-sm">
         <ScrollLink
           activeClass="active"
-          to="section1"
+          to="section2"
           smooth
           duration={1500}
           className="cursor-pointer"
         >
           Services
         </ScrollLink>
-        <ScrollLink
-          activeClass="active"
-          to="section2"
-          smooth
-          duration={1500}
-          className="cursor-pointer"
-        >
-          Valeurs
-        </ScrollLink>
+
         <ScrollLink
           activeClass="active"
           to="section3"
@@ -73,11 +65,29 @@ const Header: React.FC<Props> = ({ openHandler, isLoading }) => {
           duration={1500}
           className="cursor-pointer"
         >
-          À propos
+          Valeurs
         </ScrollLink>
         <ScrollLink
           activeClass="active"
           to="section5"
+          smooth
+          duration={1500}
+          className="cursor-pointer"
+        >
+          Formations
+        </ScrollLink>
+        <ScrollLink
+          activeClass="active"
+          to="section6"
+          smooth
+          duration={1500}
+          className="cursor-pointer"
+        >
+          Relations
+        </ScrollLink>
+        <ScrollLink
+          activeClass="active"
+          to="section7"
           smooth
           duration={1500}
           className="cursor-pointer"

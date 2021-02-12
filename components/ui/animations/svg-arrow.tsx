@@ -1,6 +1,25 @@
 import React, { useEffect } from "react";
 import { Link } from "react-scroll";
-import { onHoverAnimation, onScrollAnimation } from "utils/anims";
+import { isMobile } from "react-device-detect";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+const onScrollAnimation = (target: string, trigger: string, values: any) => {
+  if (isMobile) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const gspaValues = values;
+    gspaValues.scrollTrigger = {
+      trigger,
+      toggleActions: "play none none reverse",
+    };
+    return gsap.to(target, gspaValues);
+  }
+};
+
+const onHoverAnimation = (target: string, values: any) => {
+  return gsap.to(target, values);
+};
 
 const Arrow: React.FC = () => {
   const arrowValues = { y: 30 };

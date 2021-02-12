@@ -9,13 +9,13 @@
 @font-face {
   font-family: 'Futura';
   font-weight: 400;
-  src: local('Sage'), url('../public/fonts/Futura-Med.otf') format('otf');
+  src: local('Futura'), url('../public/fonts/Futura-Med.otf') format('otf');
 }
 
 @font-face {
   font-family: 'Futura';
   font-weight: 400;
-  src: local('Sage'), url('../public/fonts/Futura-Med.ttf') format('ttf');
+  src: local('Futura'), url('../public/fonts/Futura-Med.ttf') format('ttf');
 }
 
 @font-face {

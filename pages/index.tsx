@@ -29,6 +29,7 @@ import FullscreenMenu from "components/ui/animations/fullscreen-menu";
 import FormationItem from "components/ui/formation-item";
 import SvgLisaa from "components/ui/svg/svg-lisaa";
 import RelationItem from "components/ui/relation-item";
+import { horizontalScrollAnimation } from "utils/anims";
 // import Cookie from "components/ui/cookie";
 
 const HomePage: React.FC = () => {
@@ -89,6 +90,104 @@ const HomePage: React.FC = () => {
     rotate(circle, 1);
   }, []);
 
+  React.useEffect(() => {
+    const projects1 = document.getElementById("projects1");
+    const projects2 = document.getElementById("projects2");
+    const projects3 = document.getElementById("projects3");
+
+    const containerWidth1 = projects1.offsetWidth + 900;
+    const containerWidth2 = projects2.offsetWidth + 1200;
+    const containerWidth3 = projects3.offsetWidth + 1200;
+
+    horizontalScrollAnimation(projects1, containerWidth1, 0.6);
+    horizontalScrollAnimation(projects2, containerWidth2, 0.7);
+    horizontalScrollAnimation(projects3, containerWidth3, 0.8);
+
+    const section = document.getElementById("section4");
+    gsap.to(section, {
+      ease: "none",
+      scrollTrigger: {
+        trigger: projects1,
+        start: "center top+=200",
+        end: () => `+=${containerWidth3}`,
+        // endTrigger: "#section5",
+        // markers: true,
+        pin: section,
+      },
+    });
+  }, []);
+
+  const wordAnim = (word: HTMLElement, pos: number) => {
+    (function () {
+      const blurProperty: string = gsap.utils.checkPrefix("filter");
+      const blurExp = /blur\((.+)?px\)/;
+      const getBlurMatch = (target) => {
+        const test: string | number = gsap.getProperty(target, blurProperty) || "";
+        if (typeof test !== "number") {
+          return test.match(blurExp) || [];
+        }
+      };
+      gsap.registerPlugin({
+        name: "blur",
+        get(target) {
+          return +getBlurMatch(target)[1] || 0;
+        },
+        init(target, endValue) {
+          let data = this;
+          let filter = gsap.getProperty(target, blurProperty);
+          const endBlur = `blur(${endValue}px)`;
+          const match = getBlurMatch(target)[0];
+          let index;
+          if (filter === "none") {
+            filter = "";
+          }
+          if (match && typeof filter !== "number") {
+            index = filter.indexOf(match);
+            endValue = filter.substr(0, index) + endBlur + filter.substr(index + match.length);
+          } else {
+            endValue = filter + endBlur;
+            filter += filter ? " blur(0px)" : "blur(0px)";
+          }
+          data.target = target;
+          data.interp = gsap.utils.interpolate(filter, endValue);
+        },
+        render(progress, data) {
+          data.target.style[blurProperty] = data.interp(progress);
+        },
+      });
+    })();
+
+    gsap.from(word, {
+      opacity: 0,
+      blur: 8,
+      duration: 2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: word,
+        start: `top center+=${pos}px`,
+        end: "bottom center",
+        scrub: true,
+      },
+    });
+  };
+
+  React.useEffect(() => {
+    const word1 = document.getElementById("word1");
+    const word2 = document.getElementById("word2");
+    const word3 = document.getElementById("word3");
+    const word4 = document.getElementById("word4");
+    const word5 = document.getElementById("word5");
+    const word6 = document.getElementById("word6");
+    const word7 = document.getElementById("word7");
+    wordAnim(word1, 100);
+    wordAnim(word2, 250);
+    wordAnim(word3, 300);
+    wordAnim(word4, 450);
+    wordAnim(word5, 600);
+    wordAnim(word6, 750);
+    wordAnim(word7, 900);
+  }, []);
+
   const handleToggleClicked = () => {
     setOpen(!isOpen);
   };
@@ -110,11 +209,13 @@ const HomePage: React.FC = () => {
               />
             </div>
           </h1>
-          <h5 className="text-xl tracking-wider -mt-2 md:-ml-24">{t("home.hero.subtitle")}</h5>
+          <h5 className="text-xl font-futura tracking-wider -mt-2 md:-ml-24">
+            {t("home.hero.subtitle")}
+          </h5>
         </div>
-        {/*<div className="absolute bottom-0 flex flex-col justify-center items-center xl:items-start w-full">*/}
+        {/* <div className="absolute bottom-0 flex flex-col justify-center items-center xl:items-start w-full">*/}
         {/*  <Cookie />*/}
-        {/*</div>*/}
+        {/* </div>*/}
         <div className="absolute bottom-0 w-full flex justify-center items-start">
           <Arrow />
         </div>
@@ -268,24 +369,84 @@ const HomePage: React.FC = () => {
       </section>
       {/*
        =================
-       SECTION 4 - Valeurs
+       SECTION 3 - projets
        =================
        */}
       <section id="section4" className="mb-56 py-12 flex flex-col justify-center items-center">
         <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-10">
-          <h2 className="text-center text-5xl md:text-6xl font-sage">
+          <h2 id="titleSection4" className="text-center text-5xl md:text-6xl font-sage">
+            Projets
+          </h2>
+        </div>
+        <div className="w-10/12">
+          <div className="mt-20 space-y-10">
+            <div id="projects1" className="ml-56 space-x-5 whitespace-nowrap">
+              <div className="rounded-5xl bg-purple-500 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-gray-500 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-yellow-700 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-red-200 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-200 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-blue-300 w-156 h-56 inline-flex" />
+            </div>
+            <div id="projects2" className="space-x-5 whitespace-nowrap">
+              <div className="rounded-5xl bg-purple-200 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-gray-500 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-yellow-700 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-red-200 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-200 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-200 w-156 h-56 inline-flex" />
+            </div>
+            <div id="projects3" className="ml-36 space-x-5 whitespace-nowrap">
+              <div className="rounded-5xl bg-indigo-500 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-gray-500 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-900 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-yellow-500 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-900 w-156 h-56 inline-flex" />
+              <div className="rounded-5xl bg-blue-400 w-156 h-56 inline-flex" />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*
+       =================
+       SECTION 4 - Valeurs
+       =================
+       */}
+      <section id="section4" className="mb-56 py-12 flex flex-col justify-center items-center">
+        <div className="flex justify-center items-center w-10/12 sm:w-2/3 mb-10">
+          <h2 className="text-center text-5xl md:text-7xl font-sage">
             Pourquoi me faire confiance ?
           </h2>
         </div>
-        <div className="relative flex flex-col items-center lg:flex-row justify-around w-full mt-10">
-          <div className="relative w-full lg:w-1/2 h-80 lg:h-screen">
-            <Image
-              src="/images/apple.jpg"
-              layout="fill"
-              className="absolute object-cover object-center z-0"
-            />
+        <div className="relative flex flex-col items-center justify-around w-full mt-10">
+          <div className="flex flex-col justify-center items-center w-full">
+            <div className="flex justify-center items-center flex-wrap mt-24 w-full space-x-36">
+              <span id="word1" className="font-sage text-7xl mb-20">
+                Histoire
+              </span>
+              <span id="word2" className="font-sage text-4xl">
+                Conseil
+              </span>
+              <span id="word3" className="font-sage text-5xl mb-10">
+                Flexibilité
+              </span>
+            </div>
+            <div className="flex justify-center items-center flex-wrap mt-12 mb-56 w-full space-x-24">
+              <span id="word4" className="font-sage text-6xl -mb-32">
+                Confiance
+              </span>
+              <span id="word5" className="font-sage text-3xl">
+                Écoute
+              </span>
+              <span id="word6" className="font-sage text-5xl mb-10">
+                Finesse
+              </span>
+              <span id="word7" className="font-sage text-7xl mt-20">
+                Concept
+              </span>
+            </div>
           </div>
-          <div className="relative flex flex-col flex-wrap items-center justify-center w-10/12 lg:w-1/2 mx-auto mt-12">
+          <div className="relative flex flex-row flex-wrap items-center justify-center w-10/12 mx-auto mt-12">
             <ValueItem
               icon={<SvgSense />}
               title="Image de marque"
@@ -310,7 +471,7 @@ const HomePage: React.FC = () => {
               icon={<SvgPrecision />}
               title="Image de marque"
               content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
               hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
                 svgPrecisionAnimation("onHover", event.type)
               }

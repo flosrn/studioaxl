@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         .merci de votre visite
       </div>
       <div className="inline-block absolute bottom-2 left-6 md:left-12">
-        <svg viewBox="0 0 465.65 187.68" width="100%" height="100%">
+        <svg viewBox="0 0 465.65 187.68" width="30%" height="100%" style={{ maxWidth: 800 }}>
           <text
             transform="translate(150.69 174.09)"
             fontSize={50}
@@ -46,13 +46,16 @@ const Footer: React.FC = () => {
       </div>
       <div className="w-full flex flex-col items-end lg:flex-row lg:justify-end space-x-16">
         <Link href="/">
-          <a className="relative underline-anim">Mentions légales</a>
+          <a className="relative text-xs sm:text-sm md:text-md underline-anim">Mentions légales</a>
         </Link>
-        <a className="relative mt-4 underline-anim" href="mailto:studioaxl@gmail.com">
+        <a
+          className="relative mt-4 text-xs sm:text-sm md:text-md underline-anim"
+          href="mailto:studioaxl@gmail.com"
+        >
           studioaxl@gmail.com
         </a>
         <a
-          className="relative mt-4 underline-anim"
+          className="relative mt-4 text-xs sm:text-sm md:text-md underline-anim"
           href="www.linkedin.com/in/axelle-malard"
           target="_blank"
         >

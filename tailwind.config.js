@@ -15,6 +15,7 @@ module.exports = {
         mono: ["Futura"],
         display: ["Futura"],
         body: ["Futura"],
+        futura: ["Futura"],
         sage: ["Sage"],
         alegreya: ["Alegreya"],
       },
@@ -26,6 +27,7 @@ module.exports = {
       },
       width: {
         128: "32rem",
+        156: "42rem",
         "cookie-max": "28.125rem",
       },
       height: (theme) => ({
@@ -41,6 +43,9 @@ module.exports = {
         header: "0px 10px 50px rgba(0, 0, 0, 0.03)",
         card: "0px 5px 20px rgba(0, 0, 0, 0.05)",
         cookie: "0px 0px 10px rgba(0, 0, 0, 0.08)",
+      },
+      borderRadius: {
+        "5xl": "2.5rem",
       },
       zIndex: {
         negative: -1,
