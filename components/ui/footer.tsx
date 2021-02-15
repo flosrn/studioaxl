@@ -5,20 +5,20 @@ const Footer: React.FC = () => {
   return (
     <section
       id="section5"
-      className="relative flex flex-col justify-center items-center pb-2 px-6 md:px-12"
+      className="relative flex flex-col justify-center items-center pb-2 md:pb-14 px-6 md:px-12"
     >
       <h2 className="text-center font-sage text-4xl sm:text-5xl">Contactez-moi !</h2>
       <a
-        className="relative text-center font-sage text-4xl sm:text-5xl mt-20 underline-anim"
+        className="relative text-center font-sage text-4xl sm:text-7xl lg:text-8xl mt-20 underline-anim"
         href="mailto:studioaxl@gmail.com"
       >
         studioaxl@gmail.com
       </a>
-      <div className="w-full text-left lg:text-right text-4xl sm:text-5xl mt-56 mb-48">
+      <div className="w-full text-left lg:text-right text-3xl sm:text-4xl mt-56 mb-48">
         .merci de votre visite
       </div>
-      <div className="inline-block absolute bottom-2 left-6 md:left-12">
-        <svg viewBox="0 0 465.65 187.68" width="30%" height="100%" style={{ maxWidth: 800 }}>
+      <div className="inline-block absolute bottom-1 md:bottom-14 left-6 md:left-12">
+        <svg viewBox="0 0 465.65 187.68" height="100%" className="w-32 sm:w-56 xl:w-128 ">
           <text
             transform="translate(150.69 174.09)"
             fontSize={50}

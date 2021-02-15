@@ -1,1 +1,1 @@
-export const dashboardURL = "http://localhost:1337";
+export const dashboardURL = process.env.NEXT_PUBLIC_API_URL;

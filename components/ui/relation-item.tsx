@@ -15,7 +15,7 @@ const RelationItem: React.FC<Props> = ({ domain, picturePath, name, desc, conten
       <div className="w-96">
         <div className="text-center capitalize">{domain}</div>
         <div className="flex justify-center items-center mt-5 mb-3">
-          <Image src={picturePath} alt={name} width={100} height={100} className="rounded-full" />
+          <Image src={picturePath} alt={name} width={140} height={140} className="rounded-full" />
         </div>
         <div className="w-full text-center text-5xl font-sage">{name}</div>
         <div className="w-full text-center text-lg mt-4">{desc}</div>

@@ -30,9 +30,16 @@ import FormationItem from "components/ui/formation-item";
 import SvgLisaa from "components/ui/svg/svg-lisaa";
 import RelationItem from "components/ui/relation-item";
 import { horizontalScrollAnimation } from "utils/anims";
+import { getAllProjectsForHome } from "lib/api";
+import { dashboardURL } from "utils/constants";
+import Link from "next/link";
 // import Cookie from "components/ui/cookie";
 
-const HomePage: React.FC = () => {
+interface Props {
+  allProjects: any;
+}
+
+const HomePage: React.FC<Props> = ({ allProjects }) => {
   const { t } = useI18n<MyLocale>();
   const [isOpen, setOpen] = useState<boolean>(false);
   const shouldRenderChild = useDelayUnmout(isOpen, 400);
@@ -96,8 +103,8 @@ const HomePage: React.FC = () => {
     const projects3 = document.getElementById("projects3");
 
     const containerWidth1 = projects1.offsetWidth + 900;
-    const containerWidth2 = projects2.offsetWidth + 1200;
-    const containerWidth3 = projects3.offsetWidth + 1200;
+    const containerWidth2 = projects2.offsetWidth;
+    const containerWidth3 = projects3.offsetWidth;
 
     horizontalScrollAnimation(projects1, containerWidth1, 0.6);
     horizontalScrollAnimation(projects2, containerWidth2, 0.7);
@@ -317,9 +324,8 @@ const HomePage: React.FC = () => {
           />
           <ServiceItem
             icon={<SvgAdvertasing />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            title="Publicité"
+            content="Vous souhaitez promouvoir votre projet ? Réalisons une multitude de supports imprimés et numériques : flyer, cartes de visite, visuels destinés aux réseaux sociaux…"
             hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
               svgAdvertasingAnimation("onHover", event.type)
             }
@@ -327,9 +333,8 @@ const HomePage: React.FC = () => {
           />
           <ServiceItem
             icon={<SvgWeb />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            title="Design web  . mobile"
+            content="Vous souhaitez une interface ergonomique en accord avec votre identité visuelle ? Les tendances évoluent sans cesse, trouvons alors votre propre tonalité."
             hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
               svgWebAnimation("onHover", event.type)
             }
@@ -337,9 +342,8 @@ const HomePage: React.FC = () => {
           />
           <ServiceItem
             icon={<SvgSignage />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            title="Signalétique . espaces"
+            content="Vous souhaitez donner vie à vos espaces ? De la signalétique intérieur à extérieur à la création de supports promotionnels, audio ou vidéo, nous créerons ensemble le bon support."
             hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
               svgSignageAnimation("onHover", event.type)
             }
@@ -347,9 +351,8 @@ const HomePage: React.FC = () => {
           />
           <ServiceItem
             icon={<SvgWrite />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            title="Design éditorial"
+            content="Vous avez l’envie de mettre en page vos créations, promouvoir votre entreprise, partager un évènement sous forme de livrets ou formes particulières ? Allons-y !"
             hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
               svgWriteAnimation("onHover", event.type)
             }
@@ -357,9 +360,8 @@ const HomePage: React.FC = () => {
           />
           <ServiceItem
             icon={<SvgEditorial />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+            title="Rédaction . corrections"
+            content="Je propose la vérification et création de contenu rédactionnel pour que vos supports aient du sens dans leur fond comme dans leur forme."
             hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
               svgEditorialAnimation("onHover", event.type)
             }
@@ -380,29 +382,38 @@ const HomePage: React.FC = () => {
         </div>
         <div className="w-10/12">
           <div className="mt-20 space-y-10">
-            <div id="projects1" className="ml-56 space-x-5 whitespace-nowrap">
-              <div className="rounded-5xl bg-purple-500 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-gray-500 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-yellow-700 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-red-200 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-200 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-blue-300 w-156 h-56 inline-flex" />
+            <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">
+              <Link href="/">
+                <a>
+                  <div
+                    className="rounded-5xl bg-purple-500 w-128 h-56 inline-flex cursor-pointer"
+                    style={{
+                      background: `url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url})`,
+                    }}
+                  />
+                </a>
+              </Link>
+              <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />
+              {/*<div className="rounded-5xl bg-blue-300 w-128 h-56 inline-flex" />*/}
             </div>
-            <div id="projects2" className="space-x-5 whitespace-nowrap">
-              <div className="rounded-5xl bg-purple-200 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-gray-500 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-yellow-700 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-red-200 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-200 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-200 w-156 h-56 inline-flex" />
+            <div id="projects2" className="space-x-12 whitespace-nowrap">
+              <div className="rounded-5xl bg-purple-200 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />
+              {/*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*/}
+              {/*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*/}
             </div>
-            <div id="projects3" className="ml-36 space-x-5 whitespace-nowrap">
-              <div className="rounded-5xl bg-indigo-500 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-gray-500 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-900 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-yellow-500 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-900 w-156 h-56 inline-flex" />
-              <div className="rounded-5xl bg-blue-400 w-156 h-56 inline-flex" />
+            <div id="projects3" className="ml-36 space-x-12 whitespace-nowrap">
+              <div className="rounded-5xl bg-indigo-500 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-green-900 w-128 h-56 inline-flex" />
+              <div className="rounded-5xl bg-yellow-500 w-128 h-56 inline-flex" />
+              {/*<div className="rounded-5xl bg-green-900 w-w-128 h-56 inline-flex" />*/}
+              {/*<div className="rounded-5xl bg-blue-400 w-w-128 h-56 inline-flex" />*/}
             </div>
           </div>
         </div>
@@ -419,29 +430,29 @@ const HomePage: React.FC = () => {
           </h2>
         </div>
         <div className="relative flex flex-col items-center justify-around w-full mt-10">
-          <div className="flex flex-col justify-center items-center w-full">
-            <div className="flex justify-center items-center flex-wrap mt-24 w-full space-x-36">
-              <span id="word1" className="font-sage text-7xl mb-20">
+          <div className="flex flex-col justify-center items-center w-full px-12">
+            <div className="flex justify-center items-center flex-col md:flex-row md:justify-center md:items-center flex-wrap md:mt-24 w-full space-y-6 md:space-x-36">
+              <span id="word1" className="font-sage text-5xl md:text-7xl md:mb-20">
                 Histoire
               </span>
-              <span id="word2" className="font-sage text-4xl">
+              <span id="word2" className="font-sage text-5xl md:text-4xl">
                 Conseil
               </span>
-              <span id="word3" className="font-sage text-5xl mb-10">
+              <span id="word3" className="font-sage text-5xl md:text-5xl md:mb-10">
                 Flexibilité
               </span>
             </div>
-            <div className="flex justify-center items-center flex-wrap mt-12 mb-56 w-full space-x-24">
-              <span id="word4" className="font-sage text-6xl -mb-32">
+            <div className="flex justify-center items-center flex-col md:flex-row md:justify-center md:items-center flex-wrap mt-6 md:mt-12  mb-12 md:mb-56 w-full space-y-6 md:space-x-24">
+              <span id="word4" className="font-sage text-5xl md:text-6xl md:-mb-32">
                 Confiance
               </span>
-              <span id="word5" className="font-sage text-3xl">
+              <span id="word5" className="font-sage text-5xl md:text-3xl">
                 Écoute
               </span>
-              <span id="word6" className="font-sage text-5xl mb-10">
+              <span id="word6" className="font-sage text-5xl md:text-5xl md:mb-10">
                 Finesse
               </span>
-              <span id="word7" className="font-sage text-7xl mt-20">
+              <span id="word7" className="font-sage text-5xl md:text-7xl md:mt-20">
                 Concept
               </span>
             </div>
@@ -449,9 +460,8 @@ const HomePage: React.FC = () => {
           <div className="relative flex flex-row flex-wrap items-center justify-center w-10/12 mx-auto mt-12">
             <ValueItem
               icon={<SvgSense />}
-              title="Image de marque"
-              content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+              title="Le sens"
+              content="Je fais mon métier pour donner du sens à ce que je fais. Tant dans le fond, que dans la forme. Ensemble, nous créerons notre propre harmonie."
               hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
                 svgSenseAnimation("onHover", event.type)
               }
@@ -459,9 +469,8 @@ const HomePage: React.FC = () => {
             />
             <ValueItem
               icon={<SvgEmpathie />}
-              title="Image de marque"
-              content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+              title="L'empathie"
+              content="L’empathie, c’est se mettre à la place de l’autre. Je ne cesse en permanence de me mettre à la fois à la place de mon client et à la fois à la place de son public."
               hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
                 svgEmpathyAnimation("onHover", event.type)
               }
@@ -469,9 +478,8 @@ const HomePage: React.FC = () => {
             />
             <ValueItem
               icon={<SvgPrecision />}
-              title="Image de marque"
-              content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-            ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
+              title="La précision"
+              content="Mon goût du détail et du travail qualitatif me pousse en permanence à me remettre en question. J’ai acquis une rapidité d’exécution forte et puissante en maintenant un haut seuil d’exigence."
               hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
                 svgPrecisionAnimation("onHover", event.type)
               }
@@ -527,35 +535,25 @@ en terme de graphisme, d’espace et d’ambiance."
             />
             <FormationItem
               date="2018-2020"
-              diploma="Mastère Direction Artistique Numérique"
+              diploma="Bachelor Concepteur Designer Graphique"
               school="Institut Supérieur des Arts Appliqués . Toulouse"
               contract="Contrat professionnel - Graphic Designer"
               society="Newrest Group International"
-              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
-et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
-en terme de graphisme, d’espace et d’ambiance."
+              textDescription="Pendant cette année, j’ai affiné ma technique au service de différents projets graphiques tout en continuant d’appliquer mes connaissances et de continuer ma formation au sein de l’entreprise Newrest. "
               logo={<SvgLisaa />}
             />
             <FormationItem
-              date="2018-2020"
-              diploma="Mastère Direction Artistique Numérique"
-              school="Institut Supérieur des Arts Appliqués . Toulouse"
-              contract="Contrat professionnel - Graphic Designer"
-              society="Newrest Group International"
-              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
-et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
-en terme de graphisme, d’espace et d’ambiance."
+              date="2015-2017"
+              diploma="BTS Design Graphique opt. Imprimé"
+              school="Lycée des Arènes . Toulouse"
+              textDescription="Ces deux années m’ont enseignées à penser, donner du sens à mes projets avant de passer à l’action. Piliers, elles m’ont donnés l’essence du métier de designer graphique."
               logo={<SvgLisaa />}
             />
             <FormationItem
-              date="2018-2020"
-              diploma="Mastère Direction Artistique Numérique"
-              school="Institut Supérieur des Arts Appliqués . Toulouse"
-              contract="Contrat professionnel - Graphic Designer"
-              society="Newrest Group International"
-              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
-et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
-en terme de graphisme, d’espace et d’ambiance."
+              date="2014-2015"
+              diploma="Mise à Niveau en Arts Appliqués"
+              school="Lycée des Arènes . Toulouse"
+              textDescription="Après un BAC Economique et Social, une mise à niveau est nécessaire pour rentrer dans le monde des Arts Appliqués. Cette formation a été le pilier de mon parcours. C’est grâce à elle que j’ai compris l’idée de «concept», de fond et de sens."
               logo={<SvgLisaa />}
             />
           </div>
@@ -582,29 +580,29 @@ en terme de graphisme, d’espace et d’ambiance."
             domain="web"
             picturePath="/images/flosrn-small.png"
             name="Florian Séran"
-            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
+            desc="Développeur enthousiaste"
             content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
           />
           <RelationItem
             domain="web"
             picturePath="/images/flosrn-small.png"
-            name="Florian Séran"
-            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
-            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+            name="Marina Costanzo"
+            desc="DA . designer graphique, regard extérieur"
+            content="Marina m’accompagne depuis plusieurs années dans vos projets. Un regard extérieur est toujours utile en création."
           />
           <RelationItem
             domain="web"
             picturePath="/images/flosrn-small.png"
-            name="Florian Séran"
-            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
-            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+            name="Saveria Palumbo"
+            desc="Voix off . voice over"
+            content="Saveria donne vie à vos supports vidéos et audio pour tous types de communication."
           />
           <RelationItem
             domain="web"
             picturePath="/images/flosrn-small.png"
-            name="Florian Séran"
-            desc="Développeur enthousiaste prêt à nous accompagner dans vos projets Web !"
-            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+            name="François Petit"
+            desc="Compositeur musical . ingénieur son"
+            content="François est en mesure de créer des compositions originales pour tout projet audiovisuel, donnez du cachet à vos projets, différencions-nous."
           />
         </div>
       </section>
@@ -616,7 +614,12 @@ en terme de graphisme, d’espace et d’ambiance."
 export const getStaticProps: GetStaticProps<I18nProps<MyLocale>> = async (context) => {
   const locale = context.locale || context.defaultLocale;
   const { table = {} } = await import(`i18n/${locale}`);
-  return { props: { table } }; // Passed to `/pages/_app.tsx`
+  try {
+    const allProjects = (await getAllProjectsForHome()) || [];
+    return { props: { table, allProjects } };
+  } catch (error) {
+    return { props: { table, allProjects: null } };
+  }
 };
 
 export default HomePage;
