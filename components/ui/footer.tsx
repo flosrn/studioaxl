@@ -4,8 +4,8 @@ import Link from "next/link";
 const Footer: React.FC = () => {
   return (
     <section
-      id="section5"
-      className="relative flex flex-col justify-center items-center pb-2 md:pb-14 px-6 md:px-12"
+      id="section7"
+      className="relative flex flex-col justify-center items-center pb-2 md:pb-14 px-6 md:px-12 pt-36"
     >
       <h2 className="text-center font-sage text-4xl sm:text-5xl">Contactez-moi !</h2>
       <a

@@ -33,6 +33,8 @@ import { horizontalScrollAnimation } from "utils/anims";
 import { getAllProjectsForHome } from "lib/api";
 import { dashboardURL } from "utils/constants";
 import Link from "next/link";
+import LayoutSection from "components/ui/layout-section";
+import SvgBts from "components/ui/svg/svg-bts";
 // import Cookie from "components/ui/cookie";
 
 interface Props {
@@ -232,7 +234,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        SECTION 1 - Axelle
        =================
        */}
-      <section id="section1" className="flex justify-center items-center py-48">
+      <section id="section1" className="flex justify-center items-center pt-48">
         <div className="relative flex flex-col items-center md:flex-row-reverse justify-around w-full">
           <div className="hidden md:block absolute -top-32 -left-14 z-10 svgQuotes">
             <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
@@ -310,7 +312,12 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        SECTION 2 - Services
        =================
        */}
-      <section id="section2" className="flex justify-center items-center py-48">
+      <LayoutSection
+        sectionId="section2"
+        title="Mes services"
+        subtitle="Je vous propose un grand choix de services pour lesquels engager une démarche de Direction Artistique.
+Trouvons ensemble la réponse adaptée à votre besoin."
+      >
         <div className="flex flex-row flex-wrap w-9/12 sm:w-8/12 md:w-8/12 mx-auto">
           <ServiceItem
             icon={<SvgBranding />}
@@ -368,18 +375,13 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
             scrollHandler={() => svgEditorialAnimation("onScroll")}
           />
         </div>
-      </section>
+      </LayoutSection>
       {/*
        =================
        SECTION 3 - projets
        =================
        */}
-      <section id="section4" className="mb-56 py-12 flex flex-col justify-center items-center">
-        <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-10">
-          <h2 id="titleSection4" className="text-center text-5xl md:text-6xl font-sage">
-            Projets
-          </h2>
-        </div>
+      <LayoutSection sectionId="section3" title="Projets">
         <div className="w-10/12">
           <div className="mt-20 space-y-10">
             <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">
@@ -417,18 +419,13 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
             </div>
           </div>
         </div>
-      </section>
+      </LayoutSection>
       {/*
        =================
        SECTION 4 - Valeurs
        =================
        */}
-      <section id="section4" className="mb-56 py-12 flex flex-col justify-center items-center">
-        <div className="flex justify-center items-center w-10/12 sm:w-2/3 mb-10">
-          <h2 className="text-center text-5xl md:text-7xl font-sage">
-            Pourquoi me faire confiance ?
-          </h2>
-        </div>
+      <LayoutSection sectionId="section4" title="Pourquoi me faire confiance ?">
         <div className="relative flex flex-col items-center justify-around w-full mt-10">
           <div className="flex flex-col justify-center items-center w-full px-12">
             <div className="flex justify-center items-center flex-col md:flex-row md:justify-center md:items-center flex-wrap md:mt-24 w-full space-y-6 md:space-x-36">
@@ -487,18 +484,15 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
             />
           </div>
         </div>
-      </section>
+      </LayoutSection>
       {/*
        =================
        SECTION 5 - Formations
        =================
        */}
-      <section id="section4" className="mb-56 py-12 flex flex-col x-12">
-        <div className="flex flex-col justify-center items-center xl:w-8/12 mx-auto">
-          <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-32">
-            <h2 className="w-full text-center text-5xl md:text-6xl font-sage">Studio axl ?</h2>
-          </div>
-          <div className="relative w-full flex flex-col justify-center items-center md:justify-start ">
+      <LayoutSection sectionId="section5" title="Studio axl ?">
+        <div className="w-full flex flex-col justify-center items-center md:justify-start max-w-7xl">
+          <div className="relative w-full flex flex-col justify-center items-center md:justify-start pl-6 md:pl-0">
             <div className="absolute left-12 -top-12 md:-left-24 md:-top-24 w-20 h-20 md:w-36 md:h-36 rounded-full opacity-75 bg-pink backdrop-blur" />
             <span className="w-full font-sage text-center md:text-left text-3xl md:text-5xl">
               Axelle Malard
@@ -507,11 +501,11 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
               une Directrice Artistique
             </span>
           </div>
-          <div className="w-full flex mt-24">
-            <div className="w-full md:w-1/2">
+          <div className="w-full flex mt-24 pl-6 md:pl-0">
+            <div className="w-full flex justify-center md:justify-start md:w-1/2">
               <Image src="/images/AxelleMobile-light.jpg" width={544} height={576} />
             </div>
-            <div className="hidden md:flex w-full items-center md:w-1/2 pl-10">
+            <div className="hidden md:flex w-full items-center md:w-1/2 pl-10 pr-6 md:pr-0">
               <div className="w-full">
                 <h3 className="w-full py-10 text-7xl font-sage">Écoute</h3>
                 <h3 className="w-full py-10 text-7xl font-sage text-right">Sourire</h3>
@@ -519,93 +513,126 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center xl:w-8/12 mx-auto mt-20">
-          <div className="px-10 xl:px-0">
-            <FormationItem
-              date="2018-2020"
-              diploma="Mastère Direction Artistique Numérique"
-              school="Institut Supérieur des Arts Appliqués . Toulouse"
-              contract="Contrat professionnel - Graphic Designer"
-              society="Newrest Group International"
-              textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet
-et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux
-en terme de graphisme, d’espace et d’ambiance."
-              logo={<SvgLisaa />}
-            />
-            <FormationItem
-              date="2018-2020"
-              diploma="Bachelor Concepteur Designer Graphique"
-              school="Institut Supérieur des Arts Appliqués . Toulouse"
-              contract="Contrat professionnel - Graphic Designer"
-              society="Newrest Group International"
-              textDescription="Pendant cette année, j’ai affiné ma technique au service de différents projets graphiques tout en continuant d’appliquer mes connaissances et de continuer ma formation au sein de l’entreprise Newrest. "
-              logo={<SvgLisaa />}
-            />
-            <FormationItem
-              date="2015-2017"
-              diploma="BTS Design Graphique opt. Imprimé"
-              school="Lycée des Arènes . Toulouse"
-              textDescription="Ces deux années m’ont enseignées à penser, donner du sens à mes projets avant de passer à l’action. Piliers, elles m’ont donnés l’essence du métier de designer graphique."
-              logo={<SvgLisaa />}
-            />
-            <FormationItem
-              date="2014-2015"
-              diploma="Mise à Niveau en Arts Appliqués"
-              school="Lycée des Arènes . Toulouse"
-              textDescription="Après un BAC Economique et Social, une mise à niveau est nécessaire pour rentrer dans le monde des Arts Appliqués. Cette formation a été le pilier de mon parcours. C’est grâce à elle que j’ai compris l’idée de «concept», de fond et de sens."
-              logo={<SvgLisaa />}
-            />
+          <div className="flex flex-col justify-center items-center  mx-auto mt-20">
+            <div className="px-6 xl:px-0">
+              <FormationItem
+                date="2018-2020"
+                diploma="Mastère Direction Artistique Numérique"
+                school="Institut Supérieur des Arts Appliqués . Toulouse"
+                contract="Contrat professionnel - Graphic Designer"
+                society="Newrest Group International"
+                textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux en terme de graphisme, d’espace et d’ambiance."
+                logo={<SvgLisaa />}
+              />
+              <FormationItem
+                date="2018-2020"
+                diploma="Bachelor Concepteur Designer Graphique"
+                school="Institut Supérieur des Arts Appliqués . Toulouse"
+                contract="Contrat professionnel - Graphic Designer"
+                society="Newrest Group International"
+                textDescription="Pendant cette année, j’ai affiné ma technique au service de différents projets graphiques tout en continuant d’appliquer mes connaissances et de continuer ma formation au sein de l’entreprise Newrest. "
+                logo={<SvgLisaa />}
+              />
+              <FormationItem
+                date="2015-2017"
+                diploma="BTS Design Graphique opt. Imprimé"
+                school="Lycée des Arènes . Toulouse"
+                textDescription="Ces deux années m’ont enseignées à penser, donner du sens à mes projets avant de passer à l’action. Piliers, elles m’ont donnés l’essence du métier de designer graphique."
+                logo={<SvgBts />}
+              />
+              <FormationItem
+                date="2014-2015"
+                diploma="Mise à Niveau en Arts Appliqués"
+                school="Lycée des Arènes . Toulouse"
+                textDescription="Après un BAC Economique et Social, une mise à niveau est nécessaire pour rentrer dans le monde des Arts Appliqués. Cette formation a été le pilier de mon parcours. C’est grâce à elle que j’ai compris l’idée de «concept», de fond et de sens."
+                logo={<SvgBts />}
+              />
+            </div>
           </div>
         </div>
-      </section>
+      </LayoutSection>
       {/*
        =================
        SECTION 6 - Relations
        =================
        */}
-      <section
-        id="section4"
-        className="flex justify-center items-center flex-col mb-56 py-12 flex flex-col x-12"
-      >
-        <div className="flex flex-col justify-center items-center xl:w-8/12 mx-auto">
-          <div className="flex justify-center items-center w-10/12 sm:w-2/3 lg:w-1/3 mb-32">
-            <h2 className="w-full text-center text-5xl md:text-6xl font-sage">
-              Des relations finement choisies
-            </h2>
+      <LayoutSection sectionId="section6" title="Des relations finements choisies">
+        <div className="w-full">
+          <div className="w-full xl:w-2/3 lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto">
+            <RelationItem
+              domain="web"
+              picturePath="/images/flo.png"
+              name="Florian Séran"
+              desc="Développeur enthousiaste"
+              content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
+            />
+            <RelationItem
+              domain="web"
+              picturePath="/images/marina.png"
+              name="Marina Costanzo"
+              desc="DA . designer graphique, regard extérieur"
+              content="Marina m’accompagne depuis plusieurs années dans vos projets. Un regard extérieur est toujours utile en création."
+            />
+            <RelationItem
+              domain="web"
+              picturePath="/images/saveria.png"
+              name="Saveria Palumbo"
+              desc="Voix off . voice over"
+              content="Saveria donne vie à vos supports vidéos et audio pour tous types de communication."
+            />
+            <RelationItem
+              domain="web"
+              picturePath="/images/francois.png"
+              name="François Petit"
+              desc="Compositeur musical . ingénieur son"
+              content="François est en mesure de créer des compositions originales pour tout projet audiovisuel, donnez du cachet à vos projets, différencions-nous."
+            />
+          </div>
+          <div className="relative w-full flex justify-center items-center h-96 mt-56 mb-32 px-6">
+            <div className="hidden md:block absolute -top-52 -left-14 z-10">
+              <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
+                <g data-name="Groupe 72">
+                  <path
+                    d="M172.276 444.283l83.466 106.55-41.733 30.845-107.055-137.1 107.055-141.866 41.438 30.636zm119.081 0l83.424 106.55-41.733 30.845-107.055-137.1 107.054-141.866 41.438 30.636z"
+                    fill="#ffebd8"
+                    transform="translate(-106.954 -302.712)"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div className="md:hidden absolute -left-8 -top-14 z-10">
+              <svg width={139.344} height={142.644} viewBox="0 0 79.344 82.644">
+                <path
+                  d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
+                  transform="translate(-106.954 -302.712)"
+                  fill="#ffebd8"
+                />
+              </svg>
+            </div>
+            <p className="max-w-5xl text-center text-4xl md:text-6xl font-sage tracking-wider">
+              Je m’entoure de personnes de confiance pour rendre tous vos projets possibles.
+            </p>
+            <div className="hidden md:block absolute -bottom-44 -right-14 z-10">
+              <svg width={231.475} height={241.103} viewBox="0 0 231.475 241.103">
+                <path
+                  d="M163.41 425.068l72.138 92.088-36.069 26.659-92.525-118.491 92.524-122.612 35.814 26.477zm102.918 0l72.1 92.088-36.068 26.659-92.524-118.491 92.524-122.612 35.814 26.477z"
+                  fill="#ffebd8"
+                  transform="rotate(180 169.214 271.908)"
+                />
+              </svg>
+            </div>
+            <div className="md:hidden absolute -right-5 -bottom-10 z-10">
+              <svg width={95.079} height={99.033} viewBox="0 0 95.079 99.033">
+                <path
+                  d="M23.189 50.258L52.82 88.083 38 99.033 0 50.363 38 0l14.71 10.876zm42.274 0l29.616 37.825-14.816 10.95-38-48.67L80.263 0l14.71 10.876z"
+                  fill="#ffebd8"
+                  transform="rotate(180 47.54 49.517)"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-        <div className="w-full xl:w-2/3 lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto">
-          <RelationItem
-            domain="web"
-            picturePath="/images/flosrn-small.png"
-            name="Florian Séran"
-            desc="Développeur enthousiaste"
-            content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
-          />
-          <RelationItem
-            domain="web"
-            picturePath="/images/flosrn-small.png"
-            name="Marina Costanzo"
-            desc="DA . designer graphique, regard extérieur"
-            content="Marina m’accompagne depuis plusieurs années dans vos projets. Un regard extérieur est toujours utile en création."
-          />
-          <RelationItem
-            domain="web"
-            picturePath="/images/flosrn-small.png"
-            name="Saveria Palumbo"
-            desc="Voix off . voice over"
-            content="Saveria donne vie à vos supports vidéos et audio pour tous types de communication."
-          />
-          <RelationItem
-            domain="web"
-            picturePath="/images/flosrn-small.png"
-            name="François Petit"
-            desc="Compositeur musical . ingénieur son"
-            content="François est en mesure de créer des compositions originales pour tout projet audiovisuel, donnez du cachet à vos projets, différencions-nous."
-          />
-        </div>
-      </section>
+      </LayoutSection>
       <Footer />
     </div>
   );
