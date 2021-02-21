@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import Image from "next/image";
+import Image from "next/image";
 import Header from "components/ui/header";
 import FullscreenMenu from "components/ui/animations/fullscreen-menu";
 // import { useI18n } from "next-rosetta";
@@ -8,8 +8,8 @@ import useDelayUnmout from "hooks/useDelayUnmout";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { getProjectAndMoreProjects, getAllProjectsWithSlug } from "lib/api";
 import markdownToHtml from "lib/markdownToHtml";
-// import ArrowReturn from "components/ui/animations/svg-arrow-return";
-// import { dashboardURL } from "utils/constants";
+import ArrowReturn from "components/ui/animations/svg-arrow-return";
+import { dashboardURL } from "utils/constants";
 
 interface Props {
   project: any;
@@ -31,15 +31,52 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
       <Header openHandler={handleToggleClicked} />
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
       {project && (
-        <div className="relative grid grid-cols-8 gap-3 pt-16">
-          <div className="w-full col-span-3 h-56 bg-blue-500">TEST</div>
-          <div className="w-full col-span-5 h-56 bg-blue-500">TEST</div>
-          <div className="w-full h-56 bg-blue-500">TEST</div>
-          <div className="w-full h-56 bg-blue-500">TEST</div>
-          <div className="w-full h-56 bg-blue-500">TEST</div>
-          <div className="w-full h-56 bg-blue-500">TEST</div>
-          <div className="w-full h-56 bg-blue-500">TEST</div>
-          <div className="w-full h-56 bg-blue-500">TEST</div>
+        <div className="relative grid grid-cols-8 gap-x-10 gap-y-1 pt-16">
+          <div className="w-full grid grid-cols-6 col-span-full lg:col-span-3 bg-blue-500">
+            <div className="bg-purple-300"></div>
+            <div className="relative -mt-24 pr-10 bg-green-200">
+              <div className="hidden lg:block">
+                <ArrowReturn nextSectionId={1} />
+              </div>
+              <div className="hidden lg:block absolute left-14 -bottom-9 w-96 transform -rotate-90 origin-left bg-pink">
+                <p>Photos : XXXX XXXX</p>
+                <p>Client : Newrest Group International - www.newrest.eu</p>
+              </div>
+            </div>
+            <div className="col-span-full lg:col-span-4 bg-yellow-300 pt-20">
+              <h1 className="text-6xl font-sage">{project.title}</h1>
+              <div className="pt-20 pr-10" dangerouslySetInnerHTML={{ __html: project.content }} />
+              <div className="flex flex-col pt-96">
+                <a
+                  className="relative mt-4 text-xs sm:text-sm md:text-md underline-anim"
+                  href="mailto:studioaxl@gmail.com"
+                >
+                  studioaxl@gmail.com
+                </a>
+                <a
+                  className="relative mt-4 text-xs sm:text-sm md:text-md underline-anim"
+                  href="www.linkedin.com/in/axelle-malard"
+                  target="_blank"
+                >
+                  www.linkedin.com/in/axelle-malard
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="relative  w-full col-span-5  bg-blue-500">
+            <Image
+              src={`${dashboardURL}${project.coverImage.formats.medium.url}`}
+              alt={`img`}
+              layout="fill"
+              className="object-cover"
+            />
+          </div>
+          {/*<div className=" w-full h-56 bg-blue-500"></div>*/}
+          {/*<div className="w-full col-span-2 h-56 bg-blue-500"></div>*/}
+          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
         </div>
         // <div className="relative max-w-screen-lg xl:max-w-screen-xl flex justify-center items-start pt-16 mx-auto">
         //   <div className="hidden lg:block bg-yellow-300">
