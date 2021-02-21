@@ -25,32 +25,28 @@ interface Props {
   nextSectionId: number;
 }
 
-const Arrow: React.FC<Props> = ({ nextSectionId }) => {
+const ArrowReturn: React.FC<Props> = ({ nextSectionId }) => {
   const arrowValues = { y: 30 };
   const circleArrowValues = { x: 23, y: -11 };
-  const textArrowValues = { opacity: 1 };
 
   useEffect(() => {
     onScrollAnimation(".arrow", "#svgAdvertasing", arrowValues);
     onScrollAnimation("#circleArrow", "#svgAdvertasing", circleArrowValues);
-    onScrollAnimation("#textArrow", "#svgAdvertasing", textArrowValues);
   }, []);
 
   const handleMouseEnter = () => {
     onHoverAnimation(".arrow", arrowValues);
     onHoverAnimation("#circleArrow", circleArrowValues);
-    onHoverAnimation("#textArrow", textArrowValues);
   };
 
   const handleMouseLeave = () => {
     onHoverAnimation(".arrow", { y: 0 });
     onHoverAnimation("#circleArrow", { x: 0, y: 0 });
-    onHoverAnimation("#textArrow", { opacity: 0 });
   };
 
   return (
     <div
-      className="absolute -bottom-10"
+      className="transform rotate-90 -mt-5"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -81,11 +77,8 @@ const Arrow: React.FC<Props> = ({ nextSectionId }) => {
           />
         </svg>
       </Link>
-      <div id="textArrow" className="hidden sm:block absolute bottom-16 -right-36">
-        En quoi puis-je vous aider ?
-      </div>
     </div>
   );
 };
 
-export default Arrow;
+export default ArrowReturn;

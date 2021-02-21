@@ -104,7 +104,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
     const projects2 = document.getElementById("projects2");
     const projects3 = document.getElementById("projects3");
 
-    const containerWidth1 = projects1.offsetWidth + 900;
+    const containerWidth1 = projects1.offsetWidth;
     const containerWidth2 = projects2.offsetWidth;
     const containerWidth3 = projects3.offsetWidth;
 
@@ -112,7 +112,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
     horizontalScrollAnimation(projects2, containerWidth2, 0.7);
     horizontalScrollAnimation(projects3, containerWidth3, 0.8);
 
-    const section = document.getElementById("section4");
+    const section = document.getElementById("section3");
     gsap.to(section, {
       ease: "none",
       scrollTrigger: {
@@ -226,7 +226,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
         {/*  <Cookie />*/}
         {/* </div>*/}
         <div className="absolute bottom-0 w-full flex justify-center items-start">
-          <Arrow />
+          <Arrow nextSectionId={1} />
         </div>
       </section>
       {/*
@@ -234,7 +234,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        SECTION 1 - Axelle
        =================
        */}
-      <section id="section1" className="flex justify-center items-center pt-48">
+      <section id="section1" className="flex justify-center items-center pt-48 pb-56">
         <div className="relative flex flex-col items-center md:flex-row-reverse justify-around w-full">
           <div className="hidden md:block absolute -top-32 -left-14 z-10 svgQuotes">
             <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
@@ -313,7 +313,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        =================
        */}
       <LayoutSection
-        sectionId="section2"
+        sectionId={2}
         title="Mes services"
         subtitle="Je vous propose un grand choix de services pour lesquels engager une démarche de Direction Artistique.
 Trouvons ensemble la réponse adaptée à votre besoin."
@@ -381,11 +381,11 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        SECTION 3 - projets
        =================
        */}
-      <LayoutSection sectionId="section3" title="Projets">
+      <LayoutSection sectionId={3} title="Projets">
         <div className="w-10/12">
           <div className="mt-20 space-y-10">
             <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">
-              <Link href="/">
+              <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>
                 <a>
                   <div
                     className="rounded-5xl bg-purple-500 w-128 h-56 inline-flex cursor-pointer"
@@ -425,7 +425,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        SECTION 4 - Valeurs
        =================
        */}
-      <LayoutSection sectionId="section4" title="Pourquoi me faire confiance ?">
+      <LayoutSection sectionId={4} title="Pourquoi me faire confiance ?">
         <div className="relative flex flex-col items-center justify-around w-full mt-10">
           <div className="flex flex-col justify-center items-center w-full px-12">
             <div className="flex justify-center items-center flex-col md:flex-row md:justify-center md:items-center flex-wrap md:mt-24 w-full space-y-6 md:space-x-36">
@@ -490,7 +490,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        SECTION 5 - Formations
        =================
        */}
-      <LayoutSection sectionId="section5" title="Studio axl ?">
+      <LayoutSection sectionId={5} title="Studio axl ?">
         <div className="w-full flex flex-col justify-center items-center md:justify-start max-w-7xl">
           <div className="relative w-full flex flex-col justify-center items-center md:justify-start pl-6 md:pl-0">
             <div className="absolute left-12 -top-12 md:-left-24 md:-top-24 w-20 h-20 md:w-36 md:h-36 rounded-full opacity-75 bg-pink backdrop-blur" />
@@ -556,7 +556,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        SECTION 6 - Relations
        =================
        */}
-      <LayoutSection sectionId="section6" title="Des relations finements choisies">
+      <LayoutSection sectionId={6} title="Des relations finements choisies">
         <div className="w-full">
           <div className="w-full xl:w-2/3 lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto">
             <RelationItem

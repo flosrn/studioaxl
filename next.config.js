@@ -11,7 +11,7 @@ module.exports = withBundleAnalyzer(
       defaultLocale: "fr",
     },
     images: {
-      domains: ["localhost"],
+      domains: ["localhost", "api.nextjs-headless-cms.tech"],
     },
     pwa: {
       // disable: process.env.NODE_ENV === "development",
