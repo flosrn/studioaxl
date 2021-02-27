@@ -44,7 +44,7 @@ export const horizontalScrollAnimation = (
       trigger: target,
       start: "center center",
       invalidateOnRefresh: true,
-      // markers: true,
+      markers: true,
       scrub: 0,
       end: () => `+=${container * speed}`,
     },

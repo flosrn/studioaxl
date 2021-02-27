@@ -50,6 +50,12 @@ module.exports = {
       zIndex: {
         negative: -1,
       },
+      gridTemplateColumns: {
+        "50": "repeat(4, 50%)",
+      },
+      gridTemplateRows: {
+        "50": "repeat(3, 50%)",
+      },
     },
     filter: {
       // defaults to {}

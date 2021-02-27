@@ -26,27 +26,35 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
 
   console.log("project : ", project);
 
+  // grid grid-cols-8 gap-1
+  // grid grid-cols-6 col-span-full lg:col-span-3
+  // col-span-full lg:col-span-5
   return (
     <div className="bg-white">
       <Header openHandler={handleToggleClicked} />
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
       {project && (
-        <div className="relative grid grid-cols-8 gap-x-10 gap-y-1 pt-16">
-          <div className="w-full grid grid-cols-6 col-span-full lg:col-span-3 bg-blue-500">
-            <div className="bg-purple-300"></div>
-            <div className="relative -mt-24 pr-10 bg-green-200">
-              <div className="hidden lg:block">
-                <ArrowReturn nextSectionId={1} />
+        <div className="relative min-h-screen flex flex-col lg:flex-row pt-16">
+          <div className="relative w-full h-full grid grid-cols-6 inset-0 lg:fixed lg:w-5/12">
+            <div />
+            <div className="relative flex flex-col justify-between -mt-24 pr-10">
+              <div className="hidden lg:block pt-16">
+                <ArrowReturn />
               </div>
-              <div className="hidden lg:block absolute left-14 -bottom-9 w-96 transform -rotate-90 origin-left bg-pink">
+              <div className="hidden lg:block vertical-text">
                 <p>Photos : XXXX XXXX</p>
                 <p>Client : Newrest Group International - www.newrest.eu</p>
               </div>
             </div>
-            <div className="col-span-full lg:col-span-4 bg-yellow-300 pt-20">
-              <h1 className="text-6xl font-sage">{project.title}</h1>
-              <div className="pt-20 pr-10" dangerouslySetInnerHTML={{ __html: project.content }} />
-              <div className="flex flex-col pt-96">
+            <div className="col-span-full lg:col-span-4 flex flex-col justify-between pt-32 px-6">
+              <div>
+                <h1 className="text-6xl font-sage">{project.title}</h1>
+                <div
+                  className="pt-20 pr-10"
+                  dangerouslySetInnerHTML={{ __html: project.content }}
+                />
+              </div>
+              <div className="flex flex-col">
                 <a
                   className="relative mt-4 text-xs sm:text-sm md:text-md underline-anim"
                   href="mailto:studioaxl@gmail.com"
@@ -63,17 +71,61 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
               </div>
             </div>
           </div>
-          <div className="relative  w-full col-span-5  bg-blue-500">
-            <Image
-              src={`${dashboardURL}${project.coverImage.formats.medium.url}`}
-              alt={`img`}
-              layout="fill"
-              className="object-cover"
-            />
+          <div className="relative w-full h-56 grid grid-cols-2 gap-1 h-full lg:w-7/12 ml-auto">
+            <div className="relative w-full h-screen col-span-full">
+              <Image
+                src={`${dashboardURL}${project.coverImage.formats.medium.url}`}
+                alt={`img`}
+                // width={500}
+                // height={500}
+                // width={project.coverImage.formats.medium.width}
+                // height={project.coverImage.formats.medium.height}
+                layout="fill"
+                className="object-cover object-bottom"
+              />
+            </div>
+            <div className="w-full h-96 relative col-span-1">
+              <Image
+                src={`${dashboardURL}${project.images[0].formats.medium.url}`}
+                alt={`img`}
+                // width={500}
+                // height={500}
+                layout="fill"
+                className="object-cover"
+              />
+            </div>
+            <div className="w-full relative col-span-1">
+              <Image
+                src={`${dashboardURL}${project.images[1].formats.medium.url}`}
+                alt={`img`}
+                // width={500}
+                // height={500}
+                layout="fill"
+                className="object-cover"
+              />
+            </div>
           </div>
-          {/*<div className=" w-full h-56 bg-blue-500"></div>*/}
-          {/*<div className="w-full col-span-2 h-56 bg-blue-500"></div>*/}
-          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*<div className="w-full hidden lg:block lg:col-span-3" />*/}
+          {/*<div className="w-full h-96 relative col-start-1 col-end-5 lg:col-span-3">*/}
+          {/*  <Image*/}
+          {/*    src={`${dashboardURL}${project.images[0].formats.medium.url}`}*/}
+          {/*    alt={`img`}*/}
+          {/*    // width={500}*/}
+          {/*    // height={500}*/}
+          {/*    layout="fill"*/}
+          {/*    className="object-cover"*/}
+          {/*  />*/}
+          {/*</div>*/}
+          {/*<div className="w-full relative col-start-5 col-end-9 lg:col-span-2">*/}
+          {/*  <Image*/}
+          {/*    src={`${dashboardURL}${project.images[1].formats.medium.url}`}*/}
+          {/*    alt={`img`}*/}
+          {/*    // width={500}*/}
+          {/*    // height={500}*/}
+          {/*    layout="fill"*/}
+          {/*    className="object-cover"*/}
+          {/*  />*/}
+          {/*</div>*/}
           {/*<div className="w-full h-56 bg-blue-500"></div>*/}
           {/*<div className="w-full h-56 bg-blue-500"></div>*/}
           {/*<div className="w-full h-56 bg-blue-500"></div>*/}
@@ -145,7 +197,6 @@ export const getStaticProps: GetStaticProps = async ({
         ...data?.projects[0],
         content,
       },
-      moreProjects: data?.moreProjects,
     },
   };
 };

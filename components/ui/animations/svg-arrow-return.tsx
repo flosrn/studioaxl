@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-scroll";
+import Link from "next/link";
 import { isMobile } from "react-device-detect";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -21,11 +21,7 @@ const onHoverAnimation = (target: string, values: any) => {
   return gsap.to(target, values);
 };
 
-interface Props {
-  nextSectionId: number;
-}
-
-const ArrowReturn: React.FC<Props> = ({ nextSectionId }) => {
+const ArrowReturn: React.FC = () => {
   const arrowValues = { y: 30 };
   const circleArrowValues = { x: 23, y: -11 };
 
@@ -50,32 +46,28 @@ const ArrowReturn: React.FC<Props> = ({ nextSectionId }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link
-        activeClass="active"
-        to={`section${nextSectionId}`}
-        smooth
-        duration={1500}
-        className="cursor-pointer"
-      >
-        <svg viewBox="0 0 219.23 177.55" width="250" height="250">
-          <circle id="circleArrow" cx={104.2} cy={97.83} r={17.93} fill="#fde0e0" />
-          <path
-            className="arrow"
-            d="M133 87.87l-10.39 10.34-10.34-10.34"
-            fill="none"
-            stroke="#161615"
-            strokeMiterlimit={10}
-            strokeWidth={2}
-          />
-          <path
-            className="arrow"
-            fill="none"
-            stroke="#161615"
-            strokeMiterlimit={10}
-            strokeWidth={2}
-            d="M122.61 98.22L122.61 61.78"
-          />
-        </svg>
+      <Link href="/">
+        <a>
+          <svg viewBox="0 0 219.23 177.55" width="250" height="250">
+            <circle id="circleArrow" cx={104.2} cy={97.83} r={17.93} fill="#fde0e0" />
+            <path
+              className="arrow"
+              d="M133 87.87l-10.39 10.34-10.34-10.34"
+              fill="none"
+              stroke="#161615"
+              strokeMiterlimit={10}
+              strokeWidth={2}
+            />
+            <path
+              className="arrow"
+              fill="none"
+              stroke="#161615"
+              strokeMiterlimit={10}
+              strokeWidth={2}
+              d="M122.61 98.22L122.61 61.78"
+            />
+          </svg>
+        </a>
       </Link>
     </div>
   );

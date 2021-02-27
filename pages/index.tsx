@@ -29,7 +29,7 @@ import FullscreenMenu from "components/ui/animations/fullscreen-menu";
 import FormationItem from "components/ui/formation-item";
 import SvgLisaa from "components/ui/svg/svg-lisaa";
 import RelationItem from "components/ui/relation-item";
-import { horizontalScrollAnimation } from "utils/anims";
+// import { horizontalScrollAnimation } from "utils/anims";
 import { getAllProjectsForHome } from "lib/api";
 import { dashboardURL } from "utils/constants";
 import Link from "next/link";
@@ -100,30 +100,99 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
   }, []);
 
   React.useEffect(() => {
-    const projects1 = document.getElementById("projects1");
-    const projects2 = document.getElementById("projects2");
-    const projects3 = document.getElementById("projects3");
+    //   const projects1 = document.getElementById("projects1");
+    //   const projects2 = document.getElementById("projects2");
+    //   const projects3 = document.getElementById("projects3");
 
-    const containerWidth1 = projects1.offsetWidth;
-    const containerWidth2 = projects2.offsetWidth;
-    const containerWidth3 = projects3.offsetWidth;
+    // const projectsContainer = document.getElementById("projectsContainer");
+    // const projectsContainerWidth = projectsContainer.offsetWidth / 3;
+    // console.log("projectsContainerWidth : ", projectsContainerWidth);
 
-    horizontalScrollAnimation(projects1, containerWidth1, 0.6);
-    horizontalScrollAnimation(projects2, containerWidth2, 0.7);
-    horizontalScrollAnimation(projects3, containerWidth3, 0.8);
+    const sections = gsap.utils.toArray(".projects");
+    // @ts-ignore
+    const sectionItemWidth = sections[0]?.offsetWidth;
+    console.log("sectionItemWidth : ", sectionItemWidth);
 
-    const section = document.getElementById("section3");
-    gsap.to(section, {
+    // const test = projectsContainer.scrollWidth - document.documentElement.clientWidth;
+
+    const toto = -200;
+    console.log("toto : ", toto);
+
+    const section3 = document.querySelector("#section3");
+    // @ts-ignore
+    const section3Width = section3?.offsetWidth;
+
+    gsap.to(".projects", {
+      // xPercent: toto,
+      // xPercent: function (index, target, targets) {
+      //   if (index === 1 || index === 4 || index === 7 || index === 10) return -250;
+      //   if (index === 2 || index === 5 || index === 8 || index === 11) return -150;
+      //   return `${-200}`;
+      // },
       ease: "none",
       scrollTrigger: {
-        trigger: projects1,
-        start: "center top+=200",
-        end: () => `+=${containerWidth3}`,
-        // endTrigger: "#section5",
-        // markers: true,
-        pin: section,
+        trigger: "#section3",
+        pin: true,
+        scrub: 1,
+        markers: true,
+        start: "center center",
+        // end: "center bottom",
+        // invalidateOnRefresh: true,
+
+        // snap: 1 / (sections.length - 1),
+        // base vertical scrolling on how wide the container is so it feels more natural.
+        // end: () => "+=" + (projectsContainer.offsetWidth - window.innerWidth),
+        end: () => `+=${section3Width}`,
       },
     });
+
+    // gsap.from(".projects", {
+    //   // xPercent: toto,
+    //   opacity: function (index, target, targets) {
+    //     if (index > 5) return 0.6;
+    //   },
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: "#section3",
+    //     pin: true,
+    //     scrub: 1,
+    //     markers: true,
+    //     start: "center center",
+    //     // end: "center bottom",
+    //     // invalidateOnRefresh: true,
+    //
+    //     // snap: 1 / (sections.length - 1),
+    //     // base vertical scrolling on how wide the container is so it feels more natural.
+    //     // end: () => "+=" + (projectsContainer.offsetWidth - window.innerWidth),
+    //     end: () => "+=" + document.querySelector("#section3").offsetWidth,
+    //   },
+    // });
+
+    //
+    //   const containerWidth1 = projects1.offsetWidth + 1900;
+    //   const containerWidth2 = projects2.offsetWidth + 1900;
+    //   let containerWidth3 = projects3.offsetWidth + 1900;
+    //
+    // horizontalScrollAnimation(projectsContainer, projectsContainerWidth, 0.6);
+
+    // horizontalScrollAnimation(projects1, containerWidth1, 0.6);
+    //   horizontalScrollAnimation(projects2, containerWidth2, 0.7);
+    //   horizontalScrollAnimation(projects3, containerWidth3, 0.8);
+    //
+    //   containerWidth3 += 1000;
+    //
+    // const section = document.getElementById("section3");
+    // gsap.to(section, {
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: projectsContainer,
+    //     start: "center top+=200",
+    //     end: () => `+=${projectsContainerWidth}`,
+    //     // endTrigger: "#section5",
+    //     // markers: true,
+    //     pin: section,
+    //   },
+    // });
   }, []);
 
   const wordAnim = (word: HTMLElement, pos: number) => {
@@ -383,39 +452,71 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        */}
       <LayoutSection sectionId={3} title="Projets">
         <div className="w-10/12">
-          <div className="mt-20 space-y-10">
-            <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">
-              <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>
-                <a>
-                  <div
-                    className="rounded-5xl bg-purple-500 w-128 h-56 inline-flex cursor-pointer"
-                    style={{
-                      background: `url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url})`,
-                    }}
-                  />
-                </a>
-              </Link>
-              <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />
-              {/*<div className="rounded-5xl bg-blue-300 w-128 h-56 inline-flex" />*/}
-            </div>
-            <div id="projects2" className="space-x-12 whitespace-nowrap">
-              <div className="rounded-5xl bg-purple-200 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />
-              {/*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*/}
-              {/*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*/}
-            </div>
-            <div id="projects3" className="ml-36 space-x-12 whitespace-nowrap">
-              <div className="rounded-5xl bg-indigo-500 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-green-900 w-128 h-56 inline-flex" />
-              <div className="rounded-5xl bg-yellow-500 w-128 h-56 inline-flex" />
-              {/*<div className="rounded-5xl bg-green-900 w-w-128 h-56 inline-flex" />*/}
-              {/*<div className="rounded-5xl bg-blue-400 w-w-128 h-56 inline-flex" />*/}
+          {/*<div className="mt-20 space-y-10">*/}
+          {/*  <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">*/}
+          {/*    <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>*/}
+          {/*      <a>*/}
+          {/*        <div*/}
+          {/*          className="rounded-5xl bg-purple-500 w-128 h-56 inline-flex cursor-pointer"*/}
+          {/*          style={{*/}
+          {/*            background: `url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url})`,*/}
+          {/*          }}*/}
+          {/*        />*/}
+          {/*      </a>*/}
+          {/*    </Link>*/}
+          {/*    <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*/}
+          {/*    /!*<div className="rounded-5xl bg-blue-300 w-128 h-56 inline-flex" />*!/*/}
+          {/*  </div>*/}
+          {/*  <div id="projects2" className="space-x-12 whitespace-nowrap">*/}
+          {/*    <div className="rounded-5xl bg-purple-200 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />*/}
+          {/*    /!*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*!/*/}
+          {/*    /!*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*!/*/}
+          {/*  </div>*/}
+          {/*  <div id="projects3" className="ml-36 space-x-12 whitespace-nowrap">*/}
+          {/*    <div className="rounded-5xl bg-indigo-500 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-green-900 w-128 h-56 inline-flex" />*/}
+          {/*    <div className="rounded-5xl bg-yellow-500 w-128 h-56 inline-flex" />*/}
+          {/*    /!*<div className="rounded-5xl bg-green-900 w-w-128 h-56 inline-flex" />*!/*/}
+          {/*    /!*<div className="rounded-5xl bg-blue-400 w-w-128 h-56 inline-flex" />*!/*/}
+          {/*  </div>*/}
+          {/*</div>*/}
+
+          <div className="py-6 flex flex-col justify-center sm:py-12 w-full">
+            <div className="relative w-full py-3 px-6 bg-red-200 overflow-hidden">
+              <div
+                id="projectsContainer"
+                className="w-full grid grid-cols-50 grid-rows-50 grid-flow-col gap-3"
+              >
+                <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>
+                  <a>
+                    <div
+                      className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
+                      style={{
+                        background: `url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url})`,
+                      }}
+                    />
+                  </a>
+                </Link>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+              </div>
             </div>
           </div>
         </div>

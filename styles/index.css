@@ -80,6 +80,11 @@ html, body {
   width: 100%;
 }
 
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: scale(-1);
+}
+
 
 /* Start purging... */
 @tailwind utilities;
