@@ -116,14 +116,14 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
     // const test = projectsContainer.scrollWidth - document.documentElement.clientWidth;
 
     const toto = -200;
-    console.log("toto : ", toto);
+    // console.log("toto : ", toto);
 
     const section3 = document.querySelector("#section3");
     // @ts-ignore
     const section3Width = section3?.offsetWidth;
 
     gsap.to(".projects", {
-      // xPercent: toto,
+      xPercent: toto,
       // xPercent: function (index, target, targets) {
       //   if (index === 1 || index === 4 || index === 7 || index === 10) return -250;
       //   if (index === 2 || index === 5 || index === 8 || index === 11) return -150;
@@ -134,7 +134,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
         trigger: "#section3",
         pin: true,
         scrub: 1,
-        markers: true,
+        // markers: true,
         start: "center center",
         // end: "center bottom",
         // invalidateOnRefresh: true,
@@ -499,12 +499,31 @@ Trouvons ensemble la réponse adaptée à votre besoin."
                     <div
                       className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
                       style={{
-                        background: `url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url})`,
+                        background: `no-repeat url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url}) bottom`,
                       }}
                     />
                   </a>
                 </Link>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <Link href="/project/[...slug]" as={`/project/${allProjects?.[1].slug}`}>
+                  <a>
+                    <div
+                      className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
+                      style={{
+                        background: `no-repeat url(${dashboardURL}${allProjects?.[1]?.coverImage.formats.medium.url}) bottom`,
+                      }}
+                    />
+                  </a>
+                </Link>
+                <Link href="/project/[...slug]" as={`/project/${allProjects?.[2].slug}`}>
+                  <a>
+                    <div
+                      className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
+                      style={{
+                        background: `no-repeat url(${dashboardURL}${allProjects?.[2]?.coverImage.formats.medium.url}) bottom`,
+                      }}
+                    />
+                  </a>
+                </Link>
                 <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
                 <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
                 <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>

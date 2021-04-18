@@ -24,7 +24,7 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
     setOpen(!isOpen);
   };
 
-  console.log("project : ", project);
+  // console.log("project : ", project);
 
   // grid grid-cols-8 gap-1
   // grid grid-cols-6 col-span-full lg:col-span-3
@@ -35,18 +35,18 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
       {project && (
         <div className="relative min-h-screen flex flex-col lg:flex-row pt-16">
-          <div className="relative w-full h-full grid grid-cols-6 inset-0 lg:fixed lg:w-5/12">
+          <div className="relative w-full h-full grid grid-cols-6 inset-0 lg:fixed lg:w-5/12 pb-1">
             <div />
             <div className="relative flex flex-col justify-between -mt-24 pr-10">
               <div className="hidden lg:block pt-16">
                 <ArrowReturn />
               </div>
               <div className="hidden lg:block vertical-text">
-                <p>Photos : XXXX XXXX</p>
-                <p>Client : Newrest Group International - www.newrest.eu</p>
+                <p>{project.credit}</p>
+                <p>{project.links}</p>
               </div>
             </div>
-            <div className="col-span-full lg:col-span-4 flex flex-col justify-between pt-32 px-6">
+            <div className="col-span-full lg:col-span-4 flex flex-col justify-between pt-10  mb-10 lg:mb-0 lg:pt-32 px-6">
               <div>
                 <h1 className="text-6xl font-sage">{project.title}</h1>
                 <div
@@ -72,14 +72,10 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
             </div>
           </div>
           <div className="relative w-full h-56 grid grid-cols-2 gap-1 h-full lg:w-7/12 ml-auto">
-            <div className="relative w-full h-screen col-span-full">
+            <div className="relative w-full h-96 lg:h-screen col-span-full">
               <Image
                 src={`${dashboardURL}${project.coverImage.formats.medium.url}`}
-                alt={`img`}
-                // width={500}
-                // height={500}
-                // width={project.coverImage.formats.medium.width}
-                // height={project.coverImage.formats.medium.height}
+                alt="img"
                 layout="fill"
                 className="object-cover object-bottom"
               />
@@ -87,7 +83,7 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
             <div className="w-full h-96 relative col-span-1">
               <Image
                 src={`${dashboardURL}${project.images[0].formats.medium.url}`}
-                alt={`img`}
+                alt="img"
                 // width={500}
                 // height={500}
                 layout="fill"
@@ -97,7 +93,7 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
             <div className="w-full relative col-span-1">
               <Image
                 src={`${dashboardURL}${project.images[1].formats.medium.url}`}
-                alt={`img`}
+                alt="img"
                 // width={500}
                 // height={500}
                 layout="fill"
@@ -105,8 +101,8 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
               />
             </div>
           </div>
-          {/*<div className="w-full hidden lg:block lg:col-span-3" />*/}
-          {/*<div className="w-full h-96 relative col-start-1 col-end-5 lg:col-span-3">*/}
+          {/*  <div className="w-full hidden lg:block lg:col-span-3" />*/}
+          {/*  <div className="w-full h-96 relative col-start-1 col-end-5 lg:col-span-3">*/}
           {/*  <Image*/}
           {/*    src={`${dashboardURL}${project.images[0].formats.medium.url}`}*/}
           {/*    alt={`img`}*/}
@@ -115,8 +111,8 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
           {/*    layout="fill"*/}
           {/*    className="object-cover"*/}
           {/*  />*/}
-          {/*</div>*/}
-          {/*<div className="w-full relative col-start-5 col-end-9 lg:col-span-2">*/}
+          {/*  </div>*/}
+          {/*  <div className="w-full relative col-start-5 col-end-9 lg:col-span-2">*/}
           {/*  <Image*/}
           {/*    src={`${dashboardURL}${project.images[1].formats.medium.url}`}*/}
           {/*    alt={`img`}*/}
@@ -125,10 +121,10 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
           {/*    layout="fill"*/}
           {/*    className="object-cover"*/}
           {/*  />*/}
-          {/*</div>*/}
-          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
-          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
-          {/*<div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*  </div>*/}
+          {/*  <div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*  <div className="w-full h-56 bg-blue-500"></div>*/}
+          {/*  <div className="w-full h-56 bg-blue-500"></div>*/}
         </div>
         // <div className="relative max-w-screen-lg xl:max-w-screen-xl flex justify-center items-start pt-16 mx-auto">
         //   <div className="hidden lg:block bg-yellow-300">
@@ -186,9 +182,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const { table = {} } = await import(`i18n/${locale || defaultLocale}`);
   const data = await getProjectAndMoreProjects(params.slug, preview);
-  console.log("data : ", data);
   const content = await markdownToHtml(data?.projects[0]?.content || "");
-  // console.log("content : ", content);
   return {
     props: {
       table,
