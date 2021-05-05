@@ -51,29 +51,15 @@ module.exports = {
         negative: -1,
       },
       gridTemplateColumns: {
-        "50": "repeat(4, 50%)",
+        50: "repeat(4, 50%)",
       },
       gridTemplateRows: {
-        "50": "repeat(3, 50%)",
+        50: "repeat(3, 50%)",
       },
-    },
-    filter: {
-      // defaults to {}
-      none: "none",
-      grayscale: "grayscale(1)",
-      invert: "invert(1)",
-      sepia: "sepia(1)",
-    },
-    backdropFilter: {
-      // defaults to {}
-      none: "none",
-      blur: "blur(4px)",
     },
   },
   variants: {
     extend: {},
-    filter: ["responsive"], // defaults to ['responsive']
-    backdropFilter: ["responsive"], // defaults to ['responsive']
   },
-  plugins: [require("tailwindcss-filters")],
+  plugins: [],
 };
