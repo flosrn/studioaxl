@@ -2357,6 +2357,11 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
+embla-carousel@^4.5.3:
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-4.5.3.tgz#3e1b471fd9765b910c5dd9acddf129b07626782d"
+  integrity sha512-S7fPpoV9AsPRII8ytsDQavW4JbU3xWBAO+i158eVahVZYVb04vC+913QfO3FGzsVK/4sb58NJ42LBDh143+YhA==
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -5933,7 +5938,7 @@ typescript@^4.3.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
   integrity sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw==
 
-ua-parser-js@^0.7.23, ua-parser-js@^0.7.24:
+ua-parser-js@^0.7.23, ua-parser-js@^0.7.24, ua-parser-js@^0.7.28:
   version "0.7.28"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
   integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==

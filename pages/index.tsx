@@ -35,6 +35,7 @@ import { dashboardURL } from "utils/constants";
 import Link from "next/link";
 import LayoutSection from "components/ui/layout-section";
 import SvgBts from "components/ui/svg/svg-bts";
+import Carousel from "components/ui/carousel";
 // import Cookie from "components/ui/cookie";
 
 interface Props {
@@ -387,62 +388,63 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
         subtitle="Je vous propose un grand choix de services pour lesquels engager une démarche de Direction Artistique.
 Trouvons ensemble la réponse adaptée à votre besoin."
       >
-        <div className="flex flex-row flex-wrap w-9/12 sm:w-8/12 md:w-8/12 mx-auto">
-          <ServiceItem
-            icon={<SvgBranding />}
-            title="Image de marque"
-            content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons
-          ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."
-            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-              svgBrandingAnimation("onHover", event.type)
-            }
-            scrollHandler={() => svgBrandingAnimation("onScroll")}
-          />
-          <ServiceItem
-            icon={<SvgAdvertasing />}
-            title="Publicité"
-            content="Vous souhaitez promouvoir votre projet ? Réalisons une multitude de supports imprimés et numériques : flyer, cartes de visite, visuels destinés aux réseaux sociaux…"
-            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-              svgAdvertasingAnimation("onHover", event.type)
-            }
-            scrollHandler={() => svgAdvertasingAnimation("onScroll")}
-          />
-          <ServiceItem
-            icon={<SvgWeb />}
-            title="Design web  . mobile"
-            content="Vous souhaitez une interface ergonomique en accord avec votre identité visuelle ? Les tendances évoluent sans cesse, trouvons alors votre propre tonalité."
-            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-              svgWebAnimation("onHover", event.type)
-            }
-            scrollHandler={() => svgWebAnimation("onScroll")}
-          />
-          <ServiceItem
-            icon={<SvgSignage />}
-            title="Signalétique . espaces"
-            content="Vous souhaitez donner vie à vos espaces ? De la signalétique intérieur à extérieur à la création de supports promotionnels, audio ou vidéo, nous créerons ensemble le bon support."
-            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-              svgSignageAnimation("onHover", event.type)
-            }
-            scrollHandler={() => svgSignageAnimation("onScroll")}
-          />
-          <ServiceItem
-            icon={<SvgWrite />}
-            title="Design éditorial"
-            content="Vous avez l’envie de mettre en page vos créations, promouvoir votre entreprise, partager un évènement sous forme de livrets ou formes particulières ? Allons-y !"
-            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-              svgWriteAnimation("onHover", event.type)
-            }
-            scrollHandler={() => svgWriteAnimation("onScroll")}
-          />
-          <ServiceItem
-            icon={<SvgEditorial />}
-            title="Rédaction . corrections"
-            content="Je propose la vérification et création de contenu rédactionnel pour que vos supports aient du sens dans leur fond comme dans leur forme."
-            hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-              svgEditorialAnimation("onHover", event.type)
-            }
-            scrollHandler={() => svgEditorialAnimation("onScroll")}
-          />
+        <div className="flex flex-row flex-wrap w-11/12 mx-auto">
+          <Carousel />
+          {/*<ServiceItem*/}
+          {/*  icon={<SvgBranding />}*/}
+          {/*  title="Image de marque"*/}
+          {/*  content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
+          {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
+          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
+          {/*    svgBrandingAnimation("onHover", event.type)*/}
+          {/*  }*/}
+          {/*  scrollHandler={() => svgBrandingAnimation("onScroll")}*/}
+          {/*/>*/}
+          {/*<ServiceItem*/}
+          {/*  icon={<SvgAdvertasing />}*/}
+          {/*  title="Publicité"*/}
+          {/*  content="Vous souhaitez promouvoir votre projet ? Réalisons une multitude de supports imprimés et numériques : flyer, cartes de visite, visuels destinés aux réseaux sociaux…"*/}
+          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
+          {/*    svgAdvertasingAnimation("onHover", event.type)*/}
+          {/*  }*/}
+          {/*  scrollHandler={() => svgAdvertasingAnimation("onScroll")}*/}
+          {/*/>*/}
+          {/*<ServiceItem*/}
+          {/*  icon={<SvgWeb />}*/}
+          {/*  title="Design web  . mobile"*/}
+          {/*  content="Vous souhaitez une interface ergonomique en accord avec votre identité visuelle ? Les tendances évoluent sans cesse, trouvons alors votre propre tonalité."*/}
+          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
+          {/*    svgWebAnimation("onHover", event.type)*/}
+          {/*  }*/}
+          {/*  scrollHandler={() => svgWebAnimation("onScroll")}*/}
+          {/*/>*/}
+          {/*<ServiceItem*/}
+          {/*  icon={<SvgSignage />}*/}
+          {/*  title="Signalétique . espaces"*/}
+          {/*  content="Vous souhaitez donner vie à vos espaces ? De la signalétique intérieur à extérieur à la création de supports promotionnels, audio ou vidéo, nous créerons ensemble le bon support."*/}
+          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
+          {/*    svgSignageAnimation("onHover", event.type)*/}
+          {/*  }*/}
+          {/*  scrollHandler={() => svgSignageAnimation("onScroll")}*/}
+          {/*/>*/}
+          {/*<ServiceItem*/}
+          {/*  icon={<SvgWrite />}*/}
+          {/*  title="Design éditorial"*/}
+          {/*  content="Vous avez l’envie de mettre en page vos créations, promouvoir votre entreprise, partager un évènement sous forme de livrets ou formes particulières ? Allons-y !"*/}
+          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
+          {/*    svgWriteAnimation("onHover", event.type)*/}
+          {/*  }*/}
+          {/*  scrollHandler={() => svgWriteAnimation("onScroll")}*/}
+          {/*/>*/}
+          {/*<ServiceItem*/}
+          {/*  icon={<SvgEditorial />}*/}
+          {/*  title="Rédaction . corrections"*/}
+          {/*  content="Je propose la vérification et création de contenu rédactionnel pour que vos supports aient du sens dans leur fond comme dans leur forme."*/}
+          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
+          {/*    svgEditorialAnimation("onHover", event.type)*/}
+          {/*  }*/}
+          {/*  scrollHandler={() => svgEditorialAnimation("onScroll")}*/}
+          {/*/>*/}
         </div>
       </LayoutSection>
       {/*
