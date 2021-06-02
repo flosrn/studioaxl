@@ -1,16 +1,18 @@
 import React from "react";
+import cx from "classnames";
 import Arrow from "components/ui/animations/svg-arrow";
 
 interface Props {
   sectionId: number;
   title: string;
   subtitle?: string;
+  isDark?: boolean;
   children?: React.ReactNode;
 }
 
-const LayoutSection: React.FC<Props> = ({ sectionId, title, subtitle, children }) => {
+const LayoutSection: React.FC<Props> = ({ sectionId, title, subtitle, isDark, children }) => {
   return (
-    <section id={`section${sectionId}`} className="relative">
+    <section id={`section${sectionId}`} className={cx("relative", { "bg-dark": isDark })}>
       <div className="flex justify-center items-center mx-6">
         <h2 className="max-w-xl text-center text-6xl md:text-7xl font-sage">{title}</h2>
       </div>

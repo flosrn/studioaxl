@@ -212,7 +212,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
           return +getBlurMatch(target)[1] || 0;
         },
         init(target, endValue) {
-          let data = this;
+          const data = this;
           let filter = gsap.getProperty(target, blurProperty);
           const endBlur = `blur(${endValue}px)`;
           const match = getBlurMatch(target)[0];
@@ -277,25 +277,25 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
     <div className="bg-white">
       <Header openHandler={handleToggleClicked} />
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
-      <section className="h-screen flex flex-col justify-center items-center">
-        <div className="relative flex flex-col justify-center text-left w-5/6 sm:w-auto pb-20">
-          <h1 className="flex flex-col text-8xl md:flex-row md:text-9xl font-sage">
+      <section className="flex flex-col justify-center items-center h-screen">
+        <div className="flex relative flex-col justify-center pb-20 w-5/6 sm:w-auto text-left">
+          <h1 className="flex flex-col md:flex-row font-sage text-8xl md:text-9xl">
             <div className="relative">
-              <span>Studio</span> <span className="md:ml-2 md:mt-0">axl</span>
+              <span>Studio</span> <span className="md:mt-0 md:ml-2">axl</span>
               <div
                 id="circle"
-                className="absolute right-0 md:-right-20 top-16 md:top-16 w-24 h-24 md:w-36 md:h-36 rounded-full opacity-75 bg-gold backdrop-blur"
+                className="absolute top-16 md:top-16 right-0 md:-right-20 w-24 md:w-36 h-24 md:h-36 bg-gold rounded-full opacity-75 backdrop-blur"
               />
             </div>
           </h1>
-          <h5 className="text-xl font-futura tracking-wider -mt-2 md:-ml-24">
+          <h5 className="-mt-2 md:-ml-24 font-futura text-xl tracking-wider">
             {t("home.hero.subtitle")}
           </h5>
         </div>
         {/* <div className="absolute bottom-0 flex flex-col justify-center items-center xl:items-start w-full">*/}
         {/*  <Cookie />*/}
         {/* </div>*/}
-        <div className="absolute bottom-0 w-full flex justify-center items-start">
+        <div className="flex absolute bottom-0 justify-center items-start w-full">
           <Arrow nextSectionId={1} />
         </div>
       </section>
@@ -305,7 +305,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        =================
        */}
       <section id="section1" className="flex justify-center items-center pt-48 pb-56">
-        <div className="relative flex flex-col items-center md:flex-row-reverse justify-around w-full">
+        <div className="flex relative flex-col md:flex-row-reverse justify-around items-center w-full">
           <div className="hidden md:block absolute -top-32 -left-14 z-10 svgQuotes">
             <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
               <g data-name="Groupe 72">
@@ -321,9 +321,9 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
             <Image
               src="/images/studio_axl.png"
               layout="fill"
-              className="absolute object-cover object-center z-0 svgQuotes"
+              className="object-cover object-center absolute z-0 svgQuotes"
             />
-            <div className="hidden md:block absolute -bottom-32 right-5 z-10 svgQuotes">
+            <div className="hidden md:block absolute right-5 -bottom-32 z-10 svgQuotes">
               <svg width={231.475} height={241.103} viewBox="0 0 231.475 241.103">
                 <path
                   d="M163.41 425.068l72.138 92.088-36.069 26.659-92.525-118.491 92.524-122.612 35.814 26.477zm102.918 0l72.1 92.088-36.068 26.659-92.524-118.491 92.524-122.612 35.814 26.477z"
@@ -333,9 +333,9 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
               </svg>
             </div>
           </div>
-          <div className="relative w-full md:w-1/2 flex justify-center items-center md:justify-end">
-            <div className="w-full md:w-128 flex flex-col justify-center md:justify-center md:items-end">
-              <div className="md:hidden absolute -left-8 -top-14 z-10">
+          <div className="flex relative justify-center md:justify-end items-center w-full md:w-1/2">
+            <div className="flex flex-col justify-center md:justify-center md:items-end w-full md:w-128">
+              <div className="md:hidden absolute -top-14 -left-8 z-10">
                 <svg width={139.344} height={142.644} viewBox="0 0 79.344 82.644">
                   <path
                     d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
@@ -344,16 +344,16 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
                   />
                 </svg>
               </div>
-              <div className="w-full flex items-center flex-col text-center md:items-end md:text-right md:pr-12 lg:pr-16 xl:pr-24 md:-mt-18">
+              <div className="flex flex-col items-center md:items-end md:pr-12 lg:pr-16 xl:pr-24 w-full text-center md:text-right md:-mt-18">
                 <div className="flex justify-center items-center mt-10">
                   <span className="font-sage text-6xl">axl</span>
                 </div>
-                <div className="w-10/12 sm:w-8/12 mt-10 tracking-wide">
+                <div className="mt-10 w-10/12 sm:w-8/12 tracking-wide">
                   Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
                   d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
                 </div>
 
-                <div className="w-10/12 sm:w-8/12 mt-10 text-sm tracking-wide font-light leading-6">
+                <div className="mt-10 w-10/12 sm:w-8/12 text-sm font-light tracking-wide leading-6">
                   Je fais un métier que j’aime, qui m’anime, me passionne. Cette passion, c’est au
                   service de l’autre que je souhaite la mettre. Tous les projets méritent de
                   l’attention et toutes vos demandes la mienne.
@@ -384,23 +384,24 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        */}
       <LayoutSection
         sectionId={2}
+        isDark
         title="Mes services"
         subtitle="Je vous propose un grand choix de services pour lesquels engager une démarche de Direction Artistique.
 Trouvons ensemble la réponse adaptée à votre besoin."
       >
-        <div className="flex flex-row flex-wrap w-11/12 mx-auto">
+        <div className="flex flex-row flex-wrap mx-auto w-11/12">
           <Carousel />
-          {/*<ServiceItem*/}
+          {/* <ServiceItem*/}
           {/*  icon={<SvgBranding />}*/}
           {/*  title="Image de marque"*/}
           {/*  content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
-          {/*ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
+          {/* ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
           {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
           {/*    svgBrandingAnimation("onHover", event.type)*/}
           {/*  }*/}
           {/*  scrollHandler={() => svgBrandingAnimation("onScroll")}*/}
-          {/*/>*/}
-          {/*<ServiceItem*/}
+          {/*/ >*/}
+          {/* <ServiceItem*/}
           {/*  icon={<SvgAdvertasing />}*/}
           {/*  title="Publicité"*/}
           {/*  content="Vous souhaitez promouvoir votre projet ? Réalisons une multitude de supports imprimés et numériques : flyer, cartes de visite, visuels destinés aux réseaux sociaux…"*/}
@@ -408,8 +409,8 @@ Trouvons ensemble la réponse adaptée à votre besoin."
           {/*    svgAdvertasingAnimation("onHover", event.type)*/}
           {/*  }*/}
           {/*  scrollHandler={() => svgAdvertasingAnimation("onScroll")}*/}
-          {/*/>*/}
-          {/*<ServiceItem*/}
+          {/*/ >*/}
+          {/* <ServiceItem*/}
           {/*  icon={<SvgWeb />}*/}
           {/*  title="Design web  . mobile"*/}
           {/*  content="Vous souhaitez une interface ergonomique en accord avec votre identité visuelle ? Les tendances évoluent sans cesse, trouvons alors votre propre tonalité."*/}
@@ -417,8 +418,8 @@ Trouvons ensemble la réponse adaptée à votre besoin."
           {/*    svgWebAnimation("onHover", event.type)*/}
           {/*  }*/}
           {/*  scrollHandler={() => svgWebAnimation("onScroll")}*/}
-          {/*/>*/}
-          {/*<ServiceItem*/}
+          {/*/ >*/}
+          {/* <ServiceItem*/}
           {/*  icon={<SvgSignage />}*/}
           {/*  title="Signalétique . espaces"*/}
           {/*  content="Vous souhaitez donner vie à vos espaces ? De la signalétique intérieur à extérieur à la création de supports promotionnels, audio ou vidéo, nous créerons ensemble le bon support."*/}
@@ -426,8 +427,8 @@ Trouvons ensemble la réponse adaptée à votre besoin."
           {/*    svgSignageAnimation("onHover", event.type)*/}
           {/*  }*/}
           {/*  scrollHandler={() => svgSignageAnimation("onScroll")}*/}
-          {/*/>*/}
-          {/*<ServiceItem*/}
+          {/*/ >*/}
+          {/* <ServiceItem*/}
           {/*  icon={<SvgWrite />}*/}
           {/*  title="Design éditorial"*/}
           {/*  content="Vous avez l’envie de mettre en page vos créations, promouvoir votre entreprise, partager un évènement sous forme de livrets ou formes particulières ? Allons-y !"*/}
@@ -435,8 +436,8 @@ Trouvons ensemble la réponse adaptée à votre besoin."
           {/*    svgWriteAnimation("onHover", event.type)*/}
           {/*  }*/}
           {/*  scrollHandler={() => svgWriteAnimation("onScroll")}*/}
-          {/*/>*/}
-          {/*<ServiceItem*/}
+          {/*/ >*/}
+          {/* <ServiceItem*/}
           {/*  icon={<SvgEditorial />}*/}
           {/*  title="Rédaction . corrections"*/}
           {/*  content="Je propose la vérification et création de contenu rédactionnel pour que vos supports aient du sens dans leur fond comme dans leur forme."*/}
@@ -444,7 +445,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
           {/*    svgEditorialAnimation("onHover", event.type)*/}
           {/*  }*/}
           {/*  scrollHandler={() => svgEditorialAnimation("onScroll")}*/}
-          {/*/>*/}
+          {/*/ >*/}
         </div>
       </LayoutSection>
       {/*
@@ -454,7 +455,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        */}
       <LayoutSection sectionId={3} title="Projets">
         <div className="w-10/12">
-          {/*<div className="mt-20 space-y-10">*/}
+          {/* <div className="mt-20 space-y-10">*/}
           {/*  <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">*/}
           {/*    <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>*/}
           {/*      <a>*/}
@@ -488,18 +489,18 @@ Trouvons ensemble la réponse adaptée à votre besoin."
           {/*    /!*<div className="rounded-5xl bg-green-900 w-w-128 h-56 inline-flex" />*!/*/}
           {/*    /!*<div className="rounded-5xl bg-blue-400 w-w-128 h-56 inline-flex" />*!/*/}
           {/*  </div>*/}
-          {/*</div>*/}
+          {/* </div>*/}
 
-          <div className="py-6 flex flex-col justify-center sm:py-12 w-full">
-            <div className="relative w-full py-3 px-6 bg-red-200 overflow-hidden">
+          <div className="flex flex-col justify-center py-6 sm:py-12 w-full">
+            <div className="overflow-hidden relative py-3 px-6 w-full bg-red-200">
               <div
                 id="projectsContainer"
-                className="w-full grid grid-cols-50 grid-rows-50 grid-flow-col gap-3"
+                className="grid grid-cols-50 grid-rows-50 grid-flow-col gap-3 w-full"
               >
                 <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>
                   <a>
                     <div
-                      className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
+                      className="h-36 bg-white rounded-lg shadow-xl cursor-pointer projects"
                       style={{
                         background: `no-repeat url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url}) bottom`,
                       }}
@@ -509,7 +510,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
                 <Link href="/project/[...slug]" as={`/project/${allProjects?.[1].slug}`}>
                   <a>
                     <div
-                      className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
+                      className="h-36 bg-white rounded-lg shadow-xl cursor-pointer projects"
                       style={{
                         background: `no-repeat url(${dashboardURL}${allProjects?.[1]?.coverImage.formats.medium.url}) bottom`,
                       }}
@@ -519,24 +520,24 @@ Trouvons ensemble la réponse adaptée à votre besoin."
                 <Link href="/project/[...slug]" as={`/project/${allProjects?.[2].slug}`}>
                   <a>
                     <div
-                      className="h-36 bg-white rounded-lg shadow-xl projects cursor-pointer"
+                      className="h-36 bg-white rounded-lg shadow-xl cursor-pointer projects"
                       style={{
                         background: `no-repeat url(${dashboardURL}${allProjects?.[2]?.coverImage.formats.medium.url}) bottom`,
                       }}
                     />
                   </a>
                 </Link>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects"></div>
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
+                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
               </div>
             </div>
           </div>
@@ -548,35 +549,35 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        =================
        */}
       <LayoutSection sectionId={4} title="Pourquoi me faire confiance ?">
-        <div className="relative flex flex-col items-center justify-around w-full mt-10">
-          <div className="flex flex-col justify-center items-center w-full px-12">
-            <div className="flex justify-center items-center flex-col md:flex-row md:justify-center md:items-center flex-wrap md:mt-24 w-full space-y-6 md:space-x-36">
-              <span id="word1" className="font-sage text-5xl md:text-7xl md:mb-20">
+        <div className="flex relative flex-col justify-around items-center mt-10 w-full">
+          <div className="flex flex-col justify-center items-center px-12 w-full">
+            <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-center items-center md:items-center md:mt-24 space-y-6 md:space-x-36 w-full">
+              <span id="word1" className="md:mb-20 font-sage text-5xl md:text-7xl">
                 Histoire
               </span>
               <span id="word2" className="font-sage text-5xl md:text-4xl">
                 Conseil
               </span>
-              <span id="word3" className="font-sage text-5xl md:text-5xl md:mb-10">
+              <span id="word3" className="md:mb-10 font-sage text-5xl md:text-5xl">
                 Flexibilité
               </span>
             </div>
-            <div className="flex justify-center items-center flex-col md:flex-row md:justify-center md:items-center flex-wrap mt-6 md:mt-12  mb-12 md:mb-56 w-full space-y-6 md:space-x-24">
-              <span id="word4" className="font-sage text-5xl md:text-6xl md:-mb-32">
+            <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-center items-center md:items-center mt-6 md:mt-12 mb-12 md:mb-56 space-y-6 md:space-x-24 w-full">
+              <span id="word4" className="md:-mb-32 font-sage text-5xl md:text-6xl">
                 Confiance
               </span>
               <span id="word5" className="font-sage text-5xl md:text-3xl">
                 Écoute
               </span>
-              <span id="word6" className="font-sage text-5xl md:text-5xl md:mb-10">
+              <span id="word6" className="md:mb-10 font-sage text-5xl md:text-5xl">
                 Finesse
               </span>
-              <span id="word7" className="font-sage text-5xl md:text-7xl md:mt-20">
+              <span id="word7" className="md:mt-20 font-sage text-5xl md:text-7xl">
                 Concept
               </span>
             </div>
           </div>
-          <div className="relative flex flex-row flex-wrap items-center justify-center w-10/12 mx-auto mt-12">
+          <div className="flex relative flex-row flex-wrap justify-center items-center mx-auto mt-12 w-10/12">
             <ValueItem
               icon={<SvgSense />}
               title="Le sens"
@@ -613,29 +614,29 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        =================
        */}
       <LayoutSection sectionId={5} title="Studio axl ?">
-        <div className="w-full flex flex-col justify-center items-center md:justify-start max-w-7xl">
-          <div className="relative w-full flex flex-col justify-center items-center md:justify-start pl-6 md:pl-0">
-            <div className="absolute left-12 -top-12 md:-left-24 md:-top-24 w-20 h-20 md:w-36 md:h-36 rounded-full opacity-75 bg-pink backdrop-blur" />
-            <span className="w-full font-sage text-center md:text-left text-3xl md:text-5xl">
+        <div className="flex flex-col justify-center md:justify-start items-center w-full max-w-7xl">
+          <div className="flex relative flex-col justify-center md:justify-start items-center pl-6 md:pl-0 w-full">
+            <div className="absolute -top-12 md:-top-24 left-12 md:-left-24 w-20 md:w-36 h-20 md:h-36 bg-pink rounded-full opacity-75 backdrop-blur" />
+            <span className="w-full font-sage text-3xl md:text-5xl text-center md:text-left">
               Axelle Malard
             </span>
-            <span className="w-full font-sage text-center md:text-left text-3xl md:justify-start md:text-5xl mt-3">
+            <span className="md:justify-start mt-3 w-full font-sage text-3xl md:text-5xl text-center md:text-left">
               une Directrice Artistique
             </span>
           </div>
-          <div className="w-full flex mt-24 pl-6 md:pl-0">
-            <div className="w-full flex justify-center md:justify-start md:w-1/2">
+          <div className="flex pl-6 md:pl-0 mt-24 w-full">
+            <div className="flex justify-center md:justify-start w-full md:w-1/2">
               <Image src="/images/AxelleMobile-light.jpg" width={544} height={576} />
             </div>
-            <div className="hidden md:flex w-full items-center md:w-1/2 pl-10 pr-6 md:pr-0">
+            <div className="hidden md:flex items-center pr-6 md:pr-0 pl-10 w-full md:w-1/2">
               <div className="w-full">
-                <h3 className="w-full py-10 text-7xl font-sage">Écoute</h3>
-                <h3 className="w-full py-10 text-7xl font-sage text-right">Sourire</h3>
-                <h3 className="w-full py-10 text-7xl font-sage">Singularité</h3>
+                <h3 className="py-10 w-full font-sage text-7xl">Écoute</h3>
+                <h3 className="py-10 w-full font-sage text-7xl text-right">Sourire</h3>
+                <h3 className="py-10 w-full font-sage text-7xl">Singularité</h3>
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center  mx-auto mt-20">
+          <div className="flex flex-col justify-center items-center mx-auto mt-20">
             <div className="px-6 xl:px-0">
               <FormationItem
                 date="2018-2020"
@@ -680,7 +681,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        */}
       <LayoutSection sectionId={6} title="Des relations finements choisies">
         <div className="w-full">
-          <div className="w-full xl:w-2/3 lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto w-full xl:w-2/3">
             <RelationItem
               domain="web"
               picturePath="/images/flo.png"
@@ -710,7 +711,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
               content="François est en mesure de créer des compositions originales pour tout projet audiovisuel, donnez du cachet à vos projets, différencions-nous."
             />
           </div>
-          <div className="relative w-full flex justify-center items-center h-96 mt-56 mb-32 px-6">
+          <div className="flex relative justify-center items-center px-6 mt-56 mb-32 w-full h-96">
             <div className="hidden md:block absolute -top-52 -left-14 z-10">
               <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
                 <g data-name="Groupe 72">
@@ -722,7 +723,7 @@ Trouvons ensemble la réponse adaptée à votre besoin."
                 </g>
               </svg>
             </div>
-            <div className="md:hidden absolute -left-8 -top-14 z-10">
+            <div className="md:hidden absolute -top-14 -left-8 z-10">
               <svg width={139.344} height={142.644} viewBox="0 0 79.344 82.644">
                 <path
                   d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
@@ -731,10 +732,10 @@ Trouvons ensemble la réponse adaptée à votre besoin."
                 />
               </svg>
             </div>
-            <p className="max-w-5xl text-center text-4xl md:text-6xl font-sage tracking-wider">
+            <p className="max-w-5xl font-sage text-4xl md:text-6xl tracking-wider text-center">
               Je m’entoure de personnes de confiance pour rendre tous vos projets possibles.
             </p>
-            <div className="hidden md:block absolute -bottom-44 -right-14 z-10">
+            <div className="hidden md:block absolute -right-14 -bottom-44 z-10">
               <svg width={231.475} height={241.103} viewBox="0 0 231.475 241.103">
                 <path
                   d="M163.41 425.068l72.138 92.088-36.069 26.659-92.525-118.491 92.524-122.612 35.814 26.477zm102.918 0l72.1 92.088-36.068 26.659-92.524-118.491 92.524-122.612 35.814 26.477z"

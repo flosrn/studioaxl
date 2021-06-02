@@ -24,7 +24,8 @@ module.exports = {
         gold: "#FCDBBD",
         rose: "#FFEBD8",
         pink: "#FDE0E0",
-        dark: "#242323",
+        // dark: "#242323",
+        dark: "#2F2F2F",
       },
       width: {
         128: "32rem",

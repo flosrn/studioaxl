@@ -12,7 +12,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["@typescript-eslint", "react", "prettier"],
+  plugins: ["@typescript-eslint", "react", "prettier", "tailwindcss"],
   extends: [
     "airbnb",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -47,6 +47,9 @@ module.exports = {
         allowConciseArrowFunctionExpressionsStartingWithVoid: true,
       },
     ],
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "warn",
+    "tailwindcss/no-contradicting-classname": "error",
   },
   settings: {
     "import/resolver": {
@@ -54,6 +57,15 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
         moduleDirectory: ["node_modules", "."],
       },
+    },
+    tailwindcss: {
+      // These are the default values but feel free to customize
+      callees: ["classnames", "clsx", "ctl"],
+      config: "tailwind.config.js",
+      // groups: defaultGroups, // imported from groups.js
+      prependCustom: false,
+      removeDuplicates: true,
+      whitelist: [],
     },
   },
 };
