@@ -7,26 +7,46 @@ interface Props {
   title: string;
   subtitle?: string;
   isDark?: boolean;
+  isTitleLeft?: boolean;
+  isArrow?: boolean;
   children?: React.ReactNode;
 }
 
-const LayoutSection: React.FC<Props> = ({ sectionId, title, subtitle, isDark, children }) => {
-  return (
-    <section id={`section${sectionId}`} className={cx("relative", { "bg-dark": isDark })}>
-      <div className="flex justify-center items-center mx-6">
-        <h2 className="max-w-xl text-center text-6xl md:text-7xl font-sage">{title}</h2>
+const LayoutSection: React.FC<Props> = ({
+  sectionId,
+  title,
+  subtitle,
+  isDark,
+  isTitleLeft,
+  isArrow,
+  children,
+}) => (
+  <section id={`section${sectionId}`} className={cx("relative py-24", { "bg-dark": isDark })}>
+    <div className="mx-auto max-w-container">
+      <div className={cx("flex items-center", { "justify-center": !isTitleLeft })}>
+        <h2
+          className={cx("max-w-xl text-6xl md:text-6xl text-center uppercase", {
+            "text-white": isDark,
+          })}
+        >
+          {title}
+        </h2>
       </div>
       {subtitle && (
         <div className="flex justify-center items-center mx-6 mt-10 md:mt-20">
-          <span className="max-w-lg text-center font-alegreya">{subtitle}</span>
+          <span className={cx("max-w-lg font-alegreya text-center", { "text-white": isDark })}>
+            {subtitle}
+          </span>
         </div>
       )}
-      <div className="flex flex-col justify-center items-center pt-24">{children}</div>
-      <div className="my-72 w-full flex justify-center items-start">
-        <Arrow nextSectionId={sectionId + 1} />
-      </div>
-    </section>
-  );
-};
+      <div className="flex flex-col justify-center items-center">{children}</div>
+      {isArrow && (
+        <div className="flex justify-center items-start my-72 w-full">
+          <Arrow nextSectionId={sectionId + 1} />
+        </div>
+      )}
+    </div>
+  </section>
+);
 
 export default LayoutSection;

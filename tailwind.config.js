@@ -11,20 +11,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Futura"],
-        sans: ["Futura"],
-        mono: ["Futura"],
-        display: ["Futura"],
-        body: ["Futura"],
-        futura: ["Futura"],
+        serif: ["Baskerville"],
+        sans: ["Baskerville"],
+        mono: ["Baskerville"],
+        display: ["Baskerville"],
+        body: ["Baskerville"],
+        baskerville: ["Baskerville"],
         sage: ["Sage"],
-        alegreya: ["Alegreya"],
       },
       colors: {
         gold: "#FCDBBD",
         rose: "#FFEBD8",
         pink: "#FDE0E0",
-        // dark: "#242323",
         dark: "#2F2F2F",
       },
       width: {

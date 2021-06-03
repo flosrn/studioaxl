@@ -35,7 +35,11 @@ import { dashboardURL } from "utils/constants";
 import Link from "next/link";
 import LayoutSection from "components/ui/layout-section";
 import SvgBts from "components/ui/svg/svg-bts";
-import Carousel from "components/ui/carousel";
+import Carousel from "components/ui/Carousel/carousel";
+import HowWork from "components/sections/HowWork";
+import ByTheWay from "components/sections/ByTheWay";
+import Projects from "components/sections/Projects";
+import Intro from "components/sections/Intro";
 // import Cookie from "components/ui/cookie";
 
 interface Props {
@@ -304,148 +308,23 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        SECTION 1 - Axelle
        =================
        */}
-      <section id="section1" className="flex justify-center items-center pt-48 pb-56">
-        <div className="flex relative flex-col md:flex-row-reverse justify-around items-center w-full">
-          <div className="hidden md:block absolute -top-32 -left-14 z-10 svgQuotes">
-            <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
-              <g data-name="Groupe 72">
-                <path
-                  d="M172.276 444.283l83.466 106.55-41.733 30.845-107.055-137.1 107.055-141.866 41.438 30.636zm119.081 0l83.424 106.55-41.733 30.845-107.055-137.1 107.054-141.866 41.438 30.636z"
-                  fill="#ffebd8"
-                  transform="translate(-106.954 -302.712)"
-                />
-              </g>
-            </svg>
-          </div>
-          <div className="relative w-full md:w-1/2 h-80 md:h-156">
-            <Image
-              src="/images/studio_axl.png"
-              layout="fill"
-              className="object-cover object-center absolute z-0 svgQuotes"
-            />
-            <div className="hidden md:block absolute right-5 -bottom-32 z-10 svgQuotes">
-              <svg width={231.475} height={241.103} viewBox="0 0 231.475 241.103">
-                <path
-                  d="M163.41 425.068l72.138 92.088-36.069 26.659-92.525-118.491 92.524-122.612 35.814 26.477zm102.918 0l72.1 92.088-36.068 26.659-92.524-118.491 92.524-122.612 35.814 26.477z"
-                  fill="#ffebd8"
-                  transform="rotate(180 169.214 271.908)"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex relative justify-center md:justify-end items-center w-full md:w-1/2">
-            <div className="flex flex-col justify-center md:justify-center md:items-end w-full md:w-128">
-              <div className="md:hidden absolute -top-14 -left-8 z-10">
-                <svg width={139.344} height={142.644} viewBox="0 0 79.344 82.644">
-                  <path
-                    d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
-                    transform="translate(-106.954 -302.712)"
-                    fill="#ffebd8"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col items-center md:items-end md:pr-12 lg:pr-16 xl:pr-24 w-full text-center md:text-right md:-mt-18">
-                <div className="flex justify-center items-center mt-10">
-                  <span className="font-sage text-6xl">axl</span>
-                </div>
-                <div className="mt-10 w-10/12 sm:w-8/12 tracking-wide">
-                  Diplômée d’un Mastère en Direction Artistique et forte de plusieurs années
-                  d’expériences, je vous propose mes services en tant que DA pleine de sens.{" "}
-                </div>
-
-                <div className="mt-10 w-10/12 sm:w-8/12 text-sm font-light tracking-wide leading-6">
-                  Je fais un métier que j’aime, qui m’anime, me passionne. Cette passion, c’est au
-                  service de l’autre que je souhaite la mettre. Tous les projets méritent de
-                  l’attention et toutes vos demandes la mienne.
-                </div>
-
-                <div className="mt-10 text-xs tracking-wide">
-                  axelle malard . creative freelance
-                </div>
-              </div>
-
-              <div className="md:hidden absolute -right-5 -bottom-10 z-10">
-                <svg width={95.079} height={99.033} viewBox="0 0 95.079 99.033">
-                  <path
-                    d="M23.189 50.258L52.82 88.083 38 99.033 0 50.363 38 0l14.71 10.876zm42.274 0l29.616 37.825-14.816 10.95-38-48.67L80.263 0l14.71 10.876z"
-                    fill="#ffebd8"
-                    transform="rotate(180 47.54 49.517)"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Intro />
       {/*
        =================
        SECTION 2 - Services
        =================
        */}
-      <LayoutSection
-        sectionId={2}
-        isDark
-        title="Mes services"
-        subtitle="Je vous propose un grand choix de services pour lesquels engager une démarche de Direction Artistique.
-Trouvons ensemble la réponse adaptée à votre besoin."
-      >
-        <div className="flex flex-row flex-wrap mx-auto w-11/12">
-          <Carousel />
-          {/* <ServiceItem*/}
-          {/*  icon={<SvgBranding />}*/}
-          {/*  title="Image de marque"*/}
-          {/*  content="Vous créez votre entreprise ou souhaitez modifier votre image de marque ? Nous créerons*/}
-          {/* ensemble une identité visuelle en adéquation avec vos attentes et celles du marché."*/}
-          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
-          {/*    svgBrandingAnimation("onHover", event.type)*/}
-          {/*  }*/}
-          {/*  scrollHandler={() => svgBrandingAnimation("onScroll")}*/}
-          {/*/ >*/}
-          {/* <ServiceItem*/}
-          {/*  icon={<SvgAdvertasing />}*/}
-          {/*  title="Publicité"*/}
-          {/*  content="Vous souhaitez promouvoir votre projet ? Réalisons une multitude de supports imprimés et numériques : flyer, cartes de visite, visuels destinés aux réseaux sociaux…"*/}
-          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
-          {/*    svgAdvertasingAnimation("onHover", event.type)*/}
-          {/*  }*/}
-          {/*  scrollHandler={() => svgAdvertasingAnimation("onScroll")}*/}
-          {/*/ >*/}
-          {/* <ServiceItem*/}
-          {/*  icon={<SvgWeb />}*/}
-          {/*  title="Design web  . mobile"*/}
-          {/*  content="Vous souhaitez une interface ergonomique en accord avec votre identité visuelle ? Les tendances évoluent sans cesse, trouvons alors votre propre tonalité."*/}
-          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
-          {/*    svgWebAnimation("onHover", event.type)*/}
-          {/*  }*/}
-          {/*  scrollHandler={() => svgWebAnimation("onScroll")}*/}
-          {/*/ >*/}
-          {/* <ServiceItem*/}
-          {/*  icon={<SvgSignage />}*/}
-          {/*  title="Signalétique . espaces"*/}
-          {/*  content="Vous souhaitez donner vie à vos espaces ? De la signalétique intérieur à extérieur à la création de supports promotionnels, audio ou vidéo, nous créerons ensemble le bon support."*/}
-          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
-          {/*    svgSignageAnimation("onHover", event.type)*/}
-          {/*  }*/}
-          {/*  scrollHandler={() => svgSignageAnimation("onScroll")}*/}
-          {/*/ >*/}
-          {/* <ServiceItem*/}
-          {/*  icon={<SvgWrite />}*/}
-          {/*  title="Design éditorial"*/}
-          {/*  content="Vous avez l’envie de mettre en page vos créations, promouvoir votre entreprise, partager un évènement sous forme de livrets ou formes particulières ? Allons-y !"*/}
-          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
-          {/*    svgWriteAnimation("onHover", event.type)*/}
-          {/*  }*/}
-          {/*  scrollHandler={() => svgWriteAnimation("onScroll")}*/}
-          {/*/ >*/}
-          {/* <ServiceItem*/}
-          {/*  icon={<SvgEditorial />}*/}
-          {/*  title="Rédaction . corrections"*/}
-          {/*  content="Je propose la vérification et création de contenu rédactionnel pour que vos supports aient du sens dans leur fond comme dans leur forme."*/}
-          {/*  hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>*/}
-          {/*    svgEditorialAnimation("onHover", event.type)*/}
-          {/*  }*/}
-          {/*  scrollHandler={() => svgEditorialAnimation("onScroll")}*/}
-          {/*/ >*/}
+      <LayoutSection sectionId={2} isDark isTitleLeft title="Prestations">
+        <Carousel />
+        <div className="text-white">
+          <h6 className="text-3xl uppercase">N'HÉSITEZ PAS...</h6>
+          <p className="mt-3 text-2xl italic">
+            Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
+            catégories, n'hésitez-pas à me contacter pour échanger.
+          </p>
+          <button className="py-4 px-8 mt-6 text-sm text-gold uppercase bg-transparent border border-gold border-w-1">
+            Une questions ?
+          </button>
         </div>
       </LayoutSection>
       {/*
@@ -453,309 +332,25 @@ Trouvons ensemble la réponse adaptée à votre besoin."
        SECTION 3 - projets
        =================
        */}
-      <LayoutSection sectionId={3} title="Projets">
-        <div className="w-10/12">
-          {/* <div className="mt-20 space-y-10">*/}
-          {/*  <div id="projects1" className="ml-56 space-x-12 whitespace-nowrap">*/}
-          {/*    <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>*/}
-          {/*      <a>*/}
-          {/*        <div*/}
-          {/*          className="rounded-5xl bg-purple-500 w-128 h-56 inline-flex cursor-pointer"*/}
-          {/*          style={{*/}
-          {/*            background: `url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url})`,*/}
-          {/*          }}*/}
-          {/*        />*/}
-          {/*      </a>*/}
-          {/*    </Link>*/}
-          {/*    <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*/}
-          {/*    /!*<div className="rounded-5xl bg-blue-300 w-128 h-56 inline-flex" />*!/*/}
-          {/*  </div>*/}
-          {/*  <div id="projects2" className="space-x-12 whitespace-nowrap">*/}
-          {/*    <div className="rounded-5xl bg-purple-200 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-yellow-700 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-red-200 w-128 h-56 inline-flex" />*/}
-          {/*    /!*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*!/*/}
-          {/*    /!*<div className="rounded-5xl bg-green-200 w-128 h-56 inline-flex" />*!/*/}
-          {/*  </div>*/}
-          {/*  <div id="projects3" className="ml-36 space-x-12 whitespace-nowrap">*/}
-          {/*    <div className="rounded-5xl bg-indigo-500 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-gray-500 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-green-900 w-128 h-56 inline-flex" />*/}
-          {/*    <div className="rounded-5xl bg-yellow-500 w-128 h-56 inline-flex" />*/}
-          {/*    /!*<div className="rounded-5xl bg-green-900 w-w-128 h-56 inline-flex" />*!/*/}
-          {/*    /!*<div className="rounded-5xl bg-blue-400 w-w-128 h-56 inline-flex" />*!/*/}
-          {/*  </div>*/}
-          {/* </div>*/}
+      <Projects />
+      {/*
+       =================
+       SECTION 4 - Travailler ensemble
+       =================
+       */}
 
-          <div className="flex flex-col justify-center py-6 sm:py-12 w-full">
-            <div className="overflow-hidden relative py-3 px-6 w-full bg-red-200">
-              <div
-                id="projectsContainer"
-                className="grid grid-cols-50 grid-rows-50 grid-flow-col gap-3 w-full"
-              >
-                <Link href="/project/[...slug]" as={`/project/${allProjects?.[0].slug}`}>
-                  <a>
-                    <div
-                      className="h-36 bg-white rounded-lg shadow-xl cursor-pointer projects"
-                      style={{
-                        background: `no-repeat url(${dashboardURL}${allProjects?.[0]?.coverImage.formats.medium.url}) bottom`,
-                      }}
-                    />
-                  </a>
-                </Link>
-                <Link href="/project/[...slug]" as={`/project/${allProjects?.[1].slug}`}>
-                  <a>
-                    <div
-                      className="h-36 bg-white rounded-lg shadow-xl cursor-pointer projects"
-                      style={{
-                        background: `no-repeat url(${dashboardURL}${allProjects?.[1]?.coverImage.formats.medium.url}) bottom`,
-                      }}
-                    />
-                  </a>
-                </Link>
-                <Link href="/project/[...slug]" as={`/project/${allProjects?.[2].slug}`}>
-                  <a>
-                    <div
-                      className="h-36 bg-white rounded-lg shadow-xl cursor-pointer projects"
-                      style={{
-                        background: `no-repeat url(${dashboardURL}${allProjects?.[2]?.coverImage.formats.medium.url}) bottom`,
-                      }}
-                    />
-                  </a>
-                </Link>
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-                <div className="h-36 bg-white rounded-lg shadow-xl projects" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </LayoutSection>
       {/*
        =================
-       SECTION 4 - Valeurs
+       SECTION 5 - Comment travailler ensemble
        =================
        */}
-      <LayoutSection sectionId={4} title="Pourquoi me faire confiance ?">
-        <div className="flex relative flex-col justify-around items-center mt-10 w-full">
-          <div className="flex flex-col justify-center items-center px-12 w-full">
-            <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-center items-center md:items-center md:mt-24 space-y-6 md:space-x-36 w-full">
-              <span id="word1" className="md:mb-20 font-sage text-5xl md:text-7xl">
-                Histoire
-              </span>
-              <span id="word2" className="font-sage text-5xl md:text-4xl">
-                Conseil
-              </span>
-              <span id="word3" className="md:mb-10 font-sage text-5xl md:text-5xl">
-                Flexibilité
-              </span>
-            </div>
-            <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-center items-center md:items-center mt-6 md:mt-12 mb-12 md:mb-56 space-y-6 md:space-x-24 w-full">
-              <span id="word4" className="md:-mb-32 font-sage text-5xl md:text-6xl">
-                Confiance
-              </span>
-              <span id="word5" className="font-sage text-5xl md:text-3xl">
-                Écoute
-              </span>
-              <span id="word6" className="md:mb-10 font-sage text-5xl md:text-5xl">
-                Finesse
-              </span>
-              <span id="word7" className="md:mt-20 font-sage text-5xl md:text-7xl">
-                Concept
-              </span>
-            </div>
-          </div>
-          <div className="flex relative flex-row flex-wrap justify-center items-center mx-auto mt-12 w-10/12">
-            <ValueItem
-              icon={<SvgSense />}
-              title="Le sens"
-              content="Je fais mon métier pour donner du sens à ce que je fais. Tant dans le fond, que dans la forme. Ensemble, nous créerons notre propre harmonie."
-              hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                svgSenseAnimation("onHover", event.type)
-              }
-              scrollHandler={() => svgSenseAnimation("onScroll")}
-            />
-            <ValueItem
-              icon={<SvgEmpathie />}
-              title="L'empathie"
-              content="L’empathie, c’est se mettre à la place de l’autre. Je ne cesse en permanence de me mettre à la fois à la place de mon client et à la fois à la place de son public."
-              hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                svgEmpathyAnimation("onHover", event.type)
-              }
-              scrollHandler={() => svgEmpathyAnimation("onScroll")}
-            />
-            <ValueItem
-              icon={<SvgPrecision />}
-              title="La précision"
-              content="Mon goût du détail et du travail qualitatif me pousse en permanence à me remettre en question. J’ai acquis une rapidité d’exécution forte et puissante en maintenant un haut seuil d’exigence."
-              hoverHandler={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                svgPrecisionAnimation("onHover", event.type)
-              }
-              scrollHandler={() => svgPrecisionAnimation("onScroll")}
-            />
-          </div>
-        </div>
-      </LayoutSection>
+      <HowWork />
       {/*
        =================
-       SECTION 5 - Formations
+       SECTION 6 - Au fait
        =================
        */}
-      <LayoutSection sectionId={5} title="Studio axl ?">
-        <div className="flex flex-col justify-center md:justify-start items-center w-full max-w-7xl">
-          <div className="flex relative flex-col justify-center md:justify-start items-center pl-6 md:pl-0 w-full">
-            <div className="absolute -top-12 md:-top-24 left-12 md:-left-24 w-20 md:w-36 h-20 md:h-36 bg-pink rounded-full opacity-75 backdrop-blur" />
-            <span className="w-full font-sage text-3xl md:text-5xl text-center md:text-left">
-              Axelle Malard
-            </span>
-            <span className="md:justify-start mt-3 w-full font-sage text-3xl md:text-5xl text-center md:text-left">
-              une Directrice Artistique
-            </span>
-          </div>
-          <div className="flex pl-6 md:pl-0 mt-24 w-full">
-            <div className="flex justify-center md:justify-start w-full md:w-1/2">
-              <Image src="/images/AxelleMobile-light.jpg" width={544} height={576} />
-            </div>
-            <div className="hidden md:flex items-center pr-6 md:pr-0 pl-10 w-full md:w-1/2">
-              <div className="w-full">
-                <h3 className="py-10 w-full font-sage text-7xl">Écoute</h3>
-                <h3 className="py-10 w-full font-sage text-7xl text-right">Sourire</h3>
-                <h3 className="py-10 w-full font-sage text-7xl">Singularité</h3>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center mx-auto mt-20">
-            <div className="px-6 xl:px-0">
-              <FormationItem
-                date="2018-2020"
-                diploma="Mastère Direction Artistique Numérique"
-                school="Institut Supérieur des Arts Appliqués . Toulouse"
-                contract="Contrat professionnel - Graphic Designer"
-                society="Newrest Group International"
-                textDescription="Pendant ces deux années j’ai développé mes compétences en gestion de projet et management. En entreprise, j’ai été graphiste au sein du service communication et marketing du groupe. Pendant 3 ans (année de Bachelor comprise), j’ai été en charge de l’identité visuelle de restaurants d’entreprises, d’écoles et d’hôpitaux en terme de graphisme, d’espace et d’ambiance."
-                logo={<SvgLisaa />}
-              />
-              <FormationItem
-                date="2018-2020"
-                diploma="Bachelor Concepteur Designer Graphique"
-                school="Institut Supérieur des Arts Appliqués . Toulouse"
-                contract="Contrat professionnel - Graphic Designer"
-                society="Newrest Group International"
-                textDescription="Pendant cette année, j’ai affiné ma technique au service de différents projets graphiques tout en continuant d’appliquer mes connaissances et de continuer ma formation au sein de l’entreprise Newrest. "
-                logo={<SvgLisaa />}
-              />
-              <FormationItem
-                date="2015-2017"
-                diploma="BTS Design Graphique opt. Imprimé"
-                school="Lycée des Arènes . Toulouse"
-                textDescription="Ces deux années m’ont enseignées à penser, donner du sens à mes projets avant de passer à l’action. Piliers, elles m’ont donnés l’essence du métier de designer graphique."
-                logo={<SvgBts />}
-              />
-              <FormationItem
-                date="2014-2015"
-                diploma="Mise à Niveau en Arts Appliqués"
-                school="Lycée des Arènes . Toulouse"
-                textDescription="Après un BAC Economique et Social, une mise à niveau est nécessaire pour rentrer dans le monde des Arts Appliqués. Cette formation a été le pilier de mon parcours. C’est grâce à elle que j’ai compris l’idée de «concept», de fond et de sens."
-                logo={<SvgBts />}
-              />
-            </div>
-          </div>
-        </div>
-      </LayoutSection>
-      {/*
-       =================
-       SECTION 6 - Relations
-       =================
-       */}
-      <LayoutSection sectionId={6} title="Des relations finements choisies">
-        <div className="w-full">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-x-20 lg:gap-y-10 mx-auto w-full xl:w-2/3">
-            <RelationItem
-              domain="web"
-              picturePath="/images/flo.png"
-              name="Florian Séran"
-              desc="Développeur enthousiaste"
-              content="Florian m’accompagne dans tous vos projets web pour qu’ils soient à la pointe du référencement et des technologies utilisées aujourd’hui."
-            />
-            <RelationItem
-              domain="web"
-              picturePath="/images/marina.png"
-              name="Marina Costanzo"
-              desc="DA . designer graphique, regard extérieur"
-              content="Marina m’accompagne depuis plusieurs années dans vos projets. Un regard extérieur est toujours utile en création."
-            />
-            <RelationItem
-              domain="web"
-              picturePath="/images/saveria.png"
-              name="Saveria Palumbo"
-              desc="Voix off . voice over"
-              content="Saveria donne vie à vos supports vidéos et audio pour tous types de communication."
-            />
-            <RelationItem
-              domain="web"
-              picturePath="/images/francois.png"
-              name="François Petit"
-              desc="Compositeur musical . ingénieur son"
-              content="François est en mesure de créer des compositions originales pour tout projet audiovisuel, donnez du cachet à vos projets, différencions-nous."
-            />
-          </div>
-          <div className="flex relative justify-center items-center px-6 mt-56 mb-32 w-full h-96">
-            <div className="hidden md:block absolute -top-52 -left-14 z-10">
-              <svg width={267.827} height={278.966} viewBox="0 0 267.827 278.966">
-                <g data-name="Groupe 72">
-                  <path
-                    d="M172.276 444.283l83.466 106.55-41.733 30.845-107.055-137.1 107.055-141.866 41.438 30.636zm119.081 0l83.424 106.55-41.733 30.845-107.055-137.1 107.054-141.866 41.438 30.636z"
-                    fill="#ffebd8"
-                    transform="translate(-106.954 -302.712)"
-                  />
-                </g>
-              </svg>
-            </div>
-            <div className="md:hidden absolute -top-14 -left-8 z-10">
-              <svg width={139.344} height={142.644} viewBox="0 0 79.344 82.644">
-                <path
-                  d="M126.306 344.653l24.727 31.566-12.364 9.138-31.715-40.617 31.715-42.029 12.276 9.076zm35.278 0l24.716 31.565-12.364 9.138-31.717-40.616 31.715-42.029 12.276 9.076z"
-                  transform="translate(-106.954 -302.712)"
-                  fill="#ffebd8"
-                />
-              </svg>
-            </div>
-            <p className="max-w-5xl font-sage text-4xl md:text-6xl tracking-wider text-center">
-              Je m’entoure de personnes de confiance pour rendre tous vos projets possibles.
-            </p>
-            <div className="hidden md:block absolute -right-14 -bottom-44 z-10">
-              <svg width={231.475} height={241.103} viewBox="0 0 231.475 241.103">
-                <path
-                  d="M163.41 425.068l72.138 92.088-36.069 26.659-92.525-118.491 92.524-122.612 35.814 26.477zm102.918 0l72.1 92.088-36.068 26.659-92.524-118.491 92.524-122.612 35.814 26.477z"
-                  fill="#ffebd8"
-                  transform="rotate(180 169.214 271.908)"
-                />
-              </svg>
-            </div>
-            <div className="md:hidden absolute -right-5 -bottom-10 z-10">
-              <svg width={95.079} height={99.033} viewBox="0 0 95.079 99.033">
-                <path
-                  d="M23.189 50.258L52.82 88.083 38 99.033 0 50.363 38 0l14.71 10.876zm42.274 0l29.616 37.825-14.816 10.95-38-48.67L80.263 0l14.71 10.876z"
-                  fill="#ffebd8"
-                  transform="rotate(180 47.54 49.517)"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </LayoutSection>
+      <ByTheWay />
       <Footer />
     </div>
   );

@@ -7,15 +7,38 @@
 /* Stop purging. */
 
 @font-face {
-  font-family: 'Futura';
+  font-family: 'Baskerville';
   font-weight: 400;
-  src: local('Futura'), url('../public/fonts/Futura-Med.otf') format('otf');
+  src: local('Baskerville'), url('../public/fonts/baskerville-normal.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Baskerville';
+  font-weight: 400;
+  src: local('Baskerville'), url('../public/fonts/baskerville-normal.woff2') format('woff2');
 }
 
+/*@font-face {*/
+/*  font-family: 'Baskerville';*/
+/*  font-weight: 600;*/
+/*  src: local('Baskerville'), url('../public/fonts/baskerville-bold.ttf') format('ttf');*/
+/*}*/
+/*@font-face {*/
+/*  font-family: 'Baskerville';*/
+/*  font-weight: 600;*/
+/*  src: local('Baskerville'), url('../public/fonts/baskerville-bold.woff2') format('woff2');*/
+/*}*/
+
 @font-face {
-  font-family: 'Futura';
-  font-weight: 400;
-  src: local('Futura'), url('../public/fonts/Futura-Med.ttf') format('ttf');
+  font-family: 'Baskerville';
+  font-weight: 600;
+  font-style: italic;
+  src: local('Baskerville'), url('../public/fonts/BaskervillePosterPT-italic.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Baskerville';
+  font-weight: 600;
+  font-style: italic;
+  src: local('Baskerville'), url('../public/fonts/BaskervillePosterPT-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -34,10 +57,6 @@
   font-family: sage, serif;
 }
 
-.font-alegreya {
-  font-family: alegreya, serif;
-}
-
 /* Write your own custom component styles here */
 button:focus {
   outline: none;
@@ -45,6 +64,10 @@ button:focus {
 
 html, body {
   overflow-x: hidden
+}
+
+.max-w-container {
+  max-width: 80rem;
 }
 
 @keyframes inAnimation {
