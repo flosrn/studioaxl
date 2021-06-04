@@ -8,38 +8,125 @@
 
 @font-face {
   font-family: 'Baskerville';
-  font-weight: 400;
-  src: local('Baskerville'), url('../public/fonts/baskerville-normal.ttf') format('ttf');
+  src: url('../public/fonts/BaskervilleLight.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleLight.woff') format('woff'),
+  url('../public/fonts/BaskervilleLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
-@font-face {
-  font-family: 'Baskerville';
-  font-weight: 400;
-  src: local('Baskerville'), url('../public/fonts/baskerville-normal.woff2') format('woff2');
-}
-
-/*@font-face {*/
-/*  font-family: 'Baskerville';*/
-/*  font-weight: 600;*/
-/*  src: local('Baskerville'), url('../public/fonts/baskerville-bold.ttf') format('ttf');*/
-/*}*/
-/*@font-face {*/
-/*  font-family: 'Baskerville';*/
-/*  font-weight: 600;*/
-/*  src: local('Baskerville'), url('../public/fonts/baskerville-bold.woff2') format('woff2');*/
-/*}*/
 
 @font-face {
   font-family: 'Baskerville';
-  font-weight: 600;
-  font-style: italic;
-  src: local('Baskerville'), url('../public/fonts/BaskervillePosterPT-italic.ttf') format('ttf');
+  src: url('../public/fonts/BaskervilleBold.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBold.woff') format('woff'),
+  url('../public/fonts/BaskervilleBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: 'Baskerville';
-  font-weight: 600;
-  font-style: italic;
-  src: local('Baskerville'), url('../public/fonts/BaskervillePosterPT-italic.woff2') format('woff2');
+  src: url('../public/fonts/BaskervilleBold_1.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBold_1.woff') format('woff'),
+  url('../public/fonts/BaskervilleBold_1.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../public/fonts/Baskerville.woff2') format('woff2'),
+  url('../public/fonts/Baskerville.woff') format('woff'),
+  url('../public/fonts/Baskerville.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../public/fonts/Baskerville-LightA.woff2') format('woff2'),
+  url('../public/fonts/Baskerville-LightA.woff') format('woff'),
+  url('../public/fonts/Baskerville-LightA.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville BT';
+  src: url('../public/fonts/BaskervilleBT-BoldItalic.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBT-BoldItalic.woff') format('woff'),
+  url('../public/fonts/BaskervilleBT-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville BT';
+  src: url('../public/fonts/BaskervilleBT-Bold.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBT-Bold.woff') format('woff'),
+  url('../public/fonts/BaskervilleBT-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville BT';
+  src: url('../public/fonts/BaskervilleBT-Bold_1.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBT-Bold_1.woff') format('woff'),
+  url('../public/fonts/BaskervilleBT-Bold_1.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville BT';
+  src: url('../public/fonts/BaskervilleBT-Italic.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBT-Italic.woff') format('woff'),
+  url('../public/fonts/BaskervilleBT-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../public/fonts/BaskervilleLight-Italic.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleLight-Italic.woff') format('woff'),
+  url('../public/fonts/BaskervilleLight-Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville BT';
+  src: url('../public/fonts/BaskervilleBT-Roman.woff2') format('woff2'),
+  url('../public/fonts/BaskervilleBT-Roman.woff') format('woff'),
+  url('../public/fonts/BaskervilleBT-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../public/fonts/Baskerville-Normal.woff2') format('woff2'),
+  url('../public/fonts/Baskerville-Normal.woff') format('woff'),
+  url('../public/fonts/Baskerville-Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 @font-face {
   font-family: 'Sage';

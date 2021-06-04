@@ -1,18 +1,15 @@
 import React from "react";
-import LayoutSection from "components/ui/layout-section";
+import ButtonLink from "components/ui/ButtonLink";
 
 const ByTheWay: React.FC = () => (
   <div className="h-96 bg-gold">
     <div className="flex flex-col justify-center items-center mx-auto w-full h-full text-center max-w-container">
       <div className="mb-4 uppercase">Au fait...</div>
-      <div className="w-full text-2xl italic mb-18">
+      <div className="w-full max-w-2xl text-3xl italic">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada,
-        euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis.
-        Etiam pharetra ipsum id elementum tempor
+        euismod est et.
       </div>
-      <button className="py-4 px-8 mt-6 text-sm text-black uppercase bg-transparent border border-black border-w-1">
-        Une questions ?
-      </button>
+      <ButtonLink url="/" text="Alors on s'y met negro ?" className="mt-10" />
     </div>
   </div>
 );

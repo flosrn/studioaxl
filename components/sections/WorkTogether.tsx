@@ -23,9 +23,13 @@ const items = [
   },
 ];
 
-const Intro: React.FC = () => (
+const WorkTogether: React.FC = () => (
   <LayoutSection sectionId={1} title="axelle #Créative Freelance">
-    <Presentation items={items} cta={{ url: "", text: "En savoir plus sur axl" }} />
+    <Presentation
+      items={items}
+      textAlignement="left"
+      cta={{ url: "", text: "En savoir plus sur axl" }}
+    />
   </LayoutSection>
 );
-export default Intro;
+export default WorkTogether;

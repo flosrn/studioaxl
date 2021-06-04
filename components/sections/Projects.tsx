@@ -48,7 +48,7 @@ const items = [
 ];
 
 const Item = ({ category, title, picture, color, className }) => (
-  <div className={cx("py-12 px-10 w-full w-[425px] h-[600px]", className)}>
+  <div className={cx("w-full h-[600px]", className)}>
     <div className={cx("w-full h-full", color)} />
     <div className="flex flex-col justify-center items-center mt-5">
       <div className="text-sm">{category}</div>
@@ -59,10 +59,16 @@ const Item = ({ category, title, picture, color, className }) => (
 
 const Projects: React.FC = () => (
   <LayoutSection sectionId={3} title="Créations">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16 text-black">
-      {items.map((item: any) => (
-        <Item key={item.id} {...item} className={item.id === 2 || item.id === 5 ? "mt-28" : ""} />
-      ))}
+    <div className="flex justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mt-16 w-full text-black">
+        {items.map((item: any) => (
+          <Item
+            key={item.id}
+            {...item}
+            className={item.id === 2 || item.id === 5 ? "mt-28" : "mt-12 md:mt-0"}
+          />
+        ))}
+      </div>
     </div>
   </LayoutSection>
 );

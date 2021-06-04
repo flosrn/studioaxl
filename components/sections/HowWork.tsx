@@ -1,5 +1,6 @@
 import React from "react";
 import LayoutSection from "components/ui/layout-section";
+import Testimonials from "./Testimonials";
 
 const items = [
   {
@@ -47,7 +48,7 @@ const items = [
 ];
 
 const Item = ({ step, title, description }) => (
-  <div className="py-12 px-10 w-full h-56 br-red">
+  <div className="md:py-12 px-10 w-full h-56 br-red">
     <div>{step}</div>
     <div className="mb-1 text-xl">{title}</div>
     <div className="text-sm">{description}</div>
@@ -61,12 +62,15 @@ const HowWork: React.FC = () => (
     title="Comment travailler ensemble ?"
     subtitle="The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room. The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room. The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room."
   >
-    <div className="py-20 px-16 md:px-32 mt-20 w-full bg-white">
+    <div className="py-5 px-1 md:px-32 mt-20 w-full bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black">
         {items.map((item: any) => (
           <Item key={item.id} {...item} />
         ))}
       </div>
+    </div>
+    <div className="mt-20">
+      <Testimonials />
     </div>
   </LayoutSection>
 );

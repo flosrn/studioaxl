@@ -40,6 +40,7 @@ import HowWork from "components/sections/HowWork";
 import ByTheWay from "components/sections/ByTheWay";
 import Projects from "components/sections/Projects";
 import Intro from "components/sections/Intro";
+import WorkTogether from "components/sections/WorkTogether";
 // import Cookie from "components/ui/cookie";
 
 interface Props {
@@ -292,7 +293,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
               />
             </div>
           </h1>
-          <h5 className="-mt-2 md:-ml-24 font-futura text-xl tracking-wider">
+          <h5 className="-mt-2 md:-ml-24 text-xl tracking-wider font-futura">
             {t("home.hero.subtitle")}
           </h5>
         </div>
@@ -338,7 +339,7 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        SECTION 4 - Travailler ensemble
        =================
        */}
-
+      <WorkTogether />
       {/*
        =================
        SECTION 5 - Comment travailler ensemble
