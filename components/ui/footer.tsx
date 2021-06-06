@@ -31,13 +31,13 @@ const Footer: React.FC = () => (
         <div className="flex mt-3">
           <a
             href="/"
-            className="mr-3 transition-all duration-300 ease-in-out transform hover:rotate-6 hover:-translate-y-1"
+            className="mr-3 transition-all duration-300 ease-in-out transform hover:scale-110 hover:rotate-12"
           >
             <SvgLinkedin width={30} height={30} />
           </a>
           <a
             href="/"
-            className="transition-all duration-300 ease-in-out transform hover:-rotate-6 hover:-translate-y-1"
+            className="transition-all duration-300 ease-in-out transform hover:scale-110 hover:-rotate-90"
           >
             <SvgMalt width={30} height={30} />
           </a>

@@ -1,5 +1,6 @@
 import React from "react";
 import LayoutSection from "components/ui/layout-section";
+import Fade from "react-reveal/Fade";
 import Testimonials from "./Testimonials";
 
 const items = [
@@ -65,16 +66,20 @@ const HowWork: React.FC = () => (
     title="Comment travailler ensemble ?"
     subtitle="The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room. The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room. The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room."
   >
-    <div className="relative z-10 py-5 md:py-10 md:py-12 px-4 md:px-12 lg:px-20 mt-20 w-full bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black">
-        {items.map((item: any) => (
-          <Item key={item.id} {...item} />
-        ))}
-      </div>
+    <div className="relative z-10 py-5 md:py-12 px-4 md:px-12 lg:px-20 mt-20 w-full bg-white">
+      <Fade>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black">
+          {items.map((item: any) => (
+            <Item key={item.id} {...item} />
+          ))}
+        </div>
+      </Fade>
     </div>
     <div className="absolute bottom-0 left-0 z-0 w-full h-1/2 bg-[#2F2F2F]" />
     <div className="flex justify-center mt-20">
-      <Testimonials />
+      <Fade>
+        <Testimonials />
+      </Fade>
     </div>
   </LayoutSection>
 );

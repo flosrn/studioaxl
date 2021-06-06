@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Fragment } from "react";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import { useI18n, I18nProps } from "next-rosetta";
 import { gsap, Sine } from "gsap";
 import { MyLocale } from "i18n";
+import { Popover, Transition } from "@headlessui/react";
 
 import Header from "components/ui/header";
 import Arrow from "components/ui/animations/svg-arrow";
@@ -43,6 +44,7 @@ import Intro from "components/sections/Intro";
 import WorkTogether from "components/sections/WorkTogether";
 import ButtonLink from "components/ui/ButtonLink";
 import { useInView } from "react-intersection-observer";
+import Fade from "react-reveal/Fade";
 // import Cookie from "components/ui/cookie";
 
 interface Props {
@@ -52,227 +54,8 @@ interface Props {
 const HomePage: React.FC<Props> = ({ allProjects }) => {
   const { t } = useI18n<MyLocale>();
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [bgIsLoaded, setBgIsLoaded] = useState<boolean>(false);
   const shouldRenderChild = useDelayUnmout(isOpen, 400);
-
-  function random(min, max) {
-    const delta = max - min;
-    return (direction = 1) => (min + delta * Math.random()) * direction;
-  }
-
-  const randomX = random(10, 20);
-  const randomY = random(20, 30);
-  const randomDelay = random(0, 1);
-  const randomTime = random(3, 5);
-  const randomTime2 = random(5, 10);
-  const randomAngle = random(8, 12);
-
-  function rotate(target, direction) {
-    gsap.to(target, randomTime2(), {
-      rotation: randomAngle(direction),
-      delay: randomDelay(),
-      ease: Sine.easeInOut,
-      onComplete: rotate,
-      onCompleteParams: [target, direction * -1],
-    });
-  }
-
-  function moveX(target, direction) {
-    gsap.to(target, randomTime(), {
-      x: randomX(direction),
-      ease: Sine.easeInOut,
-      onComplete: moveX,
-      onCompleteParams: [target, direction * -1],
-    });
-  }
-
-  function moveY(target, direction) {
-    gsap.to(target, randomTime(), {
-      y: randomY(direction),
-      ease: Sine.easeInOut,
-      onComplete: moveY,
-      onCompleteParams: [target, direction * -1],
-    });
-  }
-
-  React.useEffect(() => {
-    const circle = document.getElementById("circle");
-    gsap.set(circle, {
-      x: randomX(-1),
-      y: randomX(1),
-      rotation: randomAngle(-1),
-    });
-
-    moveX(circle, 1);
-    moveY(circle, -1);
-    rotate(circle, 1);
-  }, []);
-
-  React.useEffect(() => {
-    //   const projects1 = document.getElementById("projects1");
-    //   const projects2 = document.getElementById("projects2");
-    //   const projects3 = document.getElementById("projects3");
-
-    // const projectsContainer = document.getElementById("projectsContainer");
-    // const projectsContainerWidth = projectsContainer.offsetWidth / 3;
-    // console.log("projectsContainerWidth : ", projectsContainerWidth);
-
-    const sections = gsap.utils.toArray(".projects");
-    // @ts-ignore
-    const sectionItemWidth = sections[0]?.offsetWidth;
-    console.log("sectionItemWidth : ", sectionItemWidth);
-
-    // const test = projectsContainer.scrollWidth - document.documentElement.clientWidth;
-
-    const toto = -200;
-    // console.log("toto : ", toto);
-
-    const section3 = document.querySelector("#section3");
-    // @ts-ignore
-    const section3Width = section3?.offsetWidth;
-
-    gsap.to(".projects", {
-      xPercent: toto,
-      // xPercent: function (index, target, targets) {
-      //   if (index === 1 || index === 4 || index === 7 || index === 10) return -250;
-      //   if (index === 2 || index === 5 || index === 8 || index === 11) return -150;
-      //   return `${-200}`;
-      // },
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#section3",
-        pin: true,
-        scrub: 1,
-        // markers: true,
-        start: "center center",
-        // end: "center bottom",
-        // invalidateOnRefresh: true,
-
-        // snap: 1 / (sections.length - 1),
-        // base vertical scrolling on how wide the container is so it feels more natural.
-        // end: () => "+=" + (projectsContainer.offsetWidth - window.innerWidth),
-        end: () => `+=${section3Width}`,
-      },
-    });
-
-    // gsap.from(".projects", {
-    //   // xPercent: toto,
-    //   opacity: function (index, target, targets) {
-    //     if (index > 5) return 0.6;
-    //   },
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: "#section3",
-    //     pin: true,
-    //     scrub: 1,
-    //     markers: true,
-    //     start: "center center",
-    //     // end: "center bottom",
-    //     // invalidateOnRefresh: true,
-    //
-    //     // snap: 1 / (sections.length - 1),
-    //     // base vertical scrolling on how wide the container is so it feels more natural.
-    //     // end: () => "+=" + (projectsContainer.offsetWidth - window.innerWidth),
-    //     end: () => "+=" + document.querySelector("#section3").offsetWidth,
-    //   },
-    // });
-
-    //
-    //   const containerWidth1 = projects1.offsetWidth + 1900;
-    //   const containerWidth2 = projects2.offsetWidth + 1900;
-    //   let containerWidth3 = projects3.offsetWidth + 1900;
-    //
-    // horizontalScrollAnimation(projectsContainer, projectsContainerWidth, 0.6);
-
-    // horizontalScrollAnimation(projects1, containerWidth1, 0.6);
-    //   horizontalScrollAnimation(projects2, containerWidth2, 0.7);
-    //   horizontalScrollAnimation(projects3, containerWidth3, 0.8);
-    //
-    //   containerWidth3 += 1000;
-    //
-    // const section = document.getElementById("section3");
-    // gsap.to(section, {
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: projectsContainer,
-    //     start: "center top+=200",
-    //     end: () => `+=${projectsContainerWidth}`,
-    //     // endTrigger: "#section5",
-    //     // markers: true,
-    //     pin: section,
-    //   },
-    // });
-  }, []);
-
-  const wordAnim = (word: HTMLElement, pos: number) => {
-    (function () {
-      const blurProperty: string = gsap.utils.checkPrefix("filter");
-      const blurExp = /blur\((.+)?px\)/;
-      const getBlurMatch = (target) => {
-        const test: string | number = gsap.getProperty(target, blurProperty) || "";
-        if (typeof test !== "number") {
-          return test.match(blurExp) || [];
-        }
-      };
-      gsap.registerPlugin({
-        name: "blur",
-        get(target) {
-          return +getBlurMatch(target)[1] || 0;
-        },
-        init(target, endValue) {
-          const data = this;
-          let filter = gsap.getProperty(target, blurProperty);
-          const endBlur = `blur(${endValue}px)`;
-          const match = getBlurMatch(target)[0];
-          let index;
-          if (filter === "none") {
-            filter = "";
-          }
-          if (match && typeof filter !== "number") {
-            index = filter.indexOf(match);
-            endValue = filter.substr(0, index) + endBlur + filter.substr(index + match.length);
-          } else {
-            endValue = filter + endBlur;
-            filter += filter ? " blur(0px)" : "blur(0px)";
-          }
-          data.target = target;
-          data.interp = gsap.utils.interpolate(filter, endValue);
-        },
-        render(progress, data) {
-          data.target.style[blurProperty] = data.interp(progress);
-        },
-      });
-    })();
-
-    gsap.from(word, {
-      opacity: 0,
-      blur: 8,
-      duration: 2,
-      ease: "none",
-      scrollTrigger: {
-        trigger: word,
-        start: `top center+=${pos}px`,
-        end: "bottom center",
-        scrub: true,
-      },
-    });
-  };
-
-  React.useEffect(() => {
-    const word1 = document.getElementById("word1");
-    const word2 = document.getElementById("word2");
-    const word3 = document.getElementById("word3");
-    const word4 = document.getElementById("word4");
-    const word5 = document.getElementById("word5");
-    const word6 = document.getElementById("word6");
-    const word7 = document.getElementById("word7");
-    wordAnim(word1, 100);
-    wordAnim(word2, 250);
-    wordAnim(word3, 300);
-    wordAnim(word4, 450);
-    wordAnim(word5, 600);
-    wordAnim(word6, 750);
-    wordAnim(word7, 900);
-  }, []);
 
   const handleToggleClicked = () => {
     setOpen(!isOpen);
@@ -280,21 +63,62 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0,
-    rootMargin: "100px",
+    threshold: 0.7,
+    // rootMargin: "100px",
   });
 
-  const el = useRef();
+  const el = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    el.current.style.display = inView ? "block" : "none";
+    // el?.current?.style.display = inView ? "block" : "none";
+    console.log("inView : ", inView);
+    if (el) {
+      console.log("el?.current : ", el?.current);
+      el.current.style.background = !inView ? "#fff" : "transparent";
+    }
   }, [inView]);
 
-  // const FullscreenMenu = dynamic(() => import("../components/ui/animations/fullscreen-menu"));
+  const buttonRef = useRef(null); // useRef<HTMLButtonElement>(null)
+  const [openState, setOpenState] = useState(false);
+
+  const toggleMenu = (open) => {
+    // log the current open state in React (toggle open state)
+    setOpenState((openState) => !openState);
+    // toggle the menu by clicking on buttonRef
+    buttonRef?.current?.click(); // eslint-disable-line
+  };
+
+  // Open the menu after a delay of timeoutDuration
+  const onHover = (open, action) => {
+    if (
+      (!open && !openState && action === "onMouseEnter") ||
+      (open && openState && action === "onMouseLeave")
+    ) {
+      toggleMenu(open);
+    }
+  };
+
+  const handleClick = (open) => {
+    setOpenState(!open); // toggle open state in React state
+  };
+
+  const handleClickOutside = (event) => {
+    if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+      event.stopPropagation();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
 
   return (
     <div className="bg-white">
-      {/* <Header openHandler={handleToggleClicked} />*/}
+      <Header openHandler={handleToggleClicked} el={el} />
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
       <section className="flex relative flex-col pt-32 pl-32 h-screen text-white">
         <Image
@@ -303,18 +127,62 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
           objectFit="cover"
           quality={100}
           className="!fixed"
+          onLoad={() => setBgIsLoaded(true)}
         />
-        <div className="flex fixed flex-col pb-20 w-5/6 sm:w-auto text-left">
-          <h1 className="font-sage text-9xl">.axelle</h1>
-        </div>
-        <div
-          ref={el}
-          className="flex fixed bottom-20 md:left-32 z-10 w-72 text-4xl italic text-white"
-        >
-          <span>Keep calm and call an</span>
-          <span className="text-gold"> Artistic Director</span>.
-          <ButtonLink url="/" text=" Une devis maybe" theme="dark" className="mt-4" />
-        </div>
+        {bgIsLoaded && (
+          <>
+            <div className="flex fixed flex-col pb-20 w-5/6 sm:w-auto text-left">
+              <h1 className="font-sage text-9xl">.axelle</h1>
+            </div>
+            <div className="inline fixed bottom-20 md:left-32 z-10 w-72 text-4xl italic text-white">
+              <span>Keep calm and call an </span>
+              <Popover as="span" className="inline-block">
+                {({ open }) => (
+                  <div
+                    onMouseEnter={() => onHover(open, "onMouseEnter")}
+                    onMouseLeave={() => onHover(open, "onMouseLeave")}
+                  >
+                    <Popover.Button
+                      ref={buttonRef}
+                      onClick={() => handleClick(open)}
+                      className="italic text-gold"
+                    >
+                      Artistic Director
+                    </Popover.Button>
+                    <Transition
+                      as={Fragment}
+                      show={open}
+                      enter="transition duration-100 ease-out"
+                      enterFrom="transform scale-95 opacity-0"
+                      enterTo="transform scale-100 opacity-100"
+                      leave="transition duration-75 ease-out"
+                      leaveFrom="transform scale-100 opacity-100"
+                      leaveTo="transform scale-95 opacity-0"
+                    >
+                      <Popover.Panel static className="absolute -top-12 -right-44 max-w-[400px]">
+                        <div className="overflow-hidden py-6 px-4 text-black bg-white ring-1 ring-black ring-opacity-5 shadow-lg">
+                          <div className="mb-2 text-xs not-italic">
+                            <span className="mr-3 text-[#6d758d]">1.</span>{" "}
+                            <span className="">
+                              of a person Peaceful, quiet, especially free from anger and anxiety
+                            </span>
+                          </div>
+                          <div className="text-xs not-italic">
+                            <span className="mr-3 text-[#6d758d]">2.</span>{" "}
+                            <span className="">
+                              of a person Peaceful, quiet, especially free from anger and anxiety
+                            </span>
+                          </div>
+                        </div>
+                      </Popover.Panel>
+                    </Transition>
+                  </div>
+                )}
+              </Popover>
+              <ButtonLink url="/" text=" Une devis maybe" theme="dark" className="mt-4" />
+            </div>
+          </>
+        )}
         <div ref={ref} />
       </section>
       {/*
@@ -322,24 +190,30 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
        SECTION 1 - Axelle
        =================
        */}
-      <Intro />
+      <div ref={ref}>
+        <Intro />
+      </div>
       {/*
        =================
        SECTION 2 - Services
        =================
        */}
       <LayoutSection sectionId={2} isDark isTitleLeft title="Prestations">
-        <Carousel />
-        <div className="text-white">
-          <h6 className="tracking-widest text-gold uppercase text-md">N'HÉSITEZ PAS...</h6>
-          <p className="mt-3 max-w-2xl text-3xl italic leading-relaxed">
-            Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
-            catégories, n'hésitez-pas à me contacter pour échanger.
-          </p>
-          <button className="py-4 px-8 mt-6 text-sm text-gold uppercase bg-transparent border border-gold border-w-1">
-            Une questions ?
-          </button>
-        </div>
+        <Fade>
+          <Carousel />
+        </Fade>
+        <Fade>
+          <div className="text-white">
+            <h6 className="tracking-widest text-gold uppercase text-md">N'HÉSITEZ PAS...</h6>
+            <p className="mt-3 max-w-2xl text-3xl italic leading-relaxed">
+              Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
+              catégories, n'hésitez-pas à me contacter pour échanger.
+            </p>
+            <button className="py-4 px-8 mt-6 text-sm text-gold uppercase bg-transparent border border-gold border-w-1">
+              Une questions ?
+            </button>
+          </div>
+        </Fade>
       </LayoutSection>
       {/*
        =================
