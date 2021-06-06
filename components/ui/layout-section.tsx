@@ -4,12 +4,13 @@ import Arrow from "components/ui/animations/svg-arrow";
 
 interface Props {
   sectionId: number;
-  title: string;
+  title?: string;
   subtitle?: string;
   isDark?: boolean;
   isTitleLeft?: boolean;
   isArrow?: boolean;
   children?: React.ReactNode;
+  className?: string;
 }
 
 const LayoutSection: React.FC<Props> = ({
@@ -20,13 +21,17 @@ const LayoutSection: React.FC<Props> = ({
   isTitleLeft,
   isArrow,
   children,
+  className,
 }) => (
-  <section id={`section${sectionId}`} className={cx("relative py-24", { "bg-dark": isDark })}>
+  <section
+    id={`section${sectionId}`}
+    className={cx("relative py-24 section-shadow", isDark ? "bg-dark" : "bg-white", className)}
+  >
     <div className="mx-auto max-w-container">
       <div className="mx-8 sm:mx-8 md:mx-12 lg:mx-24">
         <div className={cx("flex items-center", { "justify-center": !isTitleLeft })}>
           <h2
-            className={cx("max-w-xl text-2xl md:text-3xl text-center uppercase", {
+            className={cx("max-w-xl text-2xl md:text-3xl text-center uppercase tracking-max", {
               "text-white": isDark,
             })}
           >
@@ -35,7 +40,7 @@ const LayoutSection: React.FC<Props> = ({
         </div>
         {subtitle && (
           <div className="flex justify-center items-center mx-6 mt-10 md:mt-20">
-            <span className={cx("max-w-lg font-alegreya text-center", { "text-white": isDark })}>
+            <span className={cx("max-w-2xl text-center", { "text-white": isDark })}>
               {subtitle}
             </span>
           </div>

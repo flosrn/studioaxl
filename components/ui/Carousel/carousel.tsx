@@ -136,7 +136,10 @@ const Carousel: React.FC<Props> = (props) => {
           Next
         </button>
       </div>
-      <div className="overflow-hidden absolute py-10 mx-auto w-screen h-full" ref={viewportRef}>
+      <div
+        className="overflow-hidden absolute py-10 mx-auto max-w-screen-2xl h-full"
+        ref={viewportRef}
+      >
         <div className="flex -ml-3">
           {items.map((item) => (
             <div className="relative pl-3" key={item.id}>

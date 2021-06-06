@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
 import { GetStaticProps } from "next";
@@ -41,6 +41,8 @@ import ByTheWay from "components/sections/ByTheWay";
 import Projects from "components/sections/Projects";
 import Intro from "components/sections/Intro";
 import WorkTogether from "components/sections/WorkTogether";
+import ButtonLink from "components/ui/ButtonLink";
+import { useInView } from "react-intersection-observer";
 // import Cookie from "components/ui/cookie";
 
 interface Props {
@@ -276,33 +278,44 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
     setOpen(!isOpen);
   };
 
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+    rootMargin: "100px",
+  });
+
+  const el = useRef();
+
+  useEffect(() => {
+    el.current.style.display = inView ? "block" : "none";
+  }, [inView]);
+
   // const FullscreenMenu = dynamic(() => import("../components/ui/animations/fullscreen-menu"));
 
   return (
     <div className="bg-white">
-      <Header openHandler={handleToggleClicked} />
+      {/* <Header openHandler={handleToggleClicked} />*/}
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
-      <section className="flex flex-col justify-center items-center h-screen">
-        <div className="flex relative flex-col justify-center pb-20 w-5/6 sm:w-auto text-left">
-          <h1 className="flex flex-col md:flex-row font-sage text-8xl md:text-9xl">
-            <div className="relative">
-              <span>Studio</span> <span className="md:mt-0 md:ml-2">axl</span>
-              <div
-                id="circle"
-                className="absolute top-16 md:top-16 right-0 md:-right-20 w-24 md:w-36 h-24 md:h-36 bg-gold rounded-full opacity-75 backdrop-blur"
-              />
-            </div>
-          </h1>
-          <h5 className="-mt-2 md:-ml-24 text-xl tracking-wider font-futura">
-            {t("home.hero.subtitle")}
-          </h5>
+      <section className="flex relative flex-col pt-32 pl-32 h-screen text-white">
+        <Image
+          src="/images/home.jpg"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="!fixed"
+        />
+        <div className="flex fixed flex-col pb-20 w-5/6 sm:w-auto text-left">
+          <h1 className="font-sage text-9xl">.axelle</h1>
         </div>
-        {/* <div className="absolute bottom-0 flex flex-col justify-center items-center xl:items-start w-full">*/}
-        {/*  <Cookie />*/}
-        {/* </div>*/}
-        <div className="flex absolute bottom-0 justify-center items-start w-full">
-          <Arrow nextSectionId={1} />
+        <div
+          ref={el}
+          className="flex fixed bottom-20 md:left-32 z-10 w-72 text-4xl italic text-white"
+        >
+          <span>Keep calm and call an</span>
+          <span className="text-gold"> Artistic Director</span>.
+          <ButtonLink url="/" text=" Une devis maybe" theme="dark" className="mt-4" />
         </div>
+        <div ref={ref} />
       </section>
       {/*
        =================
@@ -318,8 +331,8 @@ const HomePage: React.FC<Props> = ({ allProjects }) => {
       <LayoutSection sectionId={2} isDark isTitleLeft title="Prestations">
         <Carousel />
         <div className="text-white">
-          <h6 className="text-3xl uppercase">N'HÉSITEZ PAS...</h6>
-          <p className="mt-3 text-2xl italic">
+          <h6 className="tracking-widest text-gold uppercase text-md">N'HÉSITEZ PAS...</h6>
+          <p className="mt-3 max-w-2xl text-3xl italic leading-relaxed">
             Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
             catégories, n'hésitez-pas à me contacter pour échanger.
           </p>

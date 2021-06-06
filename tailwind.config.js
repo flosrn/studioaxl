@@ -11,19 +11,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Baskerville BT"],
-        sans: ["Baskerville BT"],
-        mono: ["Baskerville BT"],
-        display: ["Baskerville BT"],
-        body: ["Baskerville BT"],
-        baskerville: ["Baskerville BT"],
+        serif: ["Baskerville"],
+        sans: ["Baskerville"],
+        mono: ["Baskerville"],
+        display: ["Baskerville"],
+        body: ["Baskerville"],
+        baskerville: ["Baskerville"],
         sage: ["Sage"],
       },
       colors: {
         gold: "#FCDBBD",
         rose: "#FFEBD8",
         pink: "#FDE0E0",
-        dark: "#2F2F2F",
+        dark: "#1C1C1C",
       },
       width: {
         128: "32rem",
