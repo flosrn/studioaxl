@@ -1,31 +1,88 @@
 import React from "react";
 import LayoutSection from "components/ui/layout-section";
 import Presentation from "components/ui/presentation";
+import SvgSignage, { svgSignageAnimation } from "components/ui/animations/services/svg-signage";
+import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
+import SvgEditorial, {
+  svgEditorialAnimation,
+} from "components/ui/animations/services/svg-editorial";
+import SvgBranding, { svgBrandingAnimation } from "components/ui/animations/services/svg-branding";
+import SvgAdvertasing, {
+  svgAdvertasingAnimation,
+} from "components/ui/animations/services/svg-advertasing";
+import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-web";
+import Carousel from "components/ui/Carousel/carousel";
 
 const items = [
   {
     id: 1,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    title: "Direction artistique",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula.\n\nSed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgSignage />,
+    animation: svgSignageAnimation,
   },
   {
     id: 2,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    title: "Direction artistique",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgBranding />,
+    animation: svgBrandingAnimation,
   },
   {
     id: 3,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    title: "Direction artistique",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgAdvertasing />,
+    animation: svgAdvertasingAnimation,
+  },
+  {
+    id: 4,
+    title: "Direction artistique",
+    description:
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgWeb />,
+    animation: svgWebAnimation,
+  },
+  {
+    id: 5,
+    title: "Direction artistique",
+    description:
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgWeb />,
+    animation: svgWebAnimation,
+  },
+  {
+    id: 6,
+    title: "Direction artistique",
+    description:
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgWeb />,
+    animation: svgWebAnimation,
+  },
+  {
+    id: 7,
+    title: "Direction artistique",
+    description:
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgWeb />,
+    animation: svgWebAnimation,
+  },
+  {
+    id: 8,
+    title: "Direction artistique",
+    description:
+      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
+    icon: <SvgWeb />,
+    animation: svgWebAnimation,
   },
 ];
 
-const Intro: React.FC = () => (
+const Prestations: React.FC = () => (
   <LayoutSection sectionId={1} title="axelle #Créative Freelance">
-    <Presentation items={items} cta={{ url: "", text: "En savoir plus sur axl" }} />
+    <Carousel items={items} toto="test" />
   </LayoutSection>
 );
-export default Intro;
+export default Prestations;

@@ -14,6 +14,8 @@ type Props = {
 
 const Presentation: React.FC<Props> = ({ textAlignement = "right", items, cta }) => (
   <div className="flex justify-center">
+    {/* <div className="absolute top-10 left-0 w-72 h-72 bg-rose rounded-full opacity-70 mix-blend-multiply filter blur-2xl animate-blob" />*/}
+    {/* <div className="absolute top-20 -left-36 w-72 h-72 bg-red-200 rounded-full opacity-70 mix-blend-multiply filter blur-2xl animate-blob animation-delay-2000" />*/}
     <Fade>
       <div
         className={cx(
@@ -28,17 +30,17 @@ const Presentation: React.FC<Props> = ({ textAlignement = "right", items, cta })
             "md:text-right md:items-end": textAlignement === "left",
           })}
         >
-          <div className="mb-12">
+          <div className="relative mb-12">
             {items.map((item: any) => (
               <div className="mb-3" key={item.id}>
-                <div className="mb-2 text-lg">{item.subtitle}</div>
+                <div className="mb-2 text-xl">{item.subtitle}</div>
                 <div className="text-xs whitespace-pre-wrap">{item.description}</div>
               </div>
             ))}
           </div>
           <ButtonLink url={cta.url} text={cta.text} className="w-[300px]" />
         </div>
-        <div className="flex md:w-1/2 h-[400px] md:h-auto bg-purple-200">
+        <div className="flex md:w-1/2 h-[400px] md:h-auto bg-green-200">
           <div>axl laplubel</div>
         </div>
       </div>
