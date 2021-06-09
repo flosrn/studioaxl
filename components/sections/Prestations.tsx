@@ -1,17 +1,14 @@
 import React from "react";
 import LayoutSection from "components/ui/layout-section";
-import Presentation from "components/ui/presentation";
 import SvgSignage, { svgSignageAnimation } from "components/ui/animations/services/svg-signage";
-import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
-import SvgEditorial, {
-  svgEditorialAnimation,
-} from "components/ui/animations/services/svg-editorial";
 import SvgBranding, { svgBrandingAnimation } from "components/ui/animations/services/svg-branding";
 import SvgAdvertasing, {
   svgAdvertasingAnimation,
 } from "components/ui/animations/services/svg-advertasing";
 import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-web";
 import Carousel from "components/ui/Carousel/carousel";
+import Fade from "react-reveal/Fade";
+import ButtonLink from "components/ui/ButtonLink";
 
 const items = [
   {
@@ -81,8 +78,20 @@ const items = [
 ];
 
 const Prestations: React.FC = () => (
-  <LayoutSection sectionId={1} title="axelle #Créative Freelance">
-    <Carousel items={items} toto="test" />
+  <LayoutSection sectionId={1} isDark isTitleLeft title="Prestations">
+    <Fade>
+      <Carousel items={items} />
+    </Fade>
+    <Fade>
+      <div className="text-white">
+        <h6 className="tracking-widest text-gold uppercase text-md">N'HÉSITEZ PAS...</h6>
+        <p className="mt-3 max-w-2xl text-3xl italic leading-relaxed">
+          Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
+          catégories, n'hésitez-pas à me contacter pour échanger.
+        </p>
+        <ButtonLink url="/" text="Une question ?" theme="dark" className="mt-5 max-w-max" />
+      </div>
+    </Fade>
   </LayoutSection>
 );
 export default Prestations;

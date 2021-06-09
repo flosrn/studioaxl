@@ -25,7 +25,7 @@ const Item = ({ title, description, icon, animation }) => {
   );
 };
 
-const Carousel: React.FC<Props> = (props) => {
+const Carousel: React.FC<Props> = ({ items }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     containScroll: "keepSnaps",
     dragFree: true,
@@ -34,12 +34,6 @@ const Carousel: React.FC<Props> = (props) => {
   });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-
-  console.log("props : ", props);
-
-  // useEffect(() => {
-  //   console.log("items : ", items);
-  // }, [items]);
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -55,7 +49,7 @@ const Carousel: React.FC<Props> = (props) => {
     onSelect();
   }, [embla, onSelect]);
 
-  // const mediaByIndex = (index) => items[index % items.length];
+  const mediaByIndex = (index) => items[index % items.length];
 
   return (
     <div className="relative w-full h-[320px]">
@@ -72,13 +66,13 @@ const Carousel: React.FC<Props> = (props) => {
         ref={viewportRef}
       >
         <div className="flex -ml-3">
-          {/* {items?.map((item) => (*/}
-          {/*  <div className="relative pl-3" key={item.id}>*/}
-          {/*    <div className="flex relative justify-center items-center w-[300px]">*/}
-          {/*      <Item {...mediaByIndex(item.id)} />*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/* ))}*/}
+          {items?.map((item) => (
+            <div className="relative pl-3" key={item.id}>
+              <div className="flex relative justify-center items-center w-[300px]">
+                <Item {...mediaByIndex(item.id)} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
