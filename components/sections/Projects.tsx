@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import cx from "classnames";
 import LayoutSection from "components/ui/layout-section";
 
@@ -9,6 +10,7 @@ const items = [
     title: "Street Attitud'",
     picture: "",
     color: "bg-red-200",
+    url: "/project/basinga",
   },
   {
     id: 2,
@@ -47,9 +49,13 @@ const items = [
   },
 ];
 
-const Item = ({ category, title, picture, color, className }) => (
+const Item = ({ category, title, picture, color, url, className }) => (
   <div className={cx("w-full h-[600px]", className)}>
-    <div className={cx("w-full h-full", color)} />
+    <div className={cx("w-full h-full", color)}>
+      <Link href={url}>
+        <a className={cx("w-full h-full block")} />
+      </Link>
+    </div>
     <div className="flex flex-col justify-center items-center mt-5">
       <div className="text-sm">{category}</div>
       <div className="mb-1 text-xl">{title}</div>
