@@ -34,7 +34,7 @@ export const svgEmpathyAnimation = (animationType: string, mouseEvent?: string) 
 const SvgEmpathy: React.FC = () => {
   return (
     <div className="cursor-pointer">
-      <svg id="svgEmpathy" viewBox="0 0 219.23 177.55" width="185" height="185">
+      <svg id="svgEmpathy" viewBox="0 0 219.23 177.55" width="115" height="115">
         <circle id="circleEmpathy1" cx={87.61} cy={109.81} r={15.86} fill="#fde0e0" />
         <circle id="circleEmpathy2" cx={76.11} cy={68.31} r={6.36} />
         <circle id="circleEmpathy3" cx={144.11} cy={97.31} r={5.36} fill="#fdc594" />

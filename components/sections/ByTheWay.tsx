@@ -8,10 +8,9 @@ const ByTheWay: React.FC = () => (
       <div className="flex flex-col justify-center items-center mx-auto w-full h-full text-center max-w-container">
         <div className="mb-4 uppercase">Au fait...</div>
         <div className="w-full max-w-2xl text-3xl italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada,
-          euismod est et.
+          Mon but est que vous soyez à l'aise avec vos projets. Nous travaillerons ensemble jusqu'à satisfaction. Mais pour cela, nous devons nous faire confiance.
         </div>
-        <ButtonLink url="/" text="Alors on s'y met negro ?" className="mt-10" />
+        <ButtonLink url="/" text="Un projet ?" className="mt-10" />
       </div>
     </Fade>
   </div>

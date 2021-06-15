@@ -6,9 +6,9 @@ import LayoutSection from "components/ui/layout-section";
 const items = [
   {
     id: 1,
-    category: "Charte graphique",
-    title: "Street Attitud'",
-    picture: "",
+    category: "Direction artistique",
+    title: "basinga, un ensemble à tisser",
+    picture: "/Users/axelle/Documents/github/studioaxl/public/images/basinga_00.jpg",
     color: "bg-red-200",
     url: "/project/basinga",
   },

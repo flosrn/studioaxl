@@ -9,6 +9,12 @@ import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-w
 import Carousel from "components/ui/Carousel/carousel";
 import Fade from "react-reveal/Fade";
 import ButtonLink from "components/ui/ButtonLink";
+import SvgSense, { svgSenseAnimation } from "components/ui/animations/values/svg-sense";
+import SvgEditorial, { svgEditorialAnimation } from "components/ui/animations/services/svg-editorial";
+import SvgArrow from "components/ui/svg/SvgArrow";
+import { svgEmpathyAnimation } from "components/ui/animations/values/svg-empathy";
+import SvgPrecision, { svgPrecisionAnimation } from "components/ui/animations/values/svg-precision";
+import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
 
 const items = [
   {
@@ -21,59 +27,59 @@ const items = [
   },
   {
     id: 2,
-    title: "Direction artistique",
+    title: "Design UI-UX",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgBranding />,
-    animation: svgBrandingAnimation,
+      "Envie ou besoin de supports numériques ou de visibilité ? Créons votre interface web et/ou mobile.",
+    icon: <SvgWeb/>,
+    animation: svgWebAnimation,
   },
   {
     id: 3,
-    title: "Direction artistique",
+    title: "Charte graphique",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgAdvertasing />,
-    animation: svgAdvertasingAnimation,
+      "Vous souhaitez donner une identité à votre entreprise ? Créons votre logo et votre univers visuel.",
+    icon: <SvgBranding/>,
+    animation: svgBrandingAnimation,
   },
   {
     id: 4,
-    title: "Direction artistique",
+    title: "Design print.digital",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgWeb />,
-    animation: svgWebAnimation,
+      "Besoin de décliner votre identité sur affiches, flyers et réseaux sociaux ? Réalisons le support adapté.",
+    icon: <SvgEditorial />,
+    animation: svgEditorialAnimation,
   },
   {
     id: 5,
-    title: "Direction artistique",
+    title: "Exécution",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgWeb />,
-    animation: svgWebAnimation,
+      "Besoin d’une retouche photo, d’une carte de visite ou d’un faire-part ? Confiez-moi votre mission !",
+    icon: <SvgAdvertasing/>,
+    animation: svgAdvertasingAnimation,
   },
   {
     id: 6,
-    title: "Direction artistique",
+    title: "Stratégie & conseil",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgWeb />,
-    animation: svgWebAnimation,
+      "Vous souhaitez définir une stratégie d’attaque pour votre projet ? Je vous ferai part de mes conseils.",
+    icon: <SvgPrecision/>,
+    animation: svgPrecisionAnimation,
   },
   {
     id: 7,
-    title: "Direction artistique",
+    title: "Copywritting",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgWeb />,
-    animation: svgWebAnimation,
+      "Augmentons la puissance de votre communication en trouvant les mots adaptés.Touchons votre public.",
+    icon: <SvgWrite />,
+    animation: svgWriteAnimation,
   },
   {
     id: 8,
-    title: "Direction artistique",
+    title: "Montage vidéo",
     description:
-      "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgWeb />,
-    animation: svgWebAnimation,
+      "Besoin de monter une vidéo professionnelle ou personnelle ? Je monte vos prises pour vous.",
+    icon: <SvgSense />,
+    animation: svgSenseAnimation,
   },
 ];
 
