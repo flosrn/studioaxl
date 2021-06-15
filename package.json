@@ -19,7 +19,7 @@
     "embla-carousel": "^4.5.3",
     "framer-motion": "^4.1.17",
     "gsap": "^3.6.1",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "next-pwa": "^5.2.21",
     "next-rosetta": "^1.2.7",
     "next-useragent": "^2.5.1",

@@ -34,7 +34,7 @@ const ProjectTemplate: React.FC<Props> = ({
         </div>
       </div>
       <div className="relative lg:col-span-7 row-span-3 lg:row-auto row-start-1 h-[500px] lg:h-auto">
-        <Image src={hero} layout="fill" objectFit="cover" />
+        <Image src={hero} placeholder="blur" layout="fill" objectFit="cover" />
       </div>
     </div>
     <div className="mx-auto max-w-6xl bg-green-400">

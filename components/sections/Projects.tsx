@@ -18,6 +18,7 @@ const items = [
     title: "Street Attitud'",
     picture: "",
     color: "bg-green-200",
+    url: "/project/basinga",
   },
   {
     id: 3,
@@ -25,6 +26,7 @@ const items = [
     title: "Street Attitud'",
     picture: "",
     color: "bg-blue-200",
+    url: "/project/basinga",
   },
   {
     id: 4,
@@ -32,6 +34,7 @@ const items = [
     title: "Street Attitud'",
     picture: "",
     color: "bg-yellow-200",
+    url: "/project/basinga",
   },
   {
     id: 5,
@@ -39,6 +42,7 @@ const items = [
     title: "Street Attitud'",
     picture: "",
     color: "bg-purple-200",
+    url: "/project/basinga",
   },
   {
     id: 6,
@@ -46,6 +50,7 @@ const items = [
     title: "Street Attitud'",
     picture: "",
     color: "bg-indigo-200",
+    url: "/project/basinga",
   },
 ];
 
