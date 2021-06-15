@@ -9,42 +9,42 @@ const items = [
     step: "Étape 01",
     title: "Premier contact",
     description:
-      "The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room.",
+      "Via le formulaire de contact, je prends connaissance de votre besoin et vous recontacte pour prévoir un temps d’échange.",
   },
   {
     id: 2,
     step: "Étape 02",
-    title: "Premier contact",
+    title: "Vous, votre projet",
     description:
-      "The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room.",
+      "Nous faisons connaissance et posons des mots précis sur vos besoins et attentes.",
   },
   {
     id: 3,
     step: "Étape 03",
-    title: "Premier contact",
+    title: "Plan d'action",
     description:
-      "The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room.",
+      "Je vous propose un planning ainsi que les détails de notre collaboration afin de pouvoir débuter le projet.",
   },
   {
     id: 4,
-    step: "Étape 01",
-    title: "Premier contact",
+    step: "Étape 04",
+    title: "L'histoire commence",
     description:
-      "The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room.",
+      "A l’issue de la phase créative, je vous proposerai une ou plusieurs solutions répondant à votre besoin afin d’échanger autour d’elle.",
   },
   {
     id: 5,
-    step: "Étape 01",
-    title: "Premier contact",
+    step: "Étape 05",
+    title: "Quelques retouches",
     description:
-      "The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room.",
+      "Suite à nos échanges, nous ajusterons la piste choisie jusqu’à ce qu’elle satisfasse votre objectif.",
   },
   {
     id: 6,
-    step: "Étape 01",
-    title: "Premier contact",
+    step: "Étape 06",
+    title: "Votre projet voit le jour",
     description:
-      "The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room.",
+      "Les fichiers adaptés à votre besoin vous serons fournis. J’offre un suivi client d’un mois après la fin du projet.",
   },
 ];
 
@@ -64,7 +64,7 @@ const HowWork: React.FC = () => (
     sectionId={5}
     isDark
     title="Comment travailler ensemble ?"
-    subtitle="The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room. The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room. The carnivorous teleporter patiently gathers the planet. Human emitters, to the ready room."
+    subtitle="Je serai là pour vous apporter mon expertise, vous orienter au mieux et faire de vos projets une réussite collective. La création est un travail d’équipe, d’échange et de partage. Je répondrai donc à votre besoin de la façon la plus sensée et pertinente pour vous permettre d’atteindre votre objectif."
   >
     <div className="relative z-10 py-5 md:py-12 px-4 md:px-12 lg:px-20 mt-20 w-full bg-white">
       <Fade>

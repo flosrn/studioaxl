@@ -5,26 +5,26 @@ import Presentation from "components/ui/presentation";
 const items = [
   {
     id: 1,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    subtitle: "Singulière",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula.\n\nSed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Une approche souple et plurielle qui apprend, au fil des expériences et du temps, à déployer ses solutions avec adaptabilité pertinence grâce à un réseau approprié.",
   },
   {
     id: 2,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    subtitle: "Empathique",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Cette caractéristique me permet de mieux sentir et ressentir mon travail, mes clients, ainsi que leur cible « l’empathie utilisateur ». Se mettre à la place de l’autre fait partie intégrante de ma mission.",
   },
   {
     id: 3,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    subtitle: "Sensée & passionnée",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Ma recherche de fond fera de vos projets de vrais univers uniques, dont une histoire se dégagera, devant alors un véritable outil porteur de sens.",
   },
 ];
 
 const WorkTogether: React.FC = () => (
-  <LayoutSection sectionId={1} title="axelle #Créative Freelance">
+  <LayoutSection sectionId={1} title="Une approche…">
     <Presentation
       items={items}
       textAlignement="left"

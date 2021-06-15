@@ -42,7 +42,7 @@ export const svgPrecisionAnimation = (animationType: string, mouseEvent?: string
 const SvgPrecision: React.FC = () => {
   return (
     <div className="cursor-pointer">
-      <svg id="svgPrecision" viewBox="0 0 219.23 177.55" width="185" height="185">
+      <svg id="svgPrecision" viewBox="0 0 219.23 177.55" width="115" height="115">
         <circle id="circlePrecision1" cx={71.47} cy={103.92} r={22.51} fill="#fde0e0" />
         <circle id="circlePrecision2" cx={170.97} cy={110.42} r={6.01} />
         <path

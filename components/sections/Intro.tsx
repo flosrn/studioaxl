@@ -5,27 +5,22 @@ import Presentation from "components/ui/presentation";
 const items = [
   {
     id: 1,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    subtitle: "Direction artistique & design graphique",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula.\n\nSed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Choisir de faire confiance à un graphiste ainsi qu’à une direction artistique, c’est faire confiance à une expertise basée sur un apprentissage visuel du monde et de son ressenti. C’est travailler main dans la main avec une personne passionnée qui mettra son expertise, sa connaissance de la communication visuelle et son empathie au service de vos projets les plus audacieux.",
   },
   {
     id: 2,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
+    subtitle: "La recherche de sens",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
+      "Je suis une créative à la recherche d’histoires à raconter. Je crée pour toucher, pour interpeller/susciter. C’est ensemble que je nous invite à conter l’histoire de votre choix, que vous soyez une petite, une moyenne, une grande entreprise ou encore un particulier.",
   },
-  {
-    id: 3,
-    subtitle: "Directtioon artistiquwe et disgn graphique",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nisl malesuada, euismod est et, faucibus sem. Etiam eu fermentum ligula. Sed facilisis a est sed venenatis. Etiam pharetra ipsum id elementum tempor. Nam quam elit, suscipit in velit a, feugiat commodo enim. Vivamus pulvinar eu erat ut tincidunt. Nam efficitur nulla in sagittis viverra. Maecenas efficitur ac elit vel pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ",
-  },
+  
 ];
 
 const Intro: React.FC = () => (
-  <LayoutSection sectionId={1} title="axelle #Créative Freelance">
-    <Presentation items={items} cta={{ url: "", text: "En savoir plus sur axl" }} />
+  <LayoutSection sectionId={1} title="Créative Freelance">
+    <Presentation items={items} cta={{ url: "", text: "Contactez-moi" }} />
   </LayoutSection>
 );
 export default Intro;

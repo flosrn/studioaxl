@@ -14,7 +14,7 @@ export const svgSenseAnimation = (animationType: string, mouseEvent?: string) =>
 const SvgSense: React.FC = () => {
   return (
     <div className="cursor-pointer">
-      <svg id="svgSense" viewBox="0 0 219.23 177.55" width="185" height="185">
+      <svg id="svgSense" viewBox="0 0 219.23 177.55" width="115" height="115">
         <circle id="circleSense1" cx={85.51} cy={85.78} r={15.86} fill="#fde0e0" />
         <circle id="circleSense2" cx={144.51} cy={53.78} r={8.86} />
         <circle id="circleSense3" cx={85.51} cy={123.78} r={8.86} />
