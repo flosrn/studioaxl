@@ -34,6 +34,8 @@ const Carousel: React.FC<Props> = ({ items }) => {
   });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  console.log("prevBtnEnabled : ", prevBtnEnabled);
+  console.log("nextBtnEnabled : ", nextBtnEnabled);
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);

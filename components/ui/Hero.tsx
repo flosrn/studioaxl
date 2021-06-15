@@ -7,13 +7,14 @@ import { useInView } from "react-intersection-observer";
 const Hero: React.FC = () => {
   const [bgIsLoaded, setBgIsLoaded] = useState<boolean>(false);
 
-  const { ref, inView, entry } = useInView({
+  // const { ref, inView, entry } = useInView({
+  const { ref } = useInView({
     /* Optional options */
     threshold: 0.7,
     // rootMargin: "100px",
   });
 
-  const el = useRef<HTMLDivElement>(null);
+  // const el = useRef<HTMLDivElement>(null);
   const bgText = useRef<HTMLDivElement>(null);
   const buttonRef = useRef(null); // useRef<HTMLButtonElement>(null)
 

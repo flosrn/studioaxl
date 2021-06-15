@@ -9,13 +9,10 @@ interface Props {
   isLoading?: boolean;
 }
 
-const Header: React.FC<Props> = ({ openHandler, isLoading, el }) => (
+const Header: React.FC<Props> = ({ openHandler, isLoading }) => (
   // const { locale, locales, route } = useRouter();
 
-  <div
-    className="flex fixed z-50 justify-between md:justify-between items-center px-6 md:px-12 w-full text-white"
-    ref={el}
-  >
+  <div className="flex fixed z-50 justify-between md:justify-between items-center px-6 md:px-12 w-full text-white">
     <div className="flex justify-start items-center w-1/2 h-full">
       <Link href="/">
         <a className="py-4 px-5 -ml-5">

@@ -54,7 +54,7 @@ const items = [
   },
 ];
 
-const Item = ({ category, title, picture, color, url, className }) => (
+const Item = ({ category, title, color, url, className }) => (
   <div className={cx("w-full h-[600px]", className)}>
     <div className={cx("w-full h-full", color)}>
       <Link href={url}>

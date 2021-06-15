@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import LayoutSection from "components/ui/layout-section";
 import SvgLinkedin from "components/ui/svg/SvgLinkedin";
 import SvgMalt from "components/ui/svg/SvgMalt";

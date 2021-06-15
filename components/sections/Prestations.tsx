@@ -10,9 +10,9 @@ import Carousel from "components/ui/Carousel/carousel";
 import Fade from "react-reveal/Fade";
 import ButtonLink from "components/ui/ButtonLink";
 import SvgSense, { svgSenseAnimation } from "components/ui/animations/values/svg-sense";
-import SvgEditorial, { svgEditorialAnimation } from "components/ui/animations/services/svg-editorial";
-import SvgArrow from "components/ui/svg/SvgArrow";
-import { svgEmpathyAnimation } from "components/ui/animations/values/svg-empathy";
+import SvgEditorial, {
+  svgEditorialAnimation,
+} from "components/ui/animations/services/svg-editorial";
 import SvgPrecision, { svgPrecisionAnimation } from "components/ui/animations/values/svg-precision";
 import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
 
@@ -30,7 +30,7 @@ const items = [
     title: "Design UI-UX",
     description:
       "Envie ou besoin de supports numériques ou de visibilité ? Créons votre interface web et/ou mobile.",
-    icon: <SvgWeb/>,
+    icon: <SvgWeb />,
     animation: svgWebAnimation,
   },
   {
@@ -38,7 +38,7 @@ const items = [
     title: "Charte graphique",
     description:
       "Vous souhaitez donner une identité à votre entreprise ? Créons votre logo et votre univers visuel.",
-    icon: <SvgBranding/>,
+    icon: <SvgBranding />,
     animation: svgBrandingAnimation,
   },
   {
@@ -54,7 +54,7 @@ const items = [
     title: "Exécution",
     description:
       "Besoin d’une retouche photo, d’une carte de visite ou d’un faire-part ? Confiez-moi votre mission !",
-    icon: <SvgAdvertasing/>,
+    icon: <SvgAdvertasing />,
     animation: svgAdvertasingAnimation,
   },
   {
@@ -62,7 +62,7 @@ const items = [
     title: "Stratégie & conseil",
     description:
       "Vous souhaitez définir une stratégie d’attaque pour votre projet ? Je vous ferai part de mes conseils.",
-    icon: <SvgPrecision/>,
+    icon: <SvgPrecision />,
     animation: svgPrecisionAnimation,
   },
   {

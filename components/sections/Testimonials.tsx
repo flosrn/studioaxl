@@ -111,7 +111,7 @@ const Item = ({ name, job, picture, description }) => (
 
 export const mediaByIndex = (index) => items[index % items.length];
 
-const Testimonials: React.FC<Props> = (props) => {
+const Testimonials: React.FC<Props> = () => {
   const [viewportRef, embla] = useEmblaCarousel({
     // containScroll: "keepSnaps",
     // dragFree: true,
@@ -119,6 +119,8 @@ const Testimonials: React.FC<Props> = (props) => {
   });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  console.log("prevBtnEnabled : ", prevBtnEnabled);
+  console.log("nextBtnEnabled : ", nextBtnEnabled);
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
