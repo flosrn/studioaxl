@@ -1,7 +1,10 @@
 import React from "react";
 import ProjectTemplate from "components/ui/ProjectTemplate";
 import BasingaSvg from "components/ui/svg/projects/basinga";
-import basingaImg from "../../public/images/projects/basinga.jpg";
+import YouTube from "react-youtube";
+import basingaImg from "public/images/projects/basinga/basinga.jpg";
+import basingaImg01 from "public/images/projects/basinga/basinga_01.jpg";
+import basingaImg02 from "public/images/projects/basinga/basinga_02.jpg";
 
 const props = {
   title: "",
@@ -14,6 +17,21 @@ const props = {
   credits: "Crédits photo © Valérie Frossard . © Axelle Malard",
 };
 
-const Basinga: React.FC = () => <ProjectTemplate {...props} />;
+const images = [basingaImg01, basingaImg02];
+
+const Basinga: React.FC = () => {
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+  return (
+    <ProjectTemplate {...props}>
+      <YouTube videoId="2g811Eo7K8U" opts={opts} className="absolute inset-0 w-full h-full" />
+    </ProjectTemplate>
+  );
+};
 
 export default Basinga;
