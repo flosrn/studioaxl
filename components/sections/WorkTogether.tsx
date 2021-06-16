@@ -25,11 +25,7 @@ const items = [
 
 const WorkTogether: React.FC = () => (
   <LayoutSection sectionId={1} title="Une approche…">
-    <Presentation
-      items={items}
-      textAlignement="left"
-      cta={{ url: "", text: "En savoir plus sur axl" }}
-    />
+    <Presentation items={items} textAlignement="left" cta={{ url: "", text: "Découvrir" }} />
   </LayoutSection>
 );
 export default WorkTogether;

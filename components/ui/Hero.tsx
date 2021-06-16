@@ -65,13 +65,13 @@ const Hero: React.FC = () => {
   });
 
   return (
-    <section className="flex relative flex-col pt-32 pl-32 h-screen text-white">
+    <section className="flex relative flex-col pt-32 pl-32 h-[500px] text-white">
       <Image
         src="/images/home.jpg"
         layout="fill"
         objectFit="cover"
         quality={100}
-        className="!fixed"
+        // className="!fixed"
         onLoad={() => setBgIsLoaded(true)}
       />
       {bgIsLoaded && (
@@ -80,10 +80,10 @@ const Hero: React.FC = () => {
             <h1 className="font-sage text-9xl">.axelle</h1>
           </div>
           <div
-            className="inline fixed bottom-20 md:left-32 z-10 max-w-3xl text-7xl text-white font-classico"
+            className="inline bottom-20 md:left-32 z-10 max-w-3xl font-classico text-white"
             ref={bgText}
           >
-            <span>Keep Calm and call an</span>
+            <span className="text-7xl font-bold">Keep Calm and call an</span>
             <Popover as="span" className="inline-block">
               {({ open }) => (
                 <div
@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
                   <Popover.Button
                     ref={buttonRef}
                     onClick={() => handleClick(open)}
-                    className="italic text-gold"
+                    className="text-7xl italic font-bold text-gold"
                   >
                     Artistic Director
                   </Popover.Button>
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
                 </div>
               )}
             </Popover>
-            <ButtonLink url="/" text="On s'appelle ?" theme="dark" className="mt-5 w-[300px]" />
+            <ButtonLink url="/" text="Call me maybe" theme="dark" className="mt-5 w-[300px]" />
           </div>
         </>
       )}

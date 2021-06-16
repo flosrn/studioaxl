@@ -186,6 +186,10 @@
   font-family: classico, serif;
 }
 
+.font-tajawal {
+  font-family: tajawal, serif;
+}
+
 /* Write your own custom component styles here */
 button:focus {
   outline: none;

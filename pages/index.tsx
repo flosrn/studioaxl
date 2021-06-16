@@ -23,10 +23,10 @@ const HomePage: React.FC = () => {
     <div className="bg-white">
       <Header openHandler={handleToggleClicked} />
       {shouldRenderChild && <FullscreenMenu isOpen={isOpen} openHandler={handleToggleClicked} />}
-      <Hero />
       <Intro />
       <Prestations />
       <Projects />
+      <Hero />
       <WorkTogether />
       <HowWork />
       <ByTheWay />

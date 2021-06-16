@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         serif: ["Baskerville"],
-        sans: ["Roboto"],
+        sans: ["Cormorant Garamond"],
         mono: ["Baskerville"],
         display: ["Baskerville"],
         body: ["Baskerville"],

@@ -34,9 +34,7 @@ const Presentation: React.FC<Props> = ({ textAlignement = "right", items, cta })
           <div className="relative mb-12">
             {items.map((item: any) => (
               <div className="mb-3" key={item.id}>
-                <div className="mb-2 text-3xl font-bold tracking-wider font-classico">
-                  {item.subtitle}
-                </div>
+                <div className="mb-2 font-classico text-3xl font-bold">{item.subtitle}</div>
                 <div className="font-light tracking-wider whitespace-pre-wrap text-md">
                   {item.description}
                 </div>
