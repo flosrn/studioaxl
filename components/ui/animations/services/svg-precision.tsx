@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import { handleAnimation } from "utils/anims";
 
 export const circlePrecision1Values = { y: 23, x: 38, scale: 0.6 };
@@ -39,10 +40,16 @@ export const svgPrecisionAnimation = (animationType: string, mouseEvent?: string
   );
 };
 
-const SvgPrecision: React.FC = () => {
+type Props = {
+  width?: number;
+  height?: number;
+  className?: string;
+};
+
+const SvgPrecision: React.FC<Props> = ({ width = 150, height = 150, className }) => {
   return (
-    <div className="cursor-pointer">
-      <svg id="svgPrecision" viewBox="0 0 219.23 177.55" width="115" height="115">
+    <div className={cx("cursor-pointer", className)}>
+      <svg id="svgPrecision" viewBox="0 0 219.23 177.55" width={width} height={height}>
         <circle id="circlePrecision1" cx={71.47} cy={103.92} r={22.51} fill="#fde0e0" />
         <circle id="circlePrecision2" cx={170.97} cy={110.42} r={6.01} />
         <path

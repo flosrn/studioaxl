@@ -1,5 +1,7 @@
 import React from "react";
+import cx from "classnames";
 import { handleAnimation } from "utils/anims";
+
 
 export const circleWeb1Values = { y: 16, x: -26, scale: 7 };
 export const circleWeb2Values = { y: 17, x: 8, scale: 5, fill: "#fdc594" };
@@ -11,14 +13,20 @@ export const svgWebAnimation = (animationType: string, mouseEvent?: string) => {
   handleAnimation("#circleWeb3", "#svgWeb", circleWeb3Values, animationType, mouseEvent);
 };
 
-const SvgWeb: React.FC = () => (
-  <div className="cursor-pointer">
+type Props = {
+  width?: number;
+  height?: number;
+  className?: string;
+};
+
+const SvgWeb: React.FC<Props> = ({ width = 150, height = 150, className }) => (
+  <div className={cx("cursor-pointer", className)}>
     <svg
       id="svgWeb"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 107.72 107.72"
-      width="115"
-      height="115"
+      width={width}
+      height={height}
     >
       <path d="M78.17 68.06H29.54v-31.7h48.63zm-47.45-1.17H77V37.54H30.72z" fill="#161615" />
       <path fill="#161615" d="M30.13 41.51h47.46v1.17H30.13z" />

@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import { handleAnimation } from "utils/anims";
 
 export const circleAdvertasing1Values = { y: -14, x: 12, fill: "#fdc594" };
@@ -29,14 +30,20 @@ export const svgAdvertasingAnimation = (animationType: string, mouseEvent?: stri
   );
 };
 
-const SvgAdvertasing: React.FC = () => (
-  <div className="cursor-pointer">
+type Props = {
+  width?: number;
+  height?: number;
+  className?: string;
+};
+
+const SvgAdvertasing: React.FC<Props> = ({ width = 150, height = 150, className }) => (
+  <div className={cx("cursor-pointer", className)}>
     <svg
       id="svgAdvertasing"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 107.72 107.72"
-      width="115"
-      height="115"
+      width={width}
+      height={height}
     >
       <path
         d="M65.88,69.28l-23.13-3L39.36,55.21l17.39-15.8ZM43.65,65.22l20.58,2.66L56.17,41.53l-15.47,14Z"

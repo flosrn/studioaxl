@@ -68,7 +68,7 @@ type Props = {
   className?: string;
 };
 
-const SvgEditorial: React.FC<Props> = ({ width = 135, height = 135, className }) => (
+const SvgEditorial: React.FC<Props> = ({ width = 150, height = 150, className }) => (
   <div className={cx("cursor-pointer", className)}>
     <svg
       id="svgEditorial"
