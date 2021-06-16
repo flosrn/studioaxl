@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import { handleAnimation } from "utils/anims";
 
 export const circleBrandingValues = { y: -22, x: 34, scale: 0.5 };
@@ -15,14 +16,20 @@ export const svgBrandingAnimation = (animationType: string, mouseEvent?: string)
   handleAnimation("#pathBranding1", "#svgBranding", pathBranding1Values, animationType, mouseEvent);
 };
 
-const SvgBranding: React.FC = () => (
-  <div className="cursor-pointer">
+type Props = {
+  width?: number;
+  height?: number;
+  className?: string;
+};
+
+const SvgBranding: React.FC<Props> = ({ width = 140, height = 150, className }) => (
+  <div className={cx("cursor-pointer", className)}>
     <svg
       id="svgBranding"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 107.72 107.72"
-      width="115"
-      height="115"
+      width={width}
+      height={height}
     >
       <circle id="circleBranding" cx="44.54" cy="55.7" r="10.53" fill="#fde0e0" />
       <path
@@ -39,3 +46,4 @@ const SvgBranding: React.FC = () => (
 );
 
 export default SvgBranding;
+

@@ -1,6 +1,6 @@
 import React from "react";
-import { handleAnimation } from "utils/anims";
 import cx from "classnames";
+import { handleAnimation } from "utils/anims";
 
 export const circleSignage1Values = { y: 36, x: -82 };
 export const circleSignage2Values = { fill: "#fdc594" };

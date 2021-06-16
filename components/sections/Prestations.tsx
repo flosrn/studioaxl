@@ -24,7 +24,7 @@ const items = [
     title: "Direction artistique",
     description:
       "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgSignage width={150} className="-mt-4 -ml-3" />,
+    icon: <SvgSignage width={120} className="-mt-4 -ml-3" />,
     animation: svgSignageAnimation,
   },
   {
@@ -32,7 +32,7 @@ const items = [
     title: "Design UI-UX",
     description:
       "Envie ou besoin de supports numériques ou de visibilité ? Créons votre interface web et/ou mobile.",
-    icon: <SvgWeb />,
+    icon: <SvgWeb width={120} className="-mt-4 ml-1" />,
     animation: svgWebAnimation,
   },
   {
@@ -40,15 +40,15 @@ const items = [
     title: "Charte graphique",
     description:
       "Vous souhaitez donner une identité à votre entreprise ? Créons votre logo et votre univers visuel.",
-    icon: <SvgBranding />,
+    icon: <SvgBranding width={140} className="-mt-4 -ml-4" />,
     animation: svgBrandingAnimation,
   },
   {
     id: 4,
-    title: "Design print.digital",
+    title: "Design print & digital",
     description:
       "Besoin de décliner votre identité sur affiches, flyers et réseaux sociaux ? Réalisons le support adapté.",
-    icon: <SvgEditorial className="-mt-5" />,
+    icon: <SvgEditorial width={140} className="-mt-5 -ml-1" />,
     animation: svgEditorialAnimation,
   },
   {
@@ -56,7 +56,7 @@ const items = [
     title: "Exécution",
     description:
       "Besoin d’une retouche photo, d’une carte de visite ou d’un faire-part ? Confiez-moi votre mission !",
-    icon: <SvgAdvertasing />,
+    icon: <SvgAdvertasing width={140} className="-mt-3 -ml-3" />,
     animation: svgAdvertasingAnimation,
   },
   {
@@ -64,7 +64,7 @@ const items = [
     title: "Stratégie & conseil",
     description:
       "Vous souhaitez définir une stratégie d’attaque pour votre projet ? Je vous ferai part de mes conseils.",
-    icon: <SvgPrecision />,
+    icon: <SvgPrecision width={140} className="-mt-5 -ml-4" />,
     animation: svgPrecisionAnimation,
   },
   {
@@ -72,7 +72,7 @@ const items = [
     title: "Copywritting",
     description:
       "Augmentons la puissance de votre communication en trouvant les mots adaptés.Touchons votre public.",
-    icon: <SvgWrite className="-mt-5" />,
+    icon: <SvgWrite width={130} className="-mt-3" />,
     animation: svgWriteAnimation,
   },
   {
@@ -80,7 +80,7 @@ const items = [
     title: "Montage vidéo",
     description:
       "Besoin de monter une vidéo professionnelle ou personnelle ? Je monte vos prises pour vous.",
-    icon: <SvgSense />,
+    icon: <SvgSense width={130} className="-mt-4 -ml-3" />,
     animation: svgSenseAnimation,
   },
 ];
@@ -92,10 +92,9 @@ const Prestations: React.FC = () => (
     </Fade>
     <Fade>
       <div className="text-white">
-        <h6 className="tracking-widest text-gold uppercase text-md">N'HÉSITEZ PAS...</h6>
+        <h6 className="tracking-widest text-gold uppercase text-md"> Et pourquoi pas ?</h6>
         <p className="mt-3 max-w-2xl text-xl italic leading-relaxed">
-          Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
-          catégories, n'hésitez-pas à me contacter pour échanger.
+          Pas de blabla ni d'impossible, tout projet mérite écoute.
         </p>
         <ButtonLink url="/" text="Une question ?" theme="dark" className="mt-5 max-w-max" />
       </div>
