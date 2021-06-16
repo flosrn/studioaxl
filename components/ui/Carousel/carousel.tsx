@@ -18,7 +18,7 @@ const Item = ({ title, description, icon, animation }) => {
     >
       <div className="relative flex-none px-12 pt-20 pb-12 h-full cursor-pointer">
         <div className="absolute -top-4 group-hover:-top-12 left-3">{icon}</div>
-        <div className="mb-1 group-hover:text-gray-500">{title}</div>
+        <div className="mb-1 text-xl group-hover:text-gray-500 font-classico">{title}</div>
         <div className="text-xs">{description}</div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { handleAnimation } from "utils/anims";
+import cx from "classnames";
 
 export const circleSignage1Values = { y: 36, x: -82 };
 export const circleSignage2Values = { fill: "#fdc594" };
@@ -35,14 +36,20 @@ export const svgSignageAnimation = (animationType: string, mouseEvent?: string) 
   handleAnimation("#pathSignage3", "#svgSignage", pathSignage3Values, animationType, mouseEvent);
 };
 
-const SvgSignage: React.FC = () => (
-  <div className="cursor-pointer">
+type Props = {
+  width?: number;
+  height?: number;
+  className?: string;
+};
+
+const SvgSignage: React.FC<Props> = ({ width = 150, height = 150, className }) => (
+  <div className={cx("cursor-pointer", className)}>
     <svg
       id="svgSignage"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 180.08 172.18"
-      width="115"
-      height="115"
+      width={width}
+      height={height}
     >
       <circle id="circleSignage1" cx="115.47" cy="63.23" r="12.72" fill="#fde0e0" />
       <circle id="circleSignage2" cx="50.35" cy="65.01" r="6.43" fill="#fff" />

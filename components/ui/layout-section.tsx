@@ -33,9 +33,12 @@ const LayoutSection: React.FC<Props> = ({
         <div className={cx("flex items-center", { "justify-center": !isTitleLeft })}>
           <Fade>
             <h2
-              className={cx("max-w-xl text-2xl md:text-3xl text-center uppercase tracking-max", {
-                "text-white": isDark,
-              })}
+              className={cx(
+                "max-w-3xl text-2xl md:text-7xl text-center font-classico font-bold tracking-wider",
+                {
+                  "text-white": isDark,
+                }
+              )}
             >
               {title}
             </h2>

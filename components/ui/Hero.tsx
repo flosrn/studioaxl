@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
-import ButtonLink from "components/ui/ButtonLink";
+import ButtonLink from "components/ui/Button/ButtonLink";
 import { useInView } from "react-intersection-observer";
 
 const Hero: React.FC = () => {
@@ -80,10 +80,10 @@ const Hero: React.FC = () => {
             <h1 className="font-sage text-9xl">.axelle</h1>
           </div>
           <div
-            className="inline fixed bottom-20 md:left-32 z-10 w-72 text-4xl italic text-white"
+            className="inline fixed bottom-20 md:left-32 z-10 max-w-3xl text-7xl text-white font-classico"
             ref={bgText}
           >
-            <span>Keep calm and call an </span>
+            <span>Keep Calm and call an</span>
             <Popover as="span" className="inline-block">
               {({ open }) => (
                 <div
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
                 </div>
               )}
             </Popover>
-            <ButtonLink url="/" text=" Une devis maybe" theme="dark" className="mt-4" />
+            <ButtonLink url="/" text="On s'appelle ?" theme="dark" className="mt-5 w-[300px]" />
           </div>
         </>
       )}

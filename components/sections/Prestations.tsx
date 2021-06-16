@@ -8,12 +8,14 @@ import SvgAdvertasing, {
 import SvgWeb, { svgWebAnimation } from "components/ui/animations/services/svg-web";
 import Carousel from "components/ui/Carousel/carousel";
 import Fade from "react-reveal/Fade";
-import ButtonLink from "components/ui/ButtonLink";
-import SvgSense, { svgSenseAnimation } from "components/ui/animations/values/svg-sense";
+import ButtonLink from "components/ui/Button/ButtonLink";
+import SvgSense, { svgSenseAnimation } from "components/ui/animations/services/svg-sense";
 import SvgEditorial, {
   svgEditorialAnimation,
 } from "components/ui/animations/services/svg-editorial";
-import SvgPrecision, { svgPrecisionAnimation } from "components/ui/animations/values/svg-precision";
+import SvgPrecision, {
+  svgPrecisionAnimation,
+} from "components/ui/animations/services/svg-precision";
 import SvgWrite, { svgWriteAnimation } from "components/ui/animations/services/svg-write";
 
 const items = [
@@ -22,7 +24,7 @@ const items = [
     title: "Direction artistique",
     description:
       "Vous souhaitez donner un sens personnel et singulier à votre projet ? Racontons ensemble votre histoire.",
-    icon: <SvgSignage />,
+    icon: <SvgSignage width={150} className="-mt-4 -ml-3" />,
     animation: svgSignageAnimation,
   },
   {
@@ -46,7 +48,7 @@ const items = [
     title: "Design print.digital",
     description:
       "Besoin de décliner votre identité sur affiches, flyers et réseaux sociaux ? Réalisons le support adapté.",
-    icon: <SvgEditorial />,
+    icon: <SvgEditorial className="-mt-5" />,
     animation: svgEditorialAnimation,
   },
   {
@@ -70,7 +72,7 @@ const items = [
     title: "Copywritting",
     description:
       "Augmentons la puissance de votre communication en trouvant les mots adaptés.Touchons votre public.",
-    icon: <SvgWrite />,
+    icon: <SvgWrite className="-mt-5" />,
     animation: svgWriteAnimation,
   },
   {
@@ -91,7 +93,7 @@ const Prestations: React.FC = () => (
     <Fade>
       <div className="text-white">
         <h6 className="tracking-widest text-gold uppercase text-md">N'HÉSITEZ PAS...</h6>
-        <p className="mt-3 max-w-2xl text-3xl italic leading-relaxed">
+        <p className="mt-3 max-w-2xl text-xl italic leading-relaxed">
           Toutes vos demandes méritent mon attention, si votre projet ne répond pas à l'une des
           catégories, n'hésitez-pas à me contacter pour échanger.
         </p>

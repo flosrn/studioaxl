@@ -17,24 +17,42 @@
 /*}*/
 
 @font-face {
-  font-family: 'Baskerville';
-  src: url('../public/fonts/BaskervillePosterPT-Regular.woff2') format('woff2'),
-  url('../public/fonts/BaskervillePosterPT-Regular.woff2') format('woff2'),
-  url('../public/fonts/BaskervillePosterPT-Regular.woff2') format('woff2');
+  font-family: 'Classico';
+  src: url('../public/fonts/ClassicoRegular.woff2') format('woff2'),
+  url('../public/fonts/ClassicoRegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Baskerville';
-  src: url('../public/fonts/BaskervillePosterPT_Italic.woff2') format('woff2'),
-  url('../public/fonts/BaskervillePosterPT_Italic.woff2') format('woff2'),
-  url('../public/fonts/BaskervillePosterPT_Italic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
+  font-family: 'Classico';
+  src: url('../public/fonts/ClassicoBold.woff2') format('woff2'),
+  url('../public/fonts/ClassicoBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
   font-display: swap;
 }
+
+/*@font-face {*/
+/*  font-family: 'Baskerville';*/
+/*  src: url('../public/fonts/BaskervillePosterPT-Regular.woff2') format('woff2'),*/
+/*  url('../public/fonts/BaskervillePosterPT-Regular.woff2') format('woff2'),*/
+/*  url('../public/fonts/BaskervillePosterPT-Regular.woff2') format('woff2');*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Baskerville';*/
+/*  src: url('../public/fonts/BaskervillePosterPT_Italic.woff2') format('woff2'),*/
+/*  url('../public/fonts/BaskervillePosterPT_Italic.woff2') format('woff2'),*/
+/*  url('../public/fonts/BaskervillePosterPT_Italic.woff2') format('woff2');*/
+/*  font-weight: normal;*/
+/*  font-style: italic;*/
+/*  font-display: swap;*/
+/*}*/
 
 /*@font-face {*/
 /*  font-family: 'Baskerville';*/
@@ -162,6 +180,10 @@
 
 .font-sage {
   font-family: sage, serif;
+}
+
+.font-classico {
+  font-family: classico, serif;
 }
 
 /* Write your own custom component styles here */

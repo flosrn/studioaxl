@@ -1,7 +1,8 @@
 import React from "react";
 import cx from "classnames";
-import ButtonLink from "components/ui/ButtonLink";
+import ButtonLink from "components/ui/Button/ButtonLink";
 import Fade from "react-reveal/Fade";
+import ButtonRoundLink from "./Button/ButtonRoundLink";
 
 type Props = {
   textAlignement?: string;
@@ -33,12 +34,16 @@ const Presentation: React.FC<Props> = ({ textAlignement = "right", items, cta })
           <div className="relative mb-12">
             {items.map((item: any) => (
               <div className="mb-3" key={item.id}>
-                <div className="mb-2 text-xl">{item.subtitle}</div>
-                <div className="text-xs whitespace-pre-wrap">{item.description}</div>
+                <div className="mb-2 text-3xl font-bold tracking-wider font-classico">
+                  {item.subtitle}
+                </div>
+                <div className="font-light tracking-wider whitespace-pre-wrap text-md">
+                  {item.description}
+                </div>
               </div>
             ))}
           </div>
-          <ButtonLink url={cta.url} text={cta.text} className="w-[300px]" />
+          <ButtonRoundLink url={cta.url} text={cta.text} className="w-[300px]" />
         </div>
         <div className="flex md:w-1/2 h-[400px] md:h-auto bg-green-200">
           <div>axl laplubel</div>

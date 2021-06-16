@@ -12,11 +12,11 @@ module.exports = {
     extend: {
       fontFamily: {
         serif: ["Baskerville"],
-        sans: ["Baskerville"],
+        sans: ["Roboto"],
         mono: ["Baskerville"],
         display: ["Baskerville"],
         body: ["Baskerville"],
-        baskerville: ["Baskerville"],
+        classico: ["Classico"],
         sage: ["Sage"],
       },
       colors: {
